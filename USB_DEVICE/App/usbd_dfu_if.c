@@ -154,10 +154,9 @@ __ALIGN_BEGIN USBD_DFU_MediaTypeDef USBD_DFU_fops_FS __ALIGN_END =
 uint16_t MEM_If_Init_FS(void)
 {
   /* USER CODE BEGIN 0 */
-
-  
   // __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_WRPERR | FLASH_FLAG_PGERR);
-  return HAL_FLASH_Unlock();
+  HAL_FLASH_Unlock();
+  return USBD_OK;
   /* USER CODE END 0 */
 }
 
@@ -168,8 +167,8 @@ uint16_t MEM_If_Init_FS(void)
 uint16_t MEM_If_DeInit_FS(void)
 {
   /* USER CODE BEGIN 1 */
-  // HAL_FLASH_Lock();
-  return HAL_FLASH_Lock();
+  HAL_FLASH_Lock();
+  return USBD_OK;
   // return HAL_OK;
   /* USER CODE END 1 */
 }
