@@ -1,0 +1,755 @@
+ARM GAS  /var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"usbd_dfu_if.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "USB_DEVICE/App/usbd_dfu_if.c"
+  18              		.section	.text.MEM_If_Read_FS,"ax",%progbits
+  19              		.align	1
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	MEM_If_Read_FS:
+  25              	.LVL0:
+  26              	.LFB72:
+   1:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE BEGIN Header */
+   2:USB_DEVICE/App/usbd_dfu_if.c **** /**
+   3:USB_DEVICE/App/usbd_dfu_if.c ****   ******************************************************************************
+   4:USB_DEVICE/App/usbd_dfu_if.c ****   * @file           : usbd_dfu_if.c
+   5:USB_DEVICE/App/usbd_dfu_if.c ****   * @brief          : Usb device for Download Firmware Update.
+   6:USB_DEVICE/App/usbd_dfu_if.c ****   ******************************************************************************
+   7:USB_DEVICE/App/usbd_dfu_if.c ****   * @attention
+   8:USB_DEVICE/App/usbd_dfu_if.c ****   *
+   9:USB_DEVICE/App/usbd_dfu_if.c ****   * Copyright (c) 2023 STMicroelectronics.
+  10:USB_DEVICE/App/usbd_dfu_if.c ****   * All rights reserved.
+  11:USB_DEVICE/App/usbd_dfu_if.c ****   *
+  12:USB_DEVICE/App/usbd_dfu_if.c ****   * This software is licensed under terms that can be found in the LICENSE file
+  13:USB_DEVICE/App/usbd_dfu_if.c ****   * in the root directory of this software component.
+  14:USB_DEVICE/App/usbd_dfu_if.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  15:USB_DEVICE/App/usbd_dfu_if.c ****   *
+  16:USB_DEVICE/App/usbd_dfu_if.c ****   ******************************************************************************
+  17:USB_DEVICE/App/usbd_dfu_if.c ****   */
+  18:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE END Header */
+  19:USB_DEVICE/App/usbd_dfu_if.c **** 
+  20:USB_DEVICE/App/usbd_dfu_if.c **** /* Includes ------------------------------------------------------------------*/
+  21:USB_DEVICE/App/usbd_dfu_if.c **** #include "usbd_dfu_if.h"
+  22:USB_DEVICE/App/usbd_dfu_if.c **** 
+  23:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE BEGIN INCLUDE */
+  24:USB_DEVICE/App/usbd_dfu_if.c **** 
+  25:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE END INCLUDE */
+  26:USB_DEVICE/App/usbd_dfu_if.c **** 
+  27:USB_DEVICE/App/usbd_dfu_if.c **** /* Private typedef -----------------------------------------------------------*/
+  28:USB_DEVICE/App/usbd_dfu_if.c **** /* Private define ------------------------------------------------------------*/
+  29:USB_DEVICE/App/usbd_dfu_if.c **** /* Private macro -------------------------------------------------------------*/
+  30:USB_DEVICE/App/usbd_dfu_if.c **** 
+  31:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE BEGIN PV */
+  32:USB_DEVICE/App/usbd_dfu_if.c **** /* Private variables ---------------------------------------------------------*/
+ARM GAS  /var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s 			page 2
+
+
+  33:USB_DEVICE/App/usbd_dfu_if.c **** 
+  34:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE END PV */
+  35:USB_DEVICE/App/usbd_dfu_if.c **** 
+  36:USB_DEVICE/App/usbd_dfu_if.c **** /** @addtogroup STM32_USB_OTG_DEVICE_LIBRARY
+  37:USB_DEVICE/App/usbd_dfu_if.c ****   * @brief Usb device.
+  38:USB_DEVICE/App/usbd_dfu_if.c ****   * @{
+  39:USB_DEVICE/App/usbd_dfu_if.c ****   */
+  40:USB_DEVICE/App/usbd_dfu_if.c **** 
+  41:USB_DEVICE/App/usbd_dfu_if.c **** /** @defgroup USBD_DFU
+  42:USB_DEVICE/App/usbd_dfu_if.c ****   * @brief Usb DFU device module.
+  43:USB_DEVICE/App/usbd_dfu_if.c ****   * @{
+  44:USB_DEVICE/App/usbd_dfu_if.c ****   */
+  45:USB_DEVICE/App/usbd_dfu_if.c **** 
+  46:USB_DEVICE/App/usbd_dfu_if.c **** /** @defgroup USBD_DFU_Private_TypesDefinitions
+  47:USB_DEVICE/App/usbd_dfu_if.c ****   * @brief Private types.
+  48:USB_DEVICE/App/usbd_dfu_if.c ****   * @{
+  49:USB_DEVICE/App/usbd_dfu_if.c ****   */
+  50:USB_DEVICE/App/usbd_dfu_if.c **** 
+  51:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE BEGIN PRIVATE_TYPES */
+  52:USB_DEVICE/App/usbd_dfu_if.c **** 
+  53:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE END PRIVATE_TYPES */
+  54:USB_DEVICE/App/usbd_dfu_if.c **** 
+  55:USB_DEVICE/App/usbd_dfu_if.c **** /**
+  56:USB_DEVICE/App/usbd_dfu_if.c ****   * @}
+  57:USB_DEVICE/App/usbd_dfu_if.c ****   */
+  58:USB_DEVICE/App/usbd_dfu_if.c **** 
+  59:USB_DEVICE/App/usbd_dfu_if.c **** /** @defgroup USBD_DFU_Private_Defines
+  60:USB_DEVICE/App/usbd_dfu_if.c ****   * @brief Private defines.
+  61:USB_DEVICE/App/usbd_dfu_if.c ****   * @{
+  62:USB_DEVICE/App/usbd_dfu_if.c ****   */
+  63:USB_DEVICE/App/usbd_dfu_if.c **** 
+  64:USB_DEVICE/App/usbd_dfu_if.c **** #define FLASH_DESC_STR      "@Internal Flash   /0x08000000/03*016Ka,01*016Kg,01*064Kg,07*128Kg,04*0
+  65:USB_DEVICE/App/usbd_dfu_if.c **** 
+  66:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE BEGIN PRIVATE_DEFINES */
+  67:USB_DEVICE/App/usbd_dfu_if.c **** 
+  68:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE END PRIVATE_DEFINES */
+  69:USB_DEVICE/App/usbd_dfu_if.c **** 
+  70:USB_DEVICE/App/usbd_dfu_if.c **** /**
+  71:USB_DEVICE/App/usbd_dfu_if.c ****   * @}
+  72:USB_DEVICE/App/usbd_dfu_if.c ****   */
+  73:USB_DEVICE/App/usbd_dfu_if.c **** 
+  74:USB_DEVICE/App/usbd_dfu_if.c **** /** @defgroup USBD_DFU_Private_Macros
+  75:USB_DEVICE/App/usbd_dfu_if.c ****   * @brief Private macros.
+  76:USB_DEVICE/App/usbd_dfu_if.c ****   * @{
+  77:USB_DEVICE/App/usbd_dfu_if.c ****   */
+  78:USB_DEVICE/App/usbd_dfu_if.c **** 
+  79:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE BEGIN PRIVATE_MACRO */
+  80:USB_DEVICE/App/usbd_dfu_if.c **** 
+  81:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE END PRIVATE_MACRO */
+  82:USB_DEVICE/App/usbd_dfu_if.c **** 
+  83:USB_DEVICE/App/usbd_dfu_if.c **** /**
+  84:USB_DEVICE/App/usbd_dfu_if.c ****   * @}
+  85:USB_DEVICE/App/usbd_dfu_if.c ****   */
+  86:USB_DEVICE/App/usbd_dfu_if.c **** 
+  87:USB_DEVICE/App/usbd_dfu_if.c **** /** @defgroup USBD_DFU_Private_Variables
+  88:USB_DEVICE/App/usbd_dfu_if.c ****   * @brief Private variables.
+  89:USB_DEVICE/App/usbd_dfu_if.c ****   * @{
+ARM GAS  /var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s 			page 3
+
+
+  90:USB_DEVICE/App/usbd_dfu_if.c ****   */
+  91:USB_DEVICE/App/usbd_dfu_if.c **** 
+  92:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE BEGIN PRIVATE_VARIABLES */
+  93:USB_DEVICE/App/usbd_dfu_if.c **** 
+  94:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE END PRIVATE_VARIABLES */
+  95:USB_DEVICE/App/usbd_dfu_if.c **** 
+  96:USB_DEVICE/App/usbd_dfu_if.c **** /**
+  97:USB_DEVICE/App/usbd_dfu_if.c ****   * @}
+  98:USB_DEVICE/App/usbd_dfu_if.c ****   */
+  99:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 100:USB_DEVICE/App/usbd_dfu_if.c **** /** @defgroup USBD_DFU_Exported_Variables
+ 101:USB_DEVICE/App/usbd_dfu_if.c ****   * @brief Public variables.
+ 102:USB_DEVICE/App/usbd_dfu_if.c ****   * @{
+ 103:USB_DEVICE/App/usbd_dfu_if.c ****   */
+ 104:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 105:USB_DEVICE/App/usbd_dfu_if.c **** extern USBD_HandleTypeDef hUsbDeviceFS;
+ 106:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 107:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE BEGIN EXPORTED_VARIABLES */
+ 108:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 109:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE END EXPORTED_VARIABLES */
+ 110:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 111:USB_DEVICE/App/usbd_dfu_if.c **** /**
+ 112:USB_DEVICE/App/usbd_dfu_if.c ****   * @}
+ 113:USB_DEVICE/App/usbd_dfu_if.c ****   */
+ 114:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 115:USB_DEVICE/App/usbd_dfu_if.c **** /** @defgroup USBD_DFU_Private_FunctionPrototypes
+ 116:USB_DEVICE/App/usbd_dfu_if.c ****   * @brief Private functions declaration.
+ 117:USB_DEVICE/App/usbd_dfu_if.c ****   * @{
+ 118:USB_DEVICE/App/usbd_dfu_if.c ****   */
+ 119:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 120:USB_DEVICE/App/usbd_dfu_if.c **** static uint16_t MEM_If_Init_FS(void);
+ 121:USB_DEVICE/App/usbd_dfu_if.c **** static uint16_t MEM_If_Erase_FS(uint32_t Add);
+ 122:USB_DEVICE/App/usbd_dfu_if.c **** static uint16_t MEM_If_Write_FS(uint8_t *src, uint8_t *dest, uint32_t Len);
+ 123:USB_DEVICE/App/usbd_dfu_if.c **** static uint8_t *MEM_If_Read_FS(uint8_t *src, uint8_t *dest, uint32_t Len);
+ 124:USB_DEVICE/App/usbd_dfu_if.c **** static uint16_t MEM_If_DeInit_FS(void);
+ 125:USB_DEVICE/App/usbd_dfu_if.c **** static uint16_t MEM_If_GetStatus_FS(uint32_t Add, uint8_t Cmd, uint8_t *buffer);
+ 126:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 127:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE BEGIN PRIVATE_FUNCTIONS_DECLARATION */
+ 128:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 129:USB_DEVICE/App/usbd_dfu_if.c **** /* USER CODE END PRIVATE_FUNCTIONS_DECLARATION */
+ 130:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 131:USB_DEVICE/App/usbd_dfu_if.c **** /**
+ 132:USB_DEVICE/App/usbd_dfu_if.c ****   * @}
+ 133:USB_DEVICE/App/usbd_dfu_if.c ****   */
+ 134:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 135:USB_DEVICE/App/usbd_dfu_if.c **** #if defined ( __ICCARM__ ) /* IAR Compiler */
+ 136:USB_DEVICE/App/usbd_dfu_if.c ****   #pragma data_alignment=4
+ 137:USB_DEVICE/App/usbd_dfu_if.c **** #endif
+ 138:USB_DEVICE/App/usbd_dfu_if.c **** __ALIGN_BEGIN USBD_DFU_MediaTypeDef USBD_DFU_fops_FS __ALIGN_END =
+ 139:USB_DEVICE/App/usbd_dfu_if.c **** {
+ 140:USB_DEVICE/App/usbd_dfu_if.c ****    (uint8_t*)FLASH_DESC_STR,
+ 141:USB_DEVICE/App/usbd_dfu_if.c ****     MEM_If_Init_FS,
+ 142:USB_DEVICE/App/usbd_dfu_if.c ****     MEM_If_DeInit_FS,
+ 143:USB_DEVICE/App/usbd_dfu_if.c ****     MEM_If_Erase_FS,
+ 144:USB_DEVICE/App/usbd_dfu_if.c ****     MEM_If_Write_FS,
+ 145:USB_DEVICE/App/usbd_dfu_if.c ****     MEM_If_Read_FS,
+ 146:USB_DEVICE/App/usbd_dfu_if.c ****     MEM_If_GetStatus_FS
+ARM GAS  /var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s 			page 4
+
+
+ 147:USB_DEVICE/App/usbd_dfu_if.c **** };
+ 148:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 149:USB_DEVICE/App/usbd_dfu_if.c **** /* Private functions ---------------------------------------------------------*/
+ 150:USB_DEVICE/App/usbd_dfu_if.c **** /**
+ 151:USB_DEVICE/App/usbd_dfu_if.c ****   * @brief  Memory initialization routine.
+ 152:USB_DEVICE/App/usbd_dfu_if.c ****   * @retval USBD_OK if operation is successful, MAL_FAIL else.
+ 153:USB_DEVICE/App/usbd_dfu_if.c ****   */
+ 154:USB_DEVICE/App/usbd_dfu_if.c **** uint16_t MEM_If_Init_FS(void)
+ 155:USB_DEVICE/App/usbd_dfu_if.c **** {
+ 156:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE BEGIN 0 */
+ 157:USB_DEVICE/App/usbd_dfu_if.c ****   HAL_FLASH_Unlock();
+ 158:USB_DEVICE/App/usbd_dfu_if.c ****   // __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_WRPERR | FLASH_FLAG_PGERR);
+ 159:USB_DEVICE/App/usbd_dfu_if.c ****   return (USBD_OK);
+ 160:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE END 0 */
+ 161:USB_DEVICE/App/usbd_dfu_if.c **** }
+ 162:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 163:USB_DEVICE/App/usbd_dfu_if.c **** /**
+ 164:USB_DEVICE/App/usbd_dfu_if.c ****   * @brief  De-Initializes Memory
+ 165:USB_DEVICE/App/usbd_dfu_if.c ****   * @retval USBD_OK if operation is successful, MAL_FAIL else
+ 166:USB_DEVICE/App/usbd_dfu_if.c ****   */
+ 167:USB_DEVICE/App/usbd_dfu_if.c **** uint16_t MEM_If_DeInit_FS(void)
+ 168:USB_DEVICE/App/usbd_dfu_if.c **** {
+ 169:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE BEGIN 1 */
+ 170:USB_DEVICE/App/usbd_dfu_if.c ****   HAL_FLASH_Lock();
+ 171:USB_DEVICE/App/usbd_dfu_if.c ****   return (USBD_OK);
+ 172:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE END 1 */
+ 173:USB_DEVICE/App/usbd_dfu_if.c **** }
+ 174:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 175:USB_DEVICE/App/usbd_dfu_if.c **** /**
+ 176:USB_DEVICE/App/usbd_dfu_if.c ****   * @brief  Erase sector.
+ 177:USB_DEVICE/App/usbd_dfu_if.c ****   * @param  Add: Address of sector to be erased.
+ 178:USB_DEVICE/App/usbd_dfu_if.c ****   * @retval 0 if operation is successful, MAL_FAIL else.
+ 179:USB_DEVICE/App/usbd_dfu_if.c ****   */
+ 180:USB_DEVICE/App/usbd_dfu_if.c **** uint16_t MEM_If_Erase_FS(uint32_t Add)
+ 181:USB_DEVICE/App/usbd_dfu_if.c **** {
+ 182:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE BEGIN 2 */
+ 183:USB_DEVICE/App/usbd_dfu_if.c ****   uint32_t PageError;
+ 184:USB_DEVICE/App/usbd_dfu_if.c ****   /* Variable contains Flash operation status */
+ 185:USB_DEVICE/App/usbd_dfu_if.c ****   HAL_StatusTypeDef EraseStatus;
+ 186:USB_DEVICE/App/usbd_dfu_if.c ****   FLASH_EraseInitTypeDef EraseConfig;
+ 187:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 188:USB_DEVICE/App/usbd_dfu_if.c ****   EraseConfig.TypeErase = FLASH_TYPEERASE_PAGES;
+ 189:USB_DEVICE/App/usbd_dfu_if.c ****   EraseConfig.PageAddress = Add;
+ 190:USB_DEVICE/App/usbd_dfu_if.c ****   EraseConfig.NbPages = (0x0801F800 - USBD_DFU_APP_DEFAULT_ADD)/0x800U;
+ 191:USB_DEVICE/App/usbd_dfu_if.c ****   EraseStatus = HAL_FLASHEx_Erase(&EraseConfig, &PageError);
+ 192:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 193:USB_DEVICE/App/usbd_dfu_if.c ****   if(EraseStatus != HAL_OK) return (USBD_FAIL);
+ 194:USB_DEVICE/App/usbd_dfu_if.c ****   return (USBD_OK);
+ 195:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE END 2 */
+ 196:USB_DEVICE/App/usbd_dfu_if.c **** }
+ 197:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 198:USB_DEVICE/App/usbd_dfu_if.c **** /**
+ 199:USB_DEVICE/App/usbd_dfu_if.c ****   * @brief  Memory write routine.
+ 200:USB_DEVICE/App/usbd_dfu_if.c ****   * @param  src: Pointer to the source buffer. Address to be written to.
+ 201:USB_DEVICE/App/usbd_dfu_if.c ****   * @param  dest: Pointer to the destination buffer.
+ 202:USB_DEVICE/App/usbd_dfu_if.c ****   * @param  Len: Number of data to be written (in bytes).
+ 203:USB_DEVICE/App/usbd_dfu_if.c ****   * @retval USBD_OK if operation is successful, MAL_FAIL else.
+ARM GAS  /var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s 			page 5
+
+
+ 204:USB_DEVICE/App/usbd_dfu_if.c ****   */
+ 205:USB_DEVICE/App/usbd_dfu_if.c **** uint16_t MEM_If_Write_FS(uint8_t *src, uint8_t *dest, uint32_t Len)
+ 206:USB_DEVICE/App/usbd_dfu_if.c **** {
+ 207:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE BEGIN 3 */
+ 208:USB_DEVICE/App/usbd_dfu_if.c ****   uint32_t i;
+ 209:USB_DEVICE/App/usbd_dfu_if.c ****   for(i = 0; i < Len; i += 4)
+ 210:USB_DEVICE/App/usbd_dfu_if.c ****   {
+ 211:USB_DEVICE/App/usbd_dfu_if.c ****       /* Device voltage range supposed to be [2.7V to 3.6V], the operation will
+ 212:USB_DEVICE/App/usbd_dfu_if.c ****       * be done by byte */
+ 213:USB_DEVICE/App/usbd_dfu_if.c ****       if(HAL_FLASH_Program(FLASH_TYPEPROGRAM_WORD, (uint32_t)(dest + i), *(uint32_t *)(src + i)) ==
+ 214:USB_DEVICE/App/usbd_dfu_if.c ****       {
+ 215:USB_DEVICE/App/usbd_dfu_if.c ****           /* Check the written value */
+ 216:USB_DEVICE/App/usbd_dfu_if.c ****           if(*(uint32_t *)(src + i) != *(uint32_t *)(dest + i))
+ 217:USB_DEVICE/App/usbd_dfu_if.c ****           {
+ 218:USB_DEVICE/App/usbd_dfu_if.c ****               /* Flash content doesn't match SRAM content */
+ 219:USB_DEVICE/App/usbd_dfu_if.c ****               return (USBD_FAIL);
+ 220:USB_DEVICE/App/usbd_dfu_if.c ****           }
+ 221:USB_DEVICE/App/usbd_dfu_if.c ****       }
+ 222:USB_DEVICE/App/usbd_dfu_if.c ****       else
+ 223:USB_DEVICE/App/usbd_dfu_if.c ****       {
+ 224:USB_DEVICE/App/usbd_dfu_if.c ****           /* Error occurred while writing data in Flash memory */
+ 225:USB_DEVICE/App/usbd_dfu_if.c ****           return (USBD_FAIL);
+ 226:USB_DEVICE/App/usbd_dfu_if.c ****       }
+ 227:USB_DEVICE/App/usbd_dfu_if.c ****   }
+ 228:USB_DEVICE/App/usbd_dfu_if.c ****   return (USBD_OK);
+ 229:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE END 3 */
+ 230:USB_DEVICE/App/usbd_dfu_if.c **** }
+ 231:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 232:USB_DEVICE/App/usbd_dfu_if.c **** /**
+ 233:USB_DEVICE/App/usbd_dfu_if.c ****   * @brief  Memory read routine.
+ 234:USB_DEVICE/App/usbd_dfu_if.c ****   * @param  src: Pointer to the source buffer. Address to be written to.
+ 235:USB_DEVICE/App/usbd_dfu_if.c ****   * @param  dest: Pointer to the destination buffer.
+ 236:USB_DEVICE/App/usbd_dfu_if.c ****   * @param  Len: Number of data to be read (in bytes).
+ 237:USB_DEVICE/App/usbd_dfu_if.c ****   * @retval Pointer to the physical address where data should be read.
+ 238:USB_DEVICE/App/usbd_dfu_if.c ****   */
+ 239:USB_DEVICE/App/usbd_dfu_if.c **** uint8_t *MEM_If_Read_FS(uint8_t *src, uint8_t *dest, uint32_t Len)
+ 240:USB_DEVICE/App/usbd_dfu_if.c **** {
+  27              		.loc 1 240 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		.loc 1 240 1 is_stmt 0 view .LVU1
+  32 0000 0346     		mov	r3, r0
+  33 0002 0846     		mov	r0, r1
+  34              	.LVL1:
+ 241:USB_DEVICE/App/usbd_dfu_if.c ****   /* Return a valid address to avoid HardFault */
+ 242:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE BEGIN 4 */
+ 243:USB_DEVICE/App/usbd_dfu_if.c ****   uint8_t *psrc = src;
+  35              		.loc 1 243 3 is_stmt 1 view .LVU2
+ 244:USB_DEVICE/App/usbd_dfu_if.c ****   uint32_t i;
+  36              		.loc 1 244 3 view .LVU3
+ 245:USB_DEVICE/App/usbd_dfu_if.c ****   for(i = 0; i < Len; i++)
+  37              		.loc 1 245 3 view .LVU4
+  38              		.loc 1 245 9 is_stmt 0 view .LVU5
+  39 0004 4FF0000C 		mov	ip, #0
+  40              	.LVL2:
+  41              		.loc 1 245 16 is_stmt 1 view .LVU6
+ARM GAS  /var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s 			page 6
+
+
+  42 0008 9445     		cmp	ip, r2
+  43 000a 0AD2     		bcs	.L8
+ 240:USB_DEVICE/App/usbd_dfu_if.c ****   /* Return a valid address to avoid HardFault */
+  44              		.loc 1 240 1 is_stmt 0 view .LVU7
+  45 000c 00B5     		push	{lr}
+  46              	.LCFI0:
+  47              		.cfi_def_cfa_offset 4
+  48              		.cfi_offset 14, -4
+  49              	.LVL3:
+  50              	.L3:
+ 246:USB_DEVICE/App/usbd_dfu_if.c ****   {
+ 247:USB_DEVICE/App/usbd_dfu_if.c ****       dest[i] = *psrc++;
+  51              		.loc 1 247 7 is_stmt 1 discriminator 3 view .LVU8
+  52              		.loc 1 247 17 is_stmt 0 discriminator 3 view .LVU9
+  53 000e 13F801EB 		ldrb	lr, [r3], #1	@ zero_extendqisi2
+  54              	.LVL4:
+  55              		.loc 1 247 15 discriminator 3 view .LVU10
+  56 0012 00F80CE0 		strb	lr, [r0, ip]
+ 245:USB_DEVICE/App/usbd_dfu_if.c ****   {
+  57              		.loc 1 245 24 is_stmt 1 discriminator 3 view .LVU11
+  58 0016 0CF1010C 		add	ip, ip, #1
+  59              	.LVL5:
+ 245:USB_DEVICE/App/usbd_dfu_if.c ****   {
+  60              		.loc 1 245 16 discriminator 3 view .LVU12
+  61 001a 9445     		cmp	ip, r2
+  62 001c F7D3     		bcc	.L3
+ 248:USB_DEVICE/App/usbd_dfu_if.c ****   }
+ 249:USB_DEVICE/App/usbd_dfu_if.c ****     /* Return a valid address to avoid HardFault */
+ 250:USB_DEVICE/App/usbd_dfu_if.c ****   return (uint8_t *)(dest);
+  63              		.loc 1 250 3 view .LVU13
+ 251:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE END 4 */
+ 252:USB_DEVICE/App/usbd_dfu_if.c **** }
+  64              		.loc 1 252 1 is_stmt 0 view .LVU14
+  65 001e 5DF804FB 		ldr	pc, [sp], #4
+  66              	.LVL6:
+  67              	.L8:
+  68              	.LCFI1:
+  69              		.cfi_def_cfa_offset 0
+  70              		.cfi_restore 14
+  71              		.loc 1 252 1 view .LVU15
+  72 0022 7047     		bx	lr
+  73              		.cfi_endproc
+  74              	.LFE72:
+  76              		.section	.text.MEM_If_GetStatus_FS,"ax",%progbits
+  77              		.align	1
+  78              		.syntax unified
+  79              		.thumb
+  80              		.thumb_func
+  82              	MEM_If_GetStatus_FS:
+  83              	.LVL7:
+  84              	.LFB73:
+ 253:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 254:USB_DEVICE/App/usbd_dfu_if.c **** /**
+ 255:USB_DEVICE/App/usbd_dfu_if.c ****   * @brief  Get status routine
+ 256:USB_DEVICE/App/usbd_dfu_if.c ****   * @param  Add: Address to be read from
+ 257:USB_DEVICE/App/usbd_dfu_if.c ****   * @param  Cmd: Number of data to be read (in bytes)
+ 258:USB_DEVICE/App/usbd_dfu_if.c ****   * @param  buffer: used for returning the time necessary for a program or an erase operation
+ARM GAS  /var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s 			page 7
+
+
+ 259:USB_DEVICE/App/usbd_dfu_if.c ****   * @retval USBD_OK if operation is successful
+ 260:USB_DEVICE/App/usbd_dfu_if.c ****   */
+ 261:USB_DEVICE/App/usbd_dfu_if.c **** uint16_t MEM_If_GetStatus_FS(uint32_t Add, uint8_t Cmd, uint8_t *buffer)
+ 262:USB_DEVICE/App/usbd_dfu_if.c **** {
+  85              		.loc 1 262 1 is_stmt 1 view -0
+  86              		.cfi_startproc
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89              		@ link register save eliminated.
+ 263:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE BEGIN 5 */
+ 264:USB_DEVICE/App/usbd_dfu_if.c ****   uint16_t FLASH_PROGRAM_TIME = 50;
+  90              		.loc 1 264 3 view .LVU17
+ 265:USB_DEVICE/App/usbd_dfu_if.c ****   uint16_t FLASH_ERASE_TIME = 50;
+  91              		.loc 1 265 3 view .LVU18
+ 266:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 267:USB_DEVICE/App/usbd_dfu_if.c ****   switch(Cmd)
+  92              		.loc 1 267 3 view .LVU19
+  93 0000 0129     		cmp	r1, #1
+  94 0002 06D0     		beq	.L12
+ 268:USB_DEVICE/App/usbd_dfu_if.c ****   {
+ 269:USB_DEVICE/App/usbd_dfu_if.c ****   case DFU_MEDIA_PROGRAM:
+ 270:USB_DEVICE/App/usbd_dfu_if.c ****       buffer[1] = (uint8_t)FLASH_PROGRAM_TIME;
+ 271:USB_DEVICE/App/usbd_dfu_if.c ****       buffer[2] = (uint8_t)(FLASH_PROGRAM_TIME << 8);
+ 272:USB_DEVICE/App/usbd_dfu_if.c ****       buffer[3] = 0;
+ 273:USB_DEVICE/App/usbd_dfu_if.c ****       break;
+ 274:USB_DEVICE/App/usbd_dfu_if.c ****   case DFU_MEDIA_ERASE:
+ 275:USB_DEVICE/App/usbd_dfu_if.c ****   default:
+ 276:USB_DEVICE/App/usbd_dfu_if.c ****       buffer[1] = (uint8_t)FLASH_ERASE_TIME;
+  95              		.loc 1 276 7 view .LVU20
+  96              		.loc 1 276 17 is_stmt 0 view .LVU21
+  97 0004 3223     		movs	r3, #50
+  98 0006 5370     		strb	r3, [r2, #1]
+ 277:USB_DEVICE/App/usbd_dfu_if.c ****       buffer[2] = (uint8_t)(FLASH_ERASE_TIME << 8);
+  99              		.loc 1 277 7 is_stmt 1 view .LVU22
+ 100              		.loc 1 277 17 is_stmt 0 view .LVU23
+ 101 0008 0023     		movs	r3, #0
+ 102 000a 9370     		strb	r3, [r2, #2]
+ 278:USB_DEVICE/App/usbd_dfu_if.c ****       buffer[3] = 0;
+ 103              		.loc 1 278 7 is_stmt 1 view .LVU24
+ 104              		.loc 1 278 17 is_stmt 0 view .LVU25
+ 105 000c D370     		strb	r3, [r2, #3]
+ 279:USB_DEVICE/App/usbd_dfu_if.c ****       break;
+ 106              		.loc 1 279 7 is_stmt 1 view .LVU26
+ 107              	.L11:
+ 280:USB_DEVICE/App/usbd_dfu_if.c ****   }
+ 281:USB_DEVICE/App/usbd_dfu_if.c ****   return (USBD_OK);
+ 108              		.loc 1 281 3 view .LVU27
+ 282:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE END 5 */
+ 283:USB_DEVICE/App/usbd_dfu_if.c **** }
+ 109              		.loc 1 283 1 is_stmt 0 view .LVU28
+ 110 000e 0020     		movs	r0, #0
+ 111              	.LVL8:
+ 112              		.loc 1 283 1 view .LVU29
+ 113 0010 7047     		bx	lr
+ 114              	.LVL9:
+ 115              	.L12:
+ 270:USB_DEVICE/App/usbd_dfu_if.c ****       buffer[2] = (uint8_t)(FLASH_PROGRAM_TIME << 8);
+ARM GAS  /var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s 			page 8
+
+
+ 116              		.loc 1 270 7 is_stmt 1 view .LVU30
+ 270:USB_DEVICE/App/usbd_dfu_if.c ****       buffer[2] = (uint8_t)(FLASH_PROGRAM_TIME << 8);
+ 117              		.loc 1 270 17 is_stmt 0 view .LVU31
+ 118 0012 3223     		movs	r3, #50
+ 119 0014 5370     		strb	r3, [r2, #1]
+ 271:USB_DEVICE/App/usbd_dfu_if.c ****       buffer[3] = 0;
+ 120              		.loc 1 271 7 is_stmt 1 view .LVU32
+ 271:USB_DEVICE/App/usbd_dfu_if.c ****       buffer[3] = 0;
+ 121              		.loc 1 271 17 is_stmt 0 view .LVU33
+ 122 0016 0023     		movs	r3, #0
+ 123 0018 9370     		strb	r3, [r2, #2]
+ 272:USB_DEVICE/App/usbd_dfu_if.c ****       break;
+ 124              		.loc 1 272 7 is_stmt 1 view .LVU34
+ 272:USB_DEVICE/App/usbd_dfu_if.c ****       break;
+ 125              		.loc 1 272 17 is_stmt 0 view .LVU35
+ 126 001a D370     		strb	r3, [r2, #3]
+ 273:USB_DEVICE/App/usbd_dfu_if.c ****   case DFU_MEDIA_ERASE:
+ 127              		.loc 1 273 7 is_stmt 1 view .LVU36
+ 128 001c F7E7     		b	.L11
+ 129              		.cfi_endproc
+ 130              	.LFE73:
+ 132              		.section	.text.MEM_If_Write_FS,"ax",%progbits
+ 133              		.align	1
+ 134              		.syntax unified
+ 135              		.thumb
+ 136              		.thumb_func
+ 138              	MEM_If_Write_FS:
+ 139              	.LVL10:
+ 140              	.LFB71:
+ 206:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE BEGIN 3 */
+ 141              		.loc 1 206 1 view -0
+ 142              		.cfi_startproc
+ 143              		@ args = 0, pretend = 0, frame = 0
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 206:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE BEGIN 3 */
+ 145              		.loc 1 206 1 is_stmt 0 view .LVU38
+ 146 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 147              	.LCFI2:
+ 148              		.cfi_def_cfa_offset 24
+ 149              		.cfi_offset 3, -24
+ 150              		.cfi_offset 4, -20
+ 151              		.cfi_offset 5, -16
+ 152              		.cfi_offset 6, -12
+ 153              		.cfi_offset 7, -8
+ 154              		.cfi_offset 14, -4
+ 155 0002 0646     		mov	r6, r0
+ 156 0004 0D46     		mov	r5, r1
+ 157 0006 1746     		mov	r7, r2
+ 208:USB_DEVICE/App/usbd_dfu_if.c ****   for(i = 0; i < Len; i += 4)
+ 158              		.loc 1 208 3 is_stmt 1 view .LVU39
+ 209:USB_DEVICE/App/usbd_dfu_if.c ****   {
+ 159              		.loc 1 209 3 view .LVU40
+ 160              	.LVL11:
+ 209:USB_DEVICE/App/usbd_dfu_if.c ****   {
+ 161              		.loc 1 209 9 is_stmt 0 view .LVU41
+ 162 0008 0024     		movs	r4, #0
+ 209:USB_DEVICE/App/usbd_dfu_if.c ****   {
+ARM GAS  /var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s 			page 9
+
+
+ 163              		.loc 1 209 3 view .LVU42
+ 164 000a 00E0     		b	.L14
+ 165              	.LVL12:
+ 166              	.L21:
+ 209:USB_DEVICE/App/usbd_dfu_if.c ****   {
+ 167              		.loc 1 209 25 is_stmt 1 discriminator 2 view .LVU43
+ 168 000c 0434     		adds	r4, r4, #4
+ 169              	.LVL13:
+ 170              	.L14:
+ 209:USB_DEVICE/App/usbd_dfu_if.c ****   {
+ 171              		.loc 1 209 16 discriminator 1 view .LVU44
+ 172 000e BC42     		cmp	r4, r7
+ 173 0010 0CD2     		bcs	.L20
+ 213:USB_DEVICE/App/usbd_dfu_if.c ****       {
+ 174              		.loc 1 213 7 view .LVU45
+ 213:USB_DEVICE/App/usbd_dfu_if.c ****       {
+ 175              		.loc 1 213 10 is_stmt 0 view .LVU46
+ 176 0012 3259     		ldr	r2, [r6, r4]
+ 177 0014 0023     		movs	r3, #0
+ 178 0016 2919     		adds	r1, r5, r4
+ 179 0018 0220     		movs	r0, #2
+ 180 001a FFF7FEFF 		bl	HAL_FLASH_Program
+ 181              	.LVL14:
+ 213:USB_DEVICE/App/usbd_dfu_if.c ****       {
+ 182              		.loc 1 213 9 view .LVU47
+ 183 001e 38B9     		cbnz	r0, .L17
+ 216:USB_DEVICE/App/usbd_dfu_if.c ****           {
+ 184              		.loc 1 216 11 is_stmt 1 view .LVU48
+ 216:USB_DEVICE/App/usbd_dfu_if.c ****           {
+ 185              		.loc 1 216 14 is_stmt 0 view .LVU49
+ 186 0020 3159     		ldr	r1, [r6, r4]
+ 216:USB_DEVICE/App/usbd_dfu_if.c ****           {
+ 187              		.loc 1 216 40 view .LVU50
+ 188 0022 2B59     		ldr	r3, [r5, r4]
+ 216:USB_DEVICE/App/usbd_dfu_if.c ****           {
+ 189              		.loc 1 216 13 view .LVU51
+ 190 0024 9942     		cmp	r1, r3
+ 191 0026 F1D0     		beq	.L21
+ 219:USB_DEVICE/App/usbd_dfu_if.c ****           }
+ 192              		.loc 1 219 22 view .LVU52
+ 193 0028 0220     		movs	r0, #2
+ 194 002a 00E0     		b	.L15
+ 195              	.L20:
+ 228:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE END 3 */
+ 196              		.loc 1 228 10 view .LVU53
+ 197 002c 0020     		movs	r0, #0
+ 198              	.L15:
+ 230:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 199              		.loc 1 230 1 view .LVU54
+ 200 002e F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 201              	.LVL15:
+ 202              	.L17:
+ 225:USB_DEVICE/App/usbd_dfu_if.c ****       }
+ 203              		.loc 1 225 18 view .LVU55
+ 204 0030 0220     		movs	r0, #2
+ 205 0032 FCE7     		b	.L15
+ 206              		.cfi_endproc
+ARM GAS  /var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s 			page 10
+
+
+ 207              	.LFE71:
+ 209              		.section	.text.MEM_If_Erase_FS,"ax",%progbits
+ 210              		.align	1
+ 211              		.syntax unified
+ 212              		.thumb
+ 213              		.thumb_func
+ 215              	MEM_If_Erase_FS:
+ 216              	.LVL16:
+ 217              	.LFB70:
+ 181:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE BEGIN 2 */
+ 218              		.loc 1 181 1 is_stmt 1 view -0
+ 219              		.cfi_startproc
+ 220              		@ args = 0, pretend = 0, frame = 24
+ 221              		@ frame_needed = 0, uses_anonymous_args = 0
+ 181:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE BEGIN 2 */
+ 222              		.loc 1 181 1 is_stmt 0 view .LVU57
+ 223 0000 00B5     		push	{lr}
+ 224              	.LCFI3:
+ 225              		.cfi_def_cfa_offset 4
+ 226              		.cfi_offset 14, -4
+ 227 0002 87B0     		sub	sp, sp, #28
+ 228              	.LCFI4:
+ 229              		.cfi_def_cfa_offset 32
+ 183:USB_DEVICE/App/usbd_dfu_if.c ****   /* Variable contains Flash operation status */
+ 230              		.loc 1 183 3 is_stmt 1 view .LVU58
+ 185:USB_DEVICE/App/usbd_dfu_if.c ****   FLASH_EraseInitTypeDef EraseConfig;
+ 231              		.loc 1 185 3 view .LVU59
+ 186:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 232              		.loc 1 186 3 view .LVU60
+ 188:USB_DEVICE/App/usbd_dfu_if.c ****   EraseConfig.PageAddress = Add;
+ 233              		.loc 1 188 3 view .LVU61
+ 188:USB_DEVICE/App/usbd_dfu_if.c ****   EraseConfig.PageAddress = Add;
+ 234              		.loc 1 188 25 is_stmt 0 view .LVU62
+ 235 0004 0023     		movs	r3, #0
+ 236 0006 0193     		str	r3, [sp, #4]
+ 189:USB_DEVICE/App/usbd_dfu_if.c ****   EraseConfig.NbPages = (0x0801F800 - USBD_DFU_APP_DEFAULT_ADD)/0x800U;
+ 237              		.loc 1 189 3 is_stmt 1 view .LVU63
+ 189:USB_DEVICE/App/usbd_dfu_if.c ****   EraseConfig.NbPages = (0x0801F800 - USBD_DFU_APP_DEFAULT_ADD)/0x800U;
+ 238              		.loc 1 189 27 is_stmt 0 view .LVU64
+ 239 0008 0390     		str	r0, [sp, #12]
+ 190:USB_DEVICE/App/usbd_dfu_if.c ****   EraseStatus = HAL_FLASHEx_Erase(&EraseConfig, &PageError);
+ 240              		.loc 1 190 3 is_stmt 1 view .LVU65
+ 190:USB_DEVICE/App/usbd_dfu_if.c ****   EraseStatus = HAL_FLASHEx_Erase(&EraseConfig, &PageError);
+ 241              		.loc 1 190 23 is_stmt 0 view .LVU66
+ 242 000a 3323     		movs	r3, #51
+ 243 000c 0493     		str	r3, [sp, #16]
+ 191:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 244              		.loc 1 191 3 is_stmt 1 view .LVU67
+ 191:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 245              		.loc 1 191 17 is_stmt 0 view .LVU68
+ 246 000e 05A9     		add	r1, sp, #20
+ 247 0010 01A8     		add	r0, sp, #4
+ 248              	.LVL17:
+ 191:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 249              		.loc 1 191 17 view .LVU69
+ 250 0012 FFF7FEFF 		bl	HAL_FLASHEx_Erase
+ 251              	.LVL18:
+ARM GAS  /var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s 			page 11
+
+
+ 193:USB_DEVICE/App/usbd_dfu_if.c ****   return (USBD_OK);
+ 252              		.loc 1 193 3 is_stmt 1 view .LVU70
+ 193:USB_DEVICE/App/usbd_dfu_if.c ****   return (USBD_OK);
+ 253              		.loc 1 193 5 is_stmt 0 view .LVU71
+ 254 0016 10B9     		cbnz	r0, .L26
+ 255              	.LVL19:
+ 256              	.L23:
+ 196:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 257              		.loc 1 196 1 view .LVU72
+ 258 0018 07B0     		add	sp, sp, #28
+ 259              	.LCFI5:
+ 260              		.cfi_remember_state
+ 261              		.cfi_def_cfa_offset 4
+ 262              		@ sp needed
+ 263 001a 5DF804FB 		ldr	pc, [sp], #4
+ 264              	.LVL20:
+ 265              	.L26:
+ 266              	.LCFI6:
+ 267              		.cfi_restore_state
+ 193:USB_DEVICE/App/usbd_dfu_if.c ****   return (USBD_OK);
+ 268              		.loc 1 193 36 view .LVU73
+ 269 001e 0220     		movs	r0, #2
+ 270              	.LVL21:
+ 193:USB_DEVICE/App/usbd_dfu_if.c ****   return (USBD_OK);
+ 271              		.loc 1 193 36 view .LVU74
+ 272 0020 FAE7     		b	.L23
+ 273              		.cfi_endproc
+ 274              	.LFE70:
+ 276              		.section	.text.MEM_If_DeInit_FS,"ax",%progbits
+ 277              		.align	1
+ 278              		.syntax unified
+ 279              		.thumb
+ 280              		.thumb_func
+ 282              	MEM_If_DeInit_FS:
+ 283              	.LFB69:
+ 168:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE BEGIN 1 */
+ 284              		.loc 1 168 1 is_stmt 1 view -0
+ 285              		.cfi_startproc
+ 286              		@ args = 0, pretend = 0, frame = 0
+ 287              		@ frame_needed = 0, uses_anonymous_args = 0
+ 288 0000 08B5     		push	{r3, lr}
+ 289              	.LCFI7:
+ 290              		.cfi_def_cfa_offset 8
+ 291              		.cfi_offset 3, -8
+ 292              		.cfi_offset 14, -4
+ 170:USB_DEVICE/App/usbd_dfu_if.c ****   return (USBD_OK);
+ 293              		.loc 1 170 3 view .LVU76
+ 294 0002 FFF7FEFF 		bl	HAL_FLASH_Lock
+ 295              	.LVL22:
+ 171:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE END 1 */
+ 296              		.loc 1 171 3 view .LVU77
+ 173:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 297              		.loc 1 173 1 is_stmt 0 view .LVU78
+ 298 0006 0020     		movs	r0, #0
+ 299 0008 08BD     		pop	{r3, pc}
+ 300              		.cfi_endproc
+ 301              	.LFE69:
+ARM GAS  /var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s 			page 12
+
+
+ 303              		.section	.text.MEM_If_Init_FS,"ax",%progbits
+ 304              		.align	1
+ 305              		.syntax unified
+ 306              		.thumb
+ 307              		.thumb_func
+ 309              	MEM_If_Init_FS:
+ 310              	.LFB68:
+ 155:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE BEGIN 0 */
+ 311              		.loc 1 155 1 is_stmt 1 view -0
+ 312              		.cfi_startproc
+ 313              		@ args = 0, pretend = 0, frame = 0
+ 314              		@ frame_needed = 0, uses_anonymous_args = 0
+ 315 0000 08B5     		push	{r3, lr}
+ 316              	.LCFI8:
+ 317              		.cfi_def_cfa_offset 8
+ 318              		.cfi_offset 3, -8
+ 319              		.cfi_offset 14, -4
+ 157:USB_DEVICE/App/usbd_dfu_if.c ****   // __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_WRPERR | FLASH_FLAG_PGERR);
+ 320              		.loc 1 157 3 view .LVU80
+ 321 0002 FFF7FEFF 		bl	HAL_FLASH_Unlock
+ 322              	.LVL23:
+ 159:USB_DEVICE/App/usbd_dfu_if.c ****   /* USER CODE END 0 */
+ 323              		.loc 1 159 3 view .LVU81
+ 161:USB_DEVICE/App/usbd_dfu_if.c **** 
+ 324              		.loc 1 161 1 is_stmt 0 view .LVU82
+ 325 0006 0020     		movs	r0, #0
+ 326 0008 08BD     		pop	{r3, pc}
+ 327              		.cfi_endproc
+ 328              	.LFE68:
+ 330              		.global	USBD_DFU_fops_FS
+ 331              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 332              		.align	2
+ 333              	.LC0:
+ 334 0000 40496E74 		.ascii	"@Internal Flash   /0x08000000/03*016Ka,01*016Kg,01*"
+ 334      65726E61 
+ 334      6C20466C 
+ 334      61736820 
+ 334      20202F30 
+ 335 0033 3036344B 		.ascii	"064Kg,07*128Kg,04*016Kg,01*064Kg,07*128Kg\000"
+ 335      672C3037 
+ 335      2A313238 
+ 335      4B672C30 
+ 335      342A3031 
+ 336              		.section	.data.USBD_DFU_fops_FS,"aw"
+ 337              		.align	2
+ 340              	USBD_DFU_fops_FS:
+ 341 0000 00000000 		.word	.LC0
+ 342 0004 00000000 		.word	MEM_If_Init_FS
+ 343 0008 00000000 		.word	MEM_If_DeInit_FS
+ 344 000c 00000000 		.word	MEM_If_Erase_FS
+ 345 0010 00000000 		.word	MEM_If_Write_FS
+ 346 0014 00000000 		.word	MEM_If_Read_FS
+ 347 0018 00000000 		.word	MEM_If_GetStatus_FS
+ 348              		.text
+ 349              	.Letext0:
+ 350              		.file 2 "/Applications/ArmGNUToolchain/12.2.rel1/arm-none-eabi/arm-none-eabi/include/machine/_defa
+ 351              		.file 3 "/Applications/ArmGNUToolchain/12.2.rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h
+ARM GAS  /var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s 			page 13
+
+
+ 352              		.file 4 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 353              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h"
+ 354              		.file 6 "Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"
+ 355              		.file 7 "Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc/usbd_dfu.h"
+ 356              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h"
+ 357              		.file 9 "USB_DEVICE/App/usbd_dfu_if.h"
+ARM GAS  /var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 usbd_dfu_if.c
+/var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s:19     .text.MEM_If_Read_FS:0000000000000000 $t
+/var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s:24     .text.MEM_If_Read_FS:0000000000000000 MEM_If_Read_FS
+/var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s:77     .text.MEM_If_GetStatus_FS:0000000000000000 $t
+/var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s:82     .text.MEM_If_GetStatus_FS:0000000000000000 MEM_If_GetStatus_FS
+/var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s:133    .text.MEM_If_Write_FS:0000000000000000 $t
+/var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s:138    .text.MEM_If_Write_FS:0000000000000000 MEM_If_Write_FS
+/var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s:210    .text.MEM_If_Erase_FS:0000000000000000 $t
+/var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s:215    .text.MEM_If_Erase_FS:0000000000000000 MEM_If_Erase_FS
+/var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s:277    .text.MEM_If_DeInit_FS:0000000000000000 $t
+/var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s:282    .text.MEM_If_DeInit_FS:0000000000000000 MEM_If_DeInit_FS
+/var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s:304    .text.MEM_If_Init_FS:0000000000000000 $t
+/var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s:309    .text.MEM_If_Init_FS:0000000000000000 MEM_If_Init_FS
+/var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s:340    .data.USBD_DFU_fops_FS:0000000000000000 USBD_DFU_fops_FS
+/var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s:332    .rodata.str1.4:0000000000000000 $d
+/var/folders/d0/j8mk8sqj1vq6yyqnh7jfzr040000gn/T//ccHsh0gU.s:337    .data.USBD_DFU_fops_FS:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+HAL_FLASH_Program
+HAL_FLASHEx_Erase
+HAL_FLASH_Lock
+HAL_FLASH_Unlock
