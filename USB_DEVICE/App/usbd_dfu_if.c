@@ -187,7 +187,7 @@ uint16_t MEM_If_Erase_FS(uint32_t Add)
   FLASH_EraseInitTypeDef EraseConfig;
 
   EraseConfig.TypeErase = FLASH_TYPEERASE_PAGES;
-  EraseConfig.PageAddress = Add + 0x2000;
+  EraseConfig.PageAddress = Add;
   EraseConfig.NbPages = (0x0801F800 - USBD_DFU_APP_DEFAULT_ADD)/PAGESIZE;
   EraseStatus = HAL_FLASHEx_Erase(&EraseConfig, &PageError);
 
