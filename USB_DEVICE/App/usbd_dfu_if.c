@@ -61,7 +61,7 @@
   * @{
   */
 
-#define FLASH_DESC_STR      "@Internal Flash   /0x08000000/03*016Ka,01*016Kg,01*064Kg,07*128Kg,04*016Kg,01*064Kg,07*128Kg"
+#define FLASH_DESC_STR      "@Internal Flash   /0x08006000/03*016Ka,01*016Kg,01*064Kg,07*128Kg,04*016Kg,01*064Kg,07*128Kg"
 
 /* USER CODE BEGIN PRIVATE_DEFINES */
 
@@ -154,9 +154,10 @@ __ALIGN_BEGIN USBD_DFU_MediaTypeDef USBD_DFU_fops_FS __ALIGN_END =
 uint16_t MEM_If_Init_FS(void)
 {
   /* USER CODE BEGIN 0 */
-  HAL_FLASH_Unlock();
+
+  
   // __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_WRPERR | FLASH_FLAG_PGERR);
-  return (USBD_OK);
+  return HAL_FLASH_Unlock();
   /* USER CODE END 0 */
 }
 
@@ -167,8 +168,9 @@ uint16_t MEM_If_Init_FS(void)
 uint16_t MEM_If_DeInit_FS(void)
 {
   /* USER CODE BEGIN 1 */
-  HAL_FLASH_Lock();
-  return (USBD_OK);
+  // HAL_FLASH_Lock();
+  return HAL_FLASH_Lock();
+  // return HAL_OK;
   /* USER CODE END 1 */
 }
 
@@ -186,8 +188,8 @@ uint16_t MEM_If_Erase_FS(uint32_t Add)
   FLASH_EraseInitTypeDef EraseConfig;
 
   EraseConfig.TypeErase = FLASH_TYPEERASE_PAGES;
-  EraseConfig.PageAddress = Add;
-  EraseConfig.NbPages = (0x0801F800 - USBD_DFU_APP_DEFAULT_ADD)/0x800U;
+  EraseConfig.PageAddress = Add + 0x2000;
+  EraseConfig.NbPages = (0x0801F800 - USBD_DFU_APP_DEFAULT_ADD)/PAGESIZE;
   EraseStatus = HAL_FLASHEx_Erase(&EraseConfig, &PageError);
 
   if(EraseStatus != HAL_OK) return (USBD_FAIL);
