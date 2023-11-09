@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "motion.h": "c",
+        "math.h": "c"
+    }
+}
