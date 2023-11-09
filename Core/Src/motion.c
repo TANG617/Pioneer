@@ -12,7 +12,7 @@ HAL_StatusTypeDef i2c_rx(uint8_t reg,uint8_t* data){
                             I2C_MEMADD_SIZE_8BIT,data,1,1000);
 }
 
-
+///////////////////////PCA9685
 static void PCA_Sleep(bool sleep){
     uint8_t mode;
     i2c_rx(PCA9685_REG_MODE1,&mode);
@@ -68,7 +68,13 @@ static void PCA_Init(float freq){
     PCA_Output(0,1.0f);//限流A4950
 }
 
-static void EncoderInit(MotionNode *Car){
+///////////////////////ENCODER
+static void EncoderInit(MotionNode *Car, TIM_HandleTypeDef* LF, TIM_HandleTypeDef* LR, TIM_HandleTypeDef* RF, TIM_HandleTypeDef* RR){
+    Car->LeftFrontEncoder.Timer = LF;
+    Car->LeftRearEncoder.Timer = LR;
+    Car->RightFrontEncoder.Timer = RF;
+    Car->RightRearEncoder.Timer = RR;
+    
     // eA1.timer = EA1;
     HAL_TIM_Encoder_Start(Car->LeftFrontEncoder.Timer,TIM_CHANNEL_1);
     HAL_TIM_Encoder_Start(Car->LeftFrontEncoder.Timer,TIM_CHANNEL_2);
@@ -106,44 +112,42 @@ static void EncoderInit(MotionNode *Car){
 
 }
 
-void EncoderUpdate(EncoderNode *Encoder){
+static void EncoderUpdate(EncoderNode *Encoder){
     uint16_t Pulse = __HAL_TIM_GetCounter(Encoder->Timer);
     Encoder->Position += Pulse/(REDUCE*PULSES)*0.17;
     Encoder->Speed = Pulse/(INTERVAL)*0.17;
     __HAL_TIM_SetCounter(Encoder->Timer,0);
 }
 
-MotionNode* MotionInit(){
+///////////////////////MOTOR
+void MotionInit(MotionNode *_Car, TIM_HandleTypeDef* LF, TIM_HandleTypeDef* LR, TIM_HandleTypeDef* RF, TIM_HandleTypeDef* RR){
     //Define the Pin
-    MotionNode PioneerCar;
-    PioneerCar.LeftFrontMotor.Forward = MotorLeftFrontForward;
-    PioneerCar.LeftFrontMotor.Backward = MotorLeftFrontBackward;
-    PioneerCar.LeftRearMotor.Forward = MotorLeftRearForward;
-    PioneerCar.LeftRearMotor.Backward = MotorLeftRearBackward;
-    PioneerCar.RightFrontMotor.Forward = MotorRightFrontForward;
-    PioneerCar.RightFrontMotor.Backward = MotorRightFrontBackward;
-    PioneerCar.RightRearMotor.Forward = MotorRightRearForward;
-    PioneerCar.RightRearMotor.Backward = MotorRightRearBackward;
+    _Car->LeftFrontMotor.Forward = MotorLeftFrontForward;
+    _Car->LeftFrontMotor.Backward = MotorLeftFrontBackward;
+    _Car->LeftRearMotor.Forward = MotorLeftRearForward;
+    _Car->LeftRearMotor.Backward = MotorLeftRearBackward;
+    _Car->RightFrontMotor.Forward = MotorRightFrontForward;
+    _Car->RightFrontMotor.Backward = MotorRightFrontBackward;
+    _Car->RightRearMotor.Forward = MotorRightRearForward;
+    _Car->RightRearMotor.Backward = MotorRightRearBackward;
 
-    PioneerCar.LeftFrontMotor.Speed = 0.0f;
-    PioneerCar.LeftFrontMotor.Position = 0.0f;
-    PioneerCar.LeftRearMotor.Speed = 0.0f;
-    PioneerCar.LeftRearMotor.Position = 0.0f;
-    PioneerCar.RightFrontMotor.Speed = 0.0f;
-    PioneerCar.RightFrontMotor.Position = 0.0f;
-    PioneerCar.RightRearMotor.Speed = 0.0f;
-    PioneerCar.RightRearMotor.Position = 0.0f;
+    _Car->LeftFrontMotor.Speed = 0.0f;
+    _Car->LeftFrontMotor.Position = 0.0f;
+    _Car->LeftRearMotor.Speed = 0.0f;
+    _Car->LeftRearMotor.Position = 0.0f;
+    _Car->RightFrontMotor.Speed = 0.0f;
+    _Car->RightFrontMotor.Position = 0.0f;
+    _Car->RightRearMotor.Speed = 0.0f;
+    _Car->RightRearMotor.Position = 0.0f;
 
-    PioneerCar.Speed = 0.0f;
-    PioneerCar.Position = 0.0f;
+    _Car->Speed = 0.0f;
+    _Car->Position = 0.0f;
 
     //Init PCA9685
     PCA_Init(1500);
 
     //Init Encoder
-    EncoderInit(&PioneerCar);
-
-    return &PioneerCar;
+    EncoderInit(_Car,LF,LR,RF,RR);
 
 }
 
@@ -151,26 +155,28 @@ void MotorSetSpeed(MotorNode *Motor, float targetSpeed){
     Motor->Speed = fabsf(targetSpeed)>1.0f ? 1.0f:targetSpeed;
 }
 
-void AdvanceIV(MotionNode *Car){
-    MotorSetSpeed(&Car->LeftFrontMotor,1.0f);
-    MotorSetSpeed(&Car->LeftRearMotor,1.0f);
-    MotorSetSpeed(&Car->RightFrontMotor,1.0f);
-    MotorSetSpeed(&Car->RightRearMotor,1.0f);
-    MotionUpdateEncoder(&Car);
+
+static void MotionUpdateEncoder(MotionNode *_Car){
+    EncoderUpdate(&_Car->LeftFrontEncoder);
+    EncoderUpdate(&_Car->LeftRearEncoder);
+    EncoderUpdate(&_Car->RightFrontEncoder);
+    EncoderUpdate(&_Car->RightRearEncoder);
 }
 
-void MotionUpdateEncoder(MotionNode *Car){
-    EncoderUpdate(&Car->LeftFrontEncoder);
-    EncoderUpdate(&Car->LeftRearEncoder);
-    EncoderUpdate(&Car->RightFrontEncoder);
-    EncoderUpdate(&Car->RightRearEncoder);
+static void MotionUpdateSpeed(MotionNode *_Car){
+    PCA_Output(_Car->LeftFrontMotor.Speed > 0.0f  ? _Car->LeftFrontMotor.Forward  : _Car->LeftFrontMotor.Backward, fabsf(_Car->LeftFrontMotor.Speed));
+    PCA_Output(_Car->LeftRearMotor.Speed > 0.0f   ? _Car->LeftRearMotor.Forward   : _Car->LeftRearMotor.Backward, fabsf(_Car->LeftRearMotor.Speed));
+    PCA_Output(_Car->RightFrontMotor.Speed > 0.0f ? _Car->RightFrontMotor.Forward : _Car->RightFrontMotor.Backward, fabsf(_Car->RightFrontMotor.Speed));
+    PCA_Output(_Car->RightRearMotor.Speed > 0.0f  ? _Car->RightRearMotor.Forward  : _Car->RightRearMotor.Backward, fabsf(_Car->RightRearMotor.Speed));
 }
 
-void MotionUpdateSpeed(MotionNode *Car){
-    PCA_Output(Car->LeftFrontMotor.Speed > 0.0f ? Car->LeftFrontMotor.Forward : Car->LeftFrontMotor.Backward, fabsf(Car->LeftFrontMotor.Speed));
-    PCA_Output(Car->LeftRearMotor.Speed > 0.0f ? Car->LeftRearMotor.Forward : Car->LeftRearMotor.Backward, fabsf(Car->LeftRearMotor.Speed));
-    PCA_Output(Car->RightFrontMotor.Speed > 0.0f ? Car->RightFrontMotor.Forward : Car->RightFrontMotor.Backward, fabsf(Car->RightFrontMotor.Speed));
-    PCA_Output(Car->RightRearMotor.Speed > 0.0f ? Car->RightRearMotor.Forward : Car->RightRearMotor.Backward, fabsf(Car->RightRearMotor.Speed));
+///////////////////////APP
+void AdvanceIV(MotionNode *_Car){
+    MotorSetSpeed(&_Car->LeftFrontMotor,1.0f);
+    MotorSetSpeed(&_Car->LeftRearMotor,1.0f);
+    MotorSetSpeed(&_Car->RightFrontMotor,1.0f);
+    MotorSetSpeed(&_Car->RightRearMotor,1.0f);
+    MotionUpdateSpeed(_Car);
+    MotionUpdateEncoder(_Car);
 }
-
 

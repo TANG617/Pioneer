@@ -1,7 +1,7 @@
 /*
  * @Author: LiTang
  * @Date: 2023-11-09 20:07:31
- * @LastEditTime: 2023-11-09 22:18:04
+ * @LastEditTime: 2023-11-10 00:01:23
  */
 
 #ifndef MOTION_H
@@ -85,7 +85,8 @@ typedef struct{
     float Position;
 }MotionNode;
 
-MotionNode* MotionInit();
+
+void MotionInit(MotionNode *_Car, TIM_HandleTypeDef* LF, TIM_HandleTypeDef* LR, TIM_HandleTypeDef* RF, TIM_HandleTypeDef* RR);
 void MotorSetSpeed(MotorNode *Motor, float targetSpeed);
 void MotionUpdateSpeed(MotionNode *Car);
 void AdvanceIV(MotionNode *Car);

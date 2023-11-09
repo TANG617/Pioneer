@@ -97,7 +97,9 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   
-  MotionNode PioneerCar = *MotionInit();
+  MotionNode PioneerCar;
+ MotionInit(&PioneerCar, &htim2,&htim3,&htim4,&htim5);
+  HAL_TIM_Base_Start_IT(&htim1);
   AdvanceIV(&PioneerCar);
   /* USER CODE END 2 */
 
