@@ -98,9 +98,13 @@ int main(void)
   /* USER CODE BEGIN 2 */
   
   MotionNode PioneerCar;
- MotionInit(&PioneerCar, &htim2,&htim3,&htim4,&htim5);
+  MotionInit(&PioneerCar, &htim2,&htim3,&htim4,&htim5);
   HAL_TIM_Base_Start_IT(&htim1);
-  AdvanceIV(&PioneerCar);
+  // AdvanceIV(&PioneerCar);
+  // MotionTest(&PioneerCar);
+  MotionMoveRad(&PioneerCar,3.14,0.5);
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */

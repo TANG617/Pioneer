@@ -1,7 +1,7 @@
 /*
  * @Author: LiTang
  * @Date: 2023-11-09 20:07:31
- * @LastEditTime: 2023-11-10 00:01:23
+ * @LastEditTime: 2023-11-10 11:00:46
  */
 
 #ifndef MOTION_H
@@ -43,14 +43,14 @@ typedef uint8_t bool;
 #define PCA9685_REG_ALL_OFF_H   0xFD
 #define PCA9685_REG_FREQ        0xFE
 
-#define MotorLeftFrontForward   13
-#define MotorLeftFrontBackward  12
-#define MotorLeftRearForward    3
-#define MotorLeftRearBackward   4
-#define MotorRightRearForward   1
-#define MotorRightRearBackward  2
-#define MotorRightFrontForward  14
-#define MotorRightFrontBackward 15
+#define MotorLeftFrontForward   15
+#define MotorLeftFrontBackward  14
+#define MotorLeftRearForward    12
+#define MotorLeftRearBackward   13
+#define MotorRightRearForward   4
+#define MotorRightRearBackward  3
+#define MotorRightFrontForward  2
+#define MotorRightFrontBackward 1
 
 #define S 0.143 //S=L/2+H/2,单位为m
 
@@ -87,9 +87,13 @@ typedef struct{
 
 
 void MotionInit(MotionNode *_Car, TIM_HandleTypeDef* LF, TIM_HandleTypeDef* LR, TIM_HandleTypeDef* RF, TIM_HandleTypeDef* RR);
-void MotorSetSpeed(MotorNode *Motor, float targetSpeed);
-void MotionUpdateSpeed(MotionNode *Car);
 void AdvanceIV(MotionNode *Car);
+void MotionTest(MotionNode *Car);
+
+void MotionMoveRad(MotionNode *_Car, float DirectionRad, float Speed);
+void MotionMoveAng(MotionNode *_Car, float DirectionAngel, float Speed);
+void MotionMoveInt(MotionNode *_Car, int X_intensity, int Y_intensity);
+
 
 /////////////////ENCODER
 #define REDUCE 45

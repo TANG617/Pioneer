@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "motion.h": "c",
-        "math.h": "c"
+        "math.h": "c",
+        "cmath": "c"
     }
 }

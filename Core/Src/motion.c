@@ -151,10 +151,21 @@ void MotionInit(MotionNode *_Car, TIM_HandleTypeDef* LF, TIM_HandleTypeDef* LR, 
 
 }
 
-void MotorSetSpeed(MotorNode *Motor, float targetSpeed){
-    Motor->Speed = fabsf(targetSpeed)>1.0f ? 1.0f:targetSpeed;
+static void MotorSetSpeed(MotorNode *_Motor, float targetSpeed){
+    _Motor->Speed = targetSpeed;
 }
 
+static void MotorOutputSpeed(MotorNode *_Motor){
+    if(_Motor->Speed > 0){
+        PCA_Output(_Motor->Backward,0.0f);
+        PCA_Output(_Motor->Forward,fabs(_Motor->Speed));
+    }
+    else{
+        PCA_Output(_Motor->Forward,0.0f);
+        PCA_Output(_Motor->Backward,fabs(_Motor->Speed));
+    }
+    
+}
 
 static void MotionUpdateEncoder(MotionNode *_Car){
     EncoderUpdate(&_Car->LeftFrontEncoder);
@@ -164,10 +175,10 @@ static void MotionUpdateEncoder(MotionNode *_Car){
 }
 
 static void MotionUpdateSpeed(MotionNode *_Car){
-    PCA_Output(_Car->LeftFrontMotor.Speed > 0.0f  ? _Car->LeftFrontMotor.Forward  : _Car->LeftFrontMotor.Backward, fabsf(_Car->LeftFrontMotor.Speed));
-    PCA_Output(_Car->LeftRearMotor.Speed > 0.0f   ? _Car->LeftRearMotor.Forward   : _Car->LeftRearMotor.Backward, fabsf(_Car->LeftRearMotor.Speed));
-    PCA_Output(_Car->RightFrontMotor.Speed > 0.0f ? _Car->RightFrontMotor.Forward : _Car->RightFrontMotor.Backward, fabsf(_Car->RightFrontMotor.Speed));
-    PCA_Output(_Car->RightRearMotor.Speed > 0.0f  ? _Car->RightRearMotor.Forward  : _Car->RightRearMotor.Backward, fabsf(_Car->RightRearMotor.Speed));
+    MotorOutputSpeed(&_Car->LeftFrontMotor);
+    MotorOutputSpeed(&_Car->LeftRearMotor);
+    MotorOutputSpeed(&_Car->RightFrontMotor);
+    MotorOutputSpeed(&_Car->RightRearMotor);
 }
 
 ///////////////////////APP
@@ -180,3 +191,118 @@ void AdvanceIV(MotionNode *_Car){
     MotionUpdateEncoder(_Car);
 }
 
+
+void MotionTest(MotionNode *_Car){
+    MotorSetSpeed(&_Car->LeftFrontMotor,1.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+    MotorSetSpeed(&_Car->LeftFrontMotor,0.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+    MotorSetSpeed(&_Car->LeftFrontMotor,-1.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+    MotorSetSpeed(&_Car->LeftFrontMotor,0.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+
+    MotorSetSpeed(&_Car->LeftRearMotor,1.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+    MotorSetSpeed(&_Car->LeftRearMotor,0.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+    MotorSetSpeed(&_Car->LeftRearMotor,-1.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+    MotorSetSpeed(&_Car->LeftRearMotor,0.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+
+    MotorSetSpeed(&_Car->RightFrontMotor,1.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+    MotorSetSpeed(&_Car->RightFrontMotor,0.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+    MotorSetSpeed(&_Car->RightFrontMotor,-1.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+    MotorSetSpeed(&_Car->RightFrontMotor,0.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+
+    MotorSetSpeed(&_Car->RightRearMotor,1.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+    MotorSetSpeed(&_Car->RightRearMotor,0.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+    MotorSetSpeed(&_Car->RightRearMotor,-1.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+    MotorSetSpeed(&_Car->RightRearMotor,0.0f);
+    MotionUpdateSpeed(_Car);
+    HAL_Delay(1000);
+    MotionUpdateSpeed(_Car);
+    MotionUpdateEncoder(_Car);
+}
+//////////////////
+
+// void MotionForward(MotionNode *_Car, float Speed){
+//     MotorSetSpeed(&_Car->LeftFrontMotor,Speed);
+//     MotorSetSpeed(&_Car->LeftRearMotor,Speed);
+//     MotorSetSpeed(&_Car->RightFrontMotor,Speed);
+//     MotorSetSpeed(&_Car->RightRearMotor,Speed);
+// }
+
+// void MotionForward(MotionNode *_Car, float Speed){
+//     MotorSetSpeed(&_Car->LeftFrontMotor,Speed);
+//     MotorSetSpeed(&_Car->LeftRearMotor,Speed);
+//     MotorSetSpeed(&_Car->RightFrontMotor,Speed);
+//     MotorSetSpeed(&_Car->RightRearMotor,Speed);
+// }
+
+void MotionMoveRad(MotionNode *_Car, float DirectionRad, float Speed){
+    float Xaxis, Yaxis;
+    Xaxis = Speed * cosf(DirectionRad);
+    Yaxis = Speed * sinf(DirectionRad);
+
+    MotorSetSpeed(&_Car->LeftFrontMotor,Yaxis-Xaxis);
+    MotorSetSpeed(&_Car->LeftRearMotor,Yaxis+Xaxis);
+    MotorSetSpeed(&_Car->RightFrontMotor,Yaxis+Xaxis);
+    MotorSetSpeed(&_Car->RightRearMotor,Yaxis-Xaxis);
+
+    MotionUpdateSpeed(_Car);
+}
+
+void MotionMoveAng(MotionNode *_Car, float DirectionAngel, float Speed){
+    float Xaxis, Yaxis;
+    Xaxis = Speed * cosf(DirectionAngel / 360.0 * 2 * 3.14);
+    Yaxis = Speed * sinf(DirectionAngel / 360.0 * 2 * 3.14);
+
+    MotorSetSpeed(&_Car->LeftFrontMotor,Yaxis-Xaxis);
+    MotorSetSpeed(&_Car->LeftRearMotor,Yaxis+Xaxis);
+    MotorSetSpeed(&_Car->RightFrontMotor,Yaxis+Xaxis);
+    MotorSetSpeed(&_Car->RightRearMotor,Yaxis-Xaxis);
+
+    MotionUpdateSpeed(_Car);
+}
+
+void MotionMoveInt(MotionNode *_Car, int X_intensity, int Y_intensity){
+    float Xaxis, Yaxis;
+    float Speed;
+    float DirectionAngel;
+    DirectionAngel = atanf(Y_intensity/X_intensity);
+    Speed = sqrtf(2) * sqrtf(X_intensity * X_intensity + Y_intensity * Y_intensity) / 2 ;
+    Xaxis = Speed * cosf(DirectionAngel / 360.0 * 2 * 3.14);
+    Yaxis = Speed * sinf(DirectionAngel / 360.0 * 2 * 3.14);
+
+    MotorSetSpeed(&_Car->LeftFrontMotor,Yaxis-Xaxis);
+    MotorSetSpeed(&_Car->LeftRearMotor,Yaxis+Xaxis);
+    MotorSetSpeed(&_Car->RightFrontMotor,Yaxis+Xaxis);
+    MotorSetSpeed(&_Car->RightRearMotor,Yaxis-Xaxis);
+
+    MotionUpdateSpeed(_Car);
+
+}
