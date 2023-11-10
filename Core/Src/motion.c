@@ -129,9 +129,7 @@ static void MotorInit(MotorNode *_Motor, uint8_t setForwardChannel, uint8_t setB
     _Motor->Parameter.Velocity.Ki = KI;
     _Motor->Position = 0.0f;
     _Motor->Speed = 0.0f;
-
 }
-
 
 void MotionInit(MotionNode *_Car, TIM_HandleTypeDef* LF, TIM_HandleTypeDef* LR, TIM_HandleTypeDef* RF, TIM_HandleTypeDef* RR){
     //Define the Pin
@@ -139,26 +137,6 @@ void MotionInit(MotionNode *_Car, TIM_HandleTypeDef* LF, TIM_HandleTypeDef* LR, 
     MotorInit(&_Car->LeftRearMotor,MotorLeftRearForward,MotorLeftRearBackward);
     MotorInit(&_Car->RightFrontMotor,MotorRightFrontForward,MotorRightFrontBackward);
     MotorInit(&_Car->RightRearMotor,MotorRightRearForward,MotorRightRearBackward);
-    // _Car->LeftFrontMotor.Forward = MotorLeftFrontForward;
-    // _Car->LeftFrontMotor.Backward = MotorLeftFrontBackward;
-    // _Car->LeftFrontMotor.Parameter.Angel.Kp = KP;
-    // _Car->LeftFrontMotor.Parameter.Angel.Ki = KI;
-    // _Car->LeftFrontMotor.Parameter.Angel.Kp = KP;
-    // _Car->LeftRearMotor.Forward = MotorLeftRearForward;
-    // _Car->LeftRearMotor.Backward = MotorLeftRearBackward;
-    // _Car->RightFrontMotor.Forward = MotorRightFrontForward;
-    // _Car->RightFrontMotor.Backward = MotorRightFrontBackward;
-    // _Car->RightRearMotor.Forward = MotorRightRearForward;
-    // _Car->RightRearMotor.Backward = MotorRightRearBackward;
-
-    // _Car->LeftFrontMotor.Speed = 0.0f;
-    // _Car->LeftFrontMotor.Position = 0.0f;
-    // _Car->LeftRearMotor.Speed = 0.0f;
-    // _Car->LeftRearMotor.Position = 0.0f;
-    // _Car->RightFrontMotor.Speed = 0.0f;
-    // _Car->RightFrontMotor.Position = 0.0f;
-    // _Car->RightRearMotor.Speed = 0.0f;
-    // _Car->RightRearMotor.Position = 0.0f;
 
     _Car->Speed = 0.0f;
     _Car->Position = 0.0f;
@@ -187,23 +165,21 @@ static void MotorOutputSpeed(MotorNode *_Motor){
     
 }
 
-static void MotionUpdateEncoder(MotionNode *_Car){
+static void MotionUpdateSpeed(MotionNode *_Car){
+    MotorOutputSpeed(&_Car->LeftFrontMotor);
+    MotorOutputSpeed(&_Car->LeftRearMotor);
+    MotorOutputSpeed(&_Car->RightFrontMotor);
+    MotorOutputSpeed(&_Car->RightRearMotor);
+
     EncoderUpdate(&_Car->LeftFrontEncoder);
     EncoderUpdate(&_Car->LeftRearEncoder);
     EncoderUpdate(&_Car->RightFrontEncoder);
     EncoderUpdate(&_Car->RightRearEncoder);
 }
 
-static void MotionUpdateSpeed(MotionNode *_Car){
-    MotorOutputSpeed(&_Car->LeftFrontMotor);
-    MotorOutputSpeed(&_Car->LeftRearMotor);
-    MotorOutputSpeed(&_Car->RightFrontMotor);
-    MotorOutputSpeed(&_Car->RightRearMotor);
-}
-
-static void MotorVolocityLoop(MotionNode *_Motor){
+// static void MotorVolocityLoop(MotionNode *_Motor){
     
-}
+// }
 
 ///////////////////////APP
 void AdvanceIV(MotionNode *_Car){
@@ -212,7 +188,6 @@ void AdvanceIV(MotionNode *_Car){
     MotorSetSpeed(&_Car->RightFrontMotor,1.0f);
     MotorSetSpeed(&_Car->RightRearMotor,1.0f);
     MotionUpdateSpeed(_Car);
-    MotionUpdateEncoder(_Car);
 }
 
 
@@ -269,23 +244,10 @@ void MotionTest(MotionNode *_Car){
     MotionUpdateSpeed(_Car);
     HAL_Delay(1000);
     MotionUpdateSpeed(_Car);
-    MotionUpdateEncoder(_Car);
 }
+
 //////////////////
 
-// void MotionForward(MotionNode *_Car, float Speed){
-//     MotorSetSpeed(&_Car->LeftFrontMotor,Speed);
-//     MotorSetSpeed(&_Car->LeftRearMotor,Speed);
-//     MotorSetSpeed(&_Car->RightFrontMotor,Speed);
-//     MotorSetSpeed(&_Car->RightRearMotor,Speed);
-// }
-
-// void MotionForward(MotionNode *_Car, float Speed){
-//     MotorSetSpeed(&_Car->LeftFrontMotor,Speed);
-//     MotorSetSpeed(&_Car->LeftRearMotor,Speed);
-//     MotorSetSpeed(&_Car->RightFrontMotor,Speed);
-//     MotorSetSpeed(&_Car->RightRearMotor,Speed);
-// }
 
 void MotionMoveRad(MotionNode *_Car, float DirectionRad, float Speed){
     float Xaxis, Yaxis;

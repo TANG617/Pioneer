@@ -37,6 +37,7 @@ BUILD_DIR = build
 # C sources
 C_SOURCES =  \
 Core/Src/motion.c \
+Core/Src/utilities.c \
 Core/Src/main.c \
 Core/Src/gpio.c \
 Core/Src/i2c.c \
