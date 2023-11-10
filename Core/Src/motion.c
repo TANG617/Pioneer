@@ -120,25 +120,45 @@ static void EncoderUpdate(EncoderNode *Encoder){
 }
 
 ///////////////////////MOTOR
+static void MotorInit(MotorNode *_Motor, uint8_t setForwardChannel, uint8_t setBackwardChannel){
+    _Motor->Forward = setForwardChannel;
+    _Motor->Backward = setBackwardChannel;
+    _Motor->Parameter.Angel.Kp = KP;
+    _Motor->Parameter.Angel.Ki = KI;
+    _Motor->Parameter.Velocity.Kp = KP;
+    _Motor->Parameter.Velocity.Ki = KI;
+    _Motor->Position = 0.0f;
+    _Motor->Speed = 0.0f;
+
+}
+
+
 void MotionInit(MotionNode *_Car, TIM_HandleTypeDef* LF, TIM_HandleTypeDef* LR, TIM_HandleTypeDef* RF, TIM_HandleTypeDef* RR){
     //Define the Pin
-    _Car->LeftFrontMotor.Forward = MotorLeftFrontForward;
-    _Car->LeftFrontMotor.Backward = MotorLeftFrontBackward;
-    _Car->LeftRearMotor.Forward = MotorLeftRearForward;
-    _Car->LeftRearMotor.Backward = MotorLeftRearBackward;
-    _Car->RightFrontMotor.Forward = MotorRightFrontForward;
-    _Car->RightFrontMotor.Backward = MotorRightFrontBackward;
-    _Car->RightRearMotor.Forward = MotorRightRearForward;
-    _Car->RightRearMotor.Backward = MotorRightRearBackward;
+    MotorInit(&_Car->LeftFrontMotor,MotorLeftFrontForward,MotorLeftFrontBackward);
+    MotorInit(&_Car->LeftRearMotor,MotorLeftRearForward,MotorLeftRearBackward);
+    MotorInit(&_Car->RightFrontMotor,MotorRightFrontForward,MotorRightFrontBackward);
+    MotorInit(&_Car->RightRearMotor,MotorRightRearForward,MotorRightRearBackward);
+    // _Car->LeftFrontMotor.Forward = MotorLeftFrontForward;
+    // _Car->LeftFrontMotor.Backward = MotorLeftFrontBackward;
+    // _Car->LeftFrontMotor.Parameter.Angel.Kp = KP;
+    // _Car->LeftFrontMotor.Parameter.Angel.Ki = KI;
+    // _Car->LeftFrontMotor.Parameter.Angel.Kp = KP;
+    // _Car->LeftRearMotor.Forward = MotorLeftRearForward;
+    // _Car->LeftRearMotor.Backward = MotorLeftRearBackward;
+    // _Car->RightFrontMotor.Forward = MotorRightFrontForward;
+    // _Car->RightFrontMotor.Backward = MotorRightFrontBackward;
+    // _Car->RightRearMotor.Forward = MotorRightRearForward;
+    // _Car->RightRearMotor.Backward = MotorRightRearBackward;
 
-    _Car->LeftFrontMotor.Speed = 0.0f;
-    _Car->LeftFrontMotor.Position = 0.0f;
-    _Car->LeftRearMotor.Speed = 0.0f;
-    _Car->LeftRearMotor.Position = 0.0f;
-    _Car->RightFrontMotor.Speed = 0.0f;
-    _Car->RightFrontMotor.Position = 0.0f;
-    _Car->RightRearMotor.Speed = 0.0f;
-    _Car->RightRearMotor.Position = 0.0f;
+    // _Car->LeftFrontMotor.Speed = 0.0f;
+    // _Car->LeftFrontMotor.Position = 0.0f;
+    // _Car->LeftRearMotor.Speed = 0.0f;
+    // _Car->LeftRearMotor.Position = 0.0f;
+    // _Car->RightFrontMotor.Speed = 0.0f;
+    // _Car->RightFrontMotor.Position = 0.0f;
+    // _Car->RightRearMotor.Speed = 0.0f;
+    // _Car->RightRearMotor.Position = 0.0f;
 
     _Car->Speed = 0.0f;
     _Car->Position = 0.0f;
@@ -179,6 +199,10 @@ static void MotionUpdateSpeed(MotionNode *_Car){
     MotorOutputSpeed(&_Car->LeftRearMotor);
     MotorOutputSpeed(&_Car->RightFrontMotor);
     MotorOutputSpeed(&_Car->RightRearMotor);
+}
+
+static void MotorVolocityLoop(MotionNode *_Motor){
+    
 }
 
 ///////////////////////APP

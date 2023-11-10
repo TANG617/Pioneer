@@ -1,7 +1,7 @@
 /*
  * @Author: LiTang
  * @Date: 2023-11-09 20:07:31
- * @LastEditTime: 2023-11-10 11:00:46
+ * @LastEditTime: 2023-11-10 11:29:58
  */
 
 #ifndef MOTION_H
@@ -52,14 +52,19 @@ typedef uint8_t bool;
 #define MotorRightFrontForward  2
 #define MotorRightFrontBackward 1
 
+#define KP 0.6f
+#define KI 0.003f
+
 #define S 0.143 //S=L/2+H/2,单位为m
 
 /////////////////MOTOR
 typedef struct{
-    uint8_t Forward, Backward;
-    float Speed;
-    float Position;
-}MotorNode;
+    float Kp,Ki,Kd;
+}LoopParameter;
+
+typedef struct{
+    LoopParameter Angel, Velocity;
+}MotorParameter;
 
 typedef struct{
     TIM_HandleTypeDef* Timer;
@@ -67,6 +72,13 @@ typedef struct{
     float Position;
     float Speed;
 } EncoderNode;
+
+typedef struct{
+    uint8_t Forward, Backward;
+    float Speed;
+    float Position;
+    MotorParameter Parameter;
+}MotorNode;
 
 typedef struct{
     MotorNode LeftFrontMotor;

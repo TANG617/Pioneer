@@ -2,6 +2,7 @@
     "files.associations": {
         "motion.h": "c",
         "math.h": "c",
-        "cmath": "c"
+        "cmath": "c",
+        "stm32f1xx_hal.h": "c"
     }
 }
