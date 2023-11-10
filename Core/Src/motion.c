@@ -1,4 +1,5 @@
 #include "motion.h"
+#include "main.h" //debug
 
 extern I2C_HandleTypeDef hi2c2;
 
@@ -81,8 +82,8 @@ static void EncoderInit(MotionNode *Car, TIM_HandleTypeDef* LF, TIM_HandleTypeDe
     Car->LeftFrontEncoder.Round=0;
     Car->LeftFrontEncoder.Position=0;
     Car->LeftFrontEncoder.Speed=0;
-   __HAL_TIM_SetCounter(Car->LeftFrontEncoder.Timer,0);
-   __HAL_TIM_ENABLE_IT(Car->LeftFrontEncoder.Timer,TIM_IT_UPDATE);
+    __HAL_TIM_SetCounter(Car->LeftFrontEncoder.Timer,0);
+    __HAL_TIM_ENABLE_IT(Car->LeftFrontEncoder.Timer,TIM_IT_UPDATE);
     // FS_Debug("EA1 init\r\n");
 
     HAL_TIM_Encoder_Start(Car->LeftRearEncoder.Timer, TIM_CHANNEL_1);
@@ -110,13 +111,17 @@ static void EncoderInit(MotionNode *Car, TIM_HandleTypeDef* LF, TIM_HandleTypeDe
     __HAL_TIM_SetCounter(Car->RightRearEncoder.Timer, 0);
     __HAL_TIM_ENABLE_IT(Car->RightRearEncoder.Timer, TIM_IT_UPDATE);
 
+
 }
 
 static void EncoderUpdate(EncoderNode *Encoder){
     uint16_t Pulse = __HAL_TIM_GetCounter(Encoder->Timer);
     Encoder->Position += Pulse/(REDUCE*PULSES)*0.17;
     Encoder->Speed = Pulse/(INTERVAL)*0.17;
+    // Encoder->Speed = Pulse;
+    Encoder->Round = Pulse; //debug
     __HAL_TIM_SetCounter(Encoder->Timer,0);
+    
 }
 
 ///////////////////////MOTOR
@@ -165,7 +170,7 @@ static void MotorOutputSpeed(MotorNode *_Motor){
     
 }
 
-static void MotionUpdateSpeed(MotionNode *_Car){
+void MotionUpdate(MotionNode *_Car){
     MotorOutputSpeed(&_Car->LeftFrontMotor);
     MotorOutputSpeed(&_Car->LeftRearMotor);
     MotorOutputSpeed(&_Car->RightFrontMotor);
@@ -175,6 +180,8 @@ static void MotionUpdateSpeed(MotionNode *_Car){
     EncoderUpdate(&_Car->LeftRearEncoder);
     EncoderUpdate(&_Car->RightFrontEncoder);
     EncoderUpdate(&_Car->RightRearEncoder);
+
+
 }
 
 // static void MotorVolocityLoop(MotionNode *_Motor){
@@ -187,63 +194,63 @@ void AdvanceIV(MotionNode *_Car){
     MotorSetSpeed(&_Car->LeftRearMotor,1.0f);
     MotorSetSpeed(&_Car->RightFrontMotor,1.0f);
     MotorSetSpeed(&_Car->RightRearMotor,1.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
 }
 
 
 void MotionTest(MotionNode *_Car){
     MotorSetSpeed(&_Car->LeftFrontMotor,1.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
     MotorSetSpeed(&_Car->LeftFrontMotor,0.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
     MotorSetSpeed(&_Car->LeftFrontMotor,-1.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
     MotorSetSpeed(&_Car->LeftFrontMotor,0.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
 
     MotorSetSpeed(&_Car->LeftRearMotor,1.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
     MotorSetSpeed(&_Car->LeftRearMotor,0.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
     MotorSetSpeed(&_Car->LeftRearMotor,-1.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
     MotorSetSpeed(&_Car->LeftRearMotor,0.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
 
     MotorSetSpeed(&_Car->RightFrontMotor,1.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
     MotorSetSpeed(&_Car->RightFrontMotor,0.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
     MotorSetSpeed(&_Car->RightFrontMotor,-1.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
     MotorSetSpeed(&_Car->RightFrontMotor,0.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
 
     MotorSetSpeed(&_Car->RightRearMotor,1.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
     MotorSetSpeed(&_Car->RightRearMotor,0.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
     MotorSetSpeed(&_Car->RightRearMotor,-1.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
     MotorSetSpeed(&_Car->RightRearMotor,0.0f);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
     HAL_Delay(1000);
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
 }
 
 //////////////////
@@ -259,7 +266,7 @@ void MotionMoveRad(MotionNode *_Car, float DirectionRad, float Speed){
     MotorSetSpeed(&_Car->RightFrontMotor,Yaxis+Xaxis);
     MotorSetSpeed(&_Car->RightRearMotor,Yaxis-Xaxis);
 
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
 }
 
 void MotionMoveAng(MotionNode *_Car, float DirectionAngel, float Speed){
@@ -272,7 +279,7 @@ void MotionMoveAng(MotionNode *_Car, float DirectionAngel, float Speed){
     MotorSetSpeed(&_Car->RightFrontMotor,Yaxis+Xaxis);
     MotorSetSpeed(&_Car->RightRearMotor,Yaxis-Xaxis);
 
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
 }
 
 void MotionMoveInt(MotionNode *_Car, int X_intensity, int Y_intensity){
@@ -289,6 +296,6 @@ void MotionMoveInt(MotionNode *_Car, int X_intensity, int Y_intensity){
     MotorSetSpeed(&_Car->RightFrontMotor,Yaxis+Xaxis);
     MotorSetSpeed(&_Car->RightRearMotor,Yaxis-Xaxis);
 
-    MotionUpdateSpeed(_Car);
+    MotionUpdate(_Car);
 
 }

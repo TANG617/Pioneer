@@ -1,7 +1,7 @@
 /*
  * @Author: LiTang
  * @Date: 2023-11-09 20:07:31
- * @LastEditTime: 2023-11-10 11:29:58
+ * @LastEditTime: 2023-11-10 16:42:04
  */
 
 #ifndef MOTION_H
@@ -99,6 +99,7 @@ typedef struct{
 
 
 void MotionInit(MotionNode *_Car, TIM_HandleTypeDef* LF, TIM_HandleTypeDef* LR, TIM_HandleTypeDef* RF, TIM_HandleTypeDef* RR);
+void MotionUpdate(MotionNode *_Car);
 void AdvanceIV(MotionNode *Car);
 void MotionTest(MotionNode *Car);
 

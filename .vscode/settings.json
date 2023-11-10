@@ -3,6 +3,7 @@
         "motion.h": "c",
         "math.h": "c",
         "cmath": "c",
-        "stm32f1xx_hal.h": "c"
+        "stm32f1xx_hal.h": "c",
+        "main.h": "c"
     }
 }

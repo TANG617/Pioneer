@@ -27,6 +27,9 @@
 /* USER CODE BEGIN Includes */
 #include "motion.h"
 #include "utilities.h"
+#include <stdarg.h>		  
+#include <stdio.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -47,7 +50,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+char  formatBuf[128];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -114,7 +117,13 @@ int main(void)
   {
     /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
-    DebugPrint("MOTOR_SPEED:%f\n",PioneerCar.LeftFrontEncoder.Speed);
+    MotionUpdate(&PioneerCar);
+    DebugPrint("MOTOR_SPEED--1:%d\n",PioneerCar.LeftFrontEncoder.Round);
+    DebugPrint("MOTOR_SPEED--2:%d\n",PioneerCar.LeftRearEncoder.Round);
+    DebugPrint("MOTOR_SPEED--3:%d\n",PioneerCar.RightFrontEncoder.Round);
+    DebugPrint("MOTOR_SPEED--4:%d\n",PioneerCar.RightRearEncoder.Round);
+    HAL_Delay(100);
+    
   }
   /* USER CODE END 3 */
 }
@@ -159,7 +168,13 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void DebugPrint(char *p,...){
+    va_list ap;
+    va_start(ap,p);
+    vsprintf(formatBuf,p,ap);
+    va_end(ap);	
+    HAL_UART_Transmit(&huart1,(uint8_t *)formatBuf,strlen(formatBuf),1000);
+}
 /* USER CODE END 4 */
 
 /**
