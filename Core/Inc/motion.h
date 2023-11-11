@@ -1,7 +1,7 @@
 /*
  * @Author: LiTang
  * @Date: 2023-11-09 20:07:31
- * @LastEditTime: 2023-11-10 16:42:04
+ * @LastEditTime: 2023-11-11 16:36:17
  */
 
 #ifndef MOTION_H
@@ -10,10 +10,11 @@
 
 
 #include "stm32f1xx_hal.h"
+#include "pal_global.h"
 #include <math.h>
-typedef uint8_t bool;
-#define false (0x00u)
-#define true (!false)
+// typedef uint8_t bool;
+// #define false (0x00u)
+// #define true (!false)
 /////////////////PCA9685
 #define PCA9685_IIC_ADDR (0x40<<1)
 #define PCA9685_INTERNAL_OSC 25000000

@@ -118,6 +118,7 @@ int main(void)
     /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
     MotionUpdate(&PioneerCar);
+    PAL_UART_Printf(&huart1,"HELLO\n");
     DebugPrint("MOTOR_SPEED--1:%d\n",PioneerCar.LeftFrontEncoder.Round);
     DebugPrint("MOTOR_SPEED--2:%d\n",PioneerCar.LeftRearEncoder.Round);
     DebugPrint("MOTOR_SPEED--3:%d\n",PioneerCar.RightFrontEncoder.Round);

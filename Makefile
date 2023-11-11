@@ -37,6 +37,15 @@ BUILD_DIR = build
 # C sources
 C_SOURCES =  \
 Core/Src/motion.c \
+PAL/Src/pal_uart.c \
+PAL/Src/pal_mpu6050_dmp.c \
+PAL/Src/pal_mpu6050.c \
+PAL/Src/pal_pca9685.c \
+PAL/Src/pal_ssd1306.c \
+PAL/Src/pal_st7789.c \
+PAL/Src/pal_utils.c \
+PAL/Src/pal_w25qxx.c \
+PAL/Src/pal_w25qxxMSC.c \
 Core/Src/utilities.c \
 Core/Src/main.c \
 Core/Src/gpio.c \
@@ -121,7 +130,8 @@ C_INCLUDES =  \
 -IDrivers/STM32F1xx_HAL_Driver/Inc \
 -IDrivers/STM32F1xx_HAL_Driver/Inc/Legacy \
 -IDrivers/CMSIS/Device/ST/STM32F1xx/Include \
--IDrivers/CMSIS/Include
+-IDrivers/CMSIS/Include \
+-IPAL/Inc \
 
 
 # compile gcc flags
