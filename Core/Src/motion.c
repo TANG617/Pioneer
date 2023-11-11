@@ -1,5 +1,4 @@
 #include "motion.h"
-#include "main.h" //debug
 
 extern I2C_HandleTypeDef hi2c2;
 
@@ -132,6 +131,8 @@ static void MotorInit(MotorNode *_Motor, uint8_t setForwardChannel, uint8_t setB
     _Motor->Parameter.Angel.Ki = KI;
     _Motor->Parameter.Velocity.Kp = KP;
     _Motor->Parameter.Velocity.Ki = KI;
+    _Motor->Parameter.Velocity.Bias = 0;
+    _Motor->Parameter.Velocity.Integral = 0;
     _Motor->Position = 0.0f;
     _Motor->Speed = 0.0f;
 }
@@ -161,13 +162,29 @@ static void MotorSetSpeed(MotorNode *_Motor, float targetSpeed){
 static void MotorOutputSpeed(MotorNode *_Motor){
     if(_Motor->Speed > 0){
         PCA_Output(_Motor->Backward,0.0f);
-        PCA_Output(_Motor->Forward,fabs(_Motor->Speed));
+        PCA_Output(_Motor->Forward,fabs(_Motor->Speed + _Motor->Parameter.Velocity.Bias + _Motor->Parameter.Velocity.Integral));
     }
     else{
         PCA_Output(_Motor->Forward,0.0f);
-        PCA_Output(_Motor->Backward,fabs(_Motor->Speed));
+        PCA_Output(_Motor->Backward,fabs(_Motor->Speed + _Motor->Parameter.Velocity.Bias + _Motor->Parameter.Velocity.Integral));
     }
     
+}
+
+
+
+static void MotionVolocityLoop(MotionNode *_Car){
+_Car->LeftFrontMotor.Parameter.Velocity.Bias = (_Car->LeftFrontMotor.Speed - _Car->LeftFrontEncoder.Speed) * _Car->LeftFrontMotor.Parameter.Velocity.Kp;
+_Car->LeftFrontMotor.Parameter.Velocity.Integral += _Car->LeftFrontMotor.Parameter.Velocity.Bias * _Car->LeftFrontMotor.Parameter.Velocity.Ki;
+
+_Car->RightFrontMotor.Parameter.Velocity.Bias = (_Car->RightFrontMotor.Speed - _Car->RightFrontEncoder.Speed) * _Car->RightFrontMotor.Parameter.Velocity.Kp;
+_Car->RightFrontMotor.Parameter.Velocity.Integral += _Car->RightFrontMotor.Parameter.Velocity.Bias * _Car->RightFrontMotor.Parameter.Velocity.Ki;
+
+_Car->LeftRearMotor.Parameter.Velocity.Bias = (_Car->LeftRearMotor.Speed - _Car->LeftRearEncoder.Speed) * _Car->LeftRearMotor.Parameter.Velocity.Kp;
+_Car->LeftRearMotor.Parameter.Velocity.Integral += _Car->LeftRearMotor.Parameter.Velocity.Bias * _Car->LeftRearMotor.Parameter.Velocity.Ki;
+
+_Car->RightRearMotor.Parameter.Velocity.Bias = (_Car->RightRearMotor.Speed - _Car->RightRearEncoder.Speed) * _Car->RightRearMotor.Parameter.Velocity.Kp;
+_Car->RightRearMotor.Parameter.Velocity.Integral += _Car->RightRearMotor.Parameter.Velocity.Bias * _Car->RightRearMotor.Parameter.Velocity.Ki;
 }
 
 void MotionUpdate(MotionNode *_Car){
@@ -181,12 +198,10 @@ void MotionUpdate(MotionNode *_Car){
     EncoderUpdate(&_Car->RightFrontEncoder);
     EncoderUpdate(&_Car->RightRearEncoder);
 
+    MotionVolocityLoop(_Car);
+
 
 }
-
-// static void MotorVolocityLoop(MotionNode *_Motor){
-    
-// }
 
 ///////////////////////APP
 void AdvanceIV(MotionNode *_Car){
@@ -254,7 +269,6 @@ void MotionTest(MotionNode *_Car){
 }
 
 //////////////////
-
 
 void MotionMoveRad(MotionNode *_Car, float DirectionRad, float Speed){
     float Xaxis, Yaxis;

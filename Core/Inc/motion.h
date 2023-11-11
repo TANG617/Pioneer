@@ -1,7 +1,7 @@
 /*
  * @Author: LiTang
  * @Date: 2023-11-09 20:07:31
- * @LastEditTime: 2023-11-11 16:36:17
+ * @LastEditTime: 2023-11-11 17:14:43
  */
 
 #ifndef MOTION_H
@@ -61,6 +61,7 @@
 /////////////////MOTOR
 typedef struct{
     float Kp,Ki,Kd;
+    float Bias,Integral;
 }LoopParameter;
 
 typedef struct{

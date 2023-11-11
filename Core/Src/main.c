@@ -106,7 +106,7 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim1);
   // AdvanceIV(&PioneerCar);
   // MotionTest(&PioneerCar);
-  MotionMoveRad(&PioneerCar,3.14,0.5);
+  MotionMoveRad(&PioneerCar,3.14,0.2);
 
 
   /* USER CODE END 2 */

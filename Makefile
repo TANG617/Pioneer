@@ -41,11 +41,6 @@ PAL/Src/pal_uart.c \
 PAL/Src/pal_mpu6050_dmp.c \
 PAL/Src/pal_mpu6050.c \
 PAL/Src/pal_pca9685.c \
-PAL/Src/pal_ssd1306.c \
-PAL/Src/pal_st7789.c \
-PAL/Src/pal_utils.c \
-PAL/Src/pal_w25qxx.c \
-PAL/Src/pal_w25qxxMSC.c \
 Core/Src/utilities.c \
 Core/Src/main.c \
 Core/Src/gpio.c \
