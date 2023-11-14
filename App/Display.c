@@ -15,13 +15,13 @@ HAL_StatusTypeDef ShowWheelStatus(MotionType *_Car)
     LCD_ShowNum(10,40,_Car->LeftFrot.Motor.RadVelocity*100,6,24);
     LCD_ShowNum(10,70,_Car->LeftFrot.Parameter.PID*100,6,24);
 
-    LCD_ShowNum(140,10,_Car->RightFrot.Encoder.RadVelocity*100*(-1),6,24);
-    LCD_ShowNum(140,40,_Car->RightFrot.Motor.RadVelocity*100*(-1),6,24);
-    LCD_ShowNum(140,70,_Car->RightFrot.Parameter.PID*100*(-1),6,24);
+    LCD_ShowNum(140,10,_Car->RightFrot.Encoder.RadVelocity*100,6,24);
+    LCD_ShowNum(140,40,_Car->RightFrot.Motor.RadVelocity*100,6,24);
+    LCD_ShowNum(140,70,_Car->RightFrot.Parameter.PID*100,6,24);
 
-    LCD_ShowNum(10,150,_Car->LeftRear.Encoder.RadVelocity*100*(-1),6,24);
-    LCD_ShowNum(10,180,_Car->LeftRear.Motor.RadVelocity*100*(-1),6,24);
-    LCD_ShowNum(10,210,_Car->LeftRear.Parameter.PID*100*(-1),6,24);
+    LCD_ShowNum(10,150,_Car->LeftRear.Encoder.RadVelocity*100,6,24);
+    LCD_ShowNum(10,180,_Car->LeftRear.Motor.RadVelocity*100,6,24);
+    LCD_ShowNum(10,210,_Car->LeftRear.Parameter.PID*100,6,24);
 
     LCD_ShowNum(140,150,_Car->RightRear.Encoder.RadVelocity*100,6,24);
     LCD_ShowNum(140,180,_Car->RightRear.Motor.RadVelocity*100,6,24);

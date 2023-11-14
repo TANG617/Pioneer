@@ -148,3 +148,24 @@ void MotionMoveRad(MotionType *_Car, float DirectionRad, float Speed){
 
     MotionUpdate(_Car);
 }
+
+void MotionMoveInt(MotionType *_Car, int X_intensity, int Y_intensity){
+    float Xaxis, Yaxis;
+    Xaxis = 1.0 * X_intensity/128.0;
+    Yaxis = 1.0 * Y_intensity/128.0;
+
+    // float Speed;
+    // float DirectionAngel;
+    // DirectionAngel = atanf(Y_intensity/X_intensity);
+    // Speed = sqrtf(2) * sqrtf(X_intensity * X_intensity + Y_intensity * Y_intensity) / 2 ;
+    // Xaxis = Speed * cosf(DirectionAngel / 360.0 * 2 * 3.14);
+    // Yaxis = Speed * sinf(DirectionAngel / 360.0 * 2 * 3.14);
+
+    WheelSetRadVolocity(&_Car->LeftFrot,Yaxis-Xaxis);
+    WheelSetRadVolocity(&_Car->LeftRear,Yaxis+Xaxis);
+    WheelSetRadVolocity(&_Car->RightFrot,Yaxis+Xaxis);
+    WheelSetRadVolocity(&_Car->RightRear,Yaxis-Xaxis);
+
+    MotionUpdate(_Car);
+
+}

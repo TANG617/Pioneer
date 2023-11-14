@@ -52,7 +52,7 @@
 
 /* USER CODE BEGIN PV */
 extern DSC_Type *_DSC;
-uint8_t rawDSC[30] ="-118_0070_0083_0063_0171_-122#";
+// uint8_t rawDSC[30] ="-118_0070_0083_0063_0171_-122#";
 int16_t DSC_DATA[6];
 /* USER CODE END PV */
 
@@ -128,12 +128,16 @@ int main(void)
 
     HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_0);
     // MotionMoveRad(&PioneerCar,3.14,0.3);
+    MotionMoveInt(&PioneerCar,0,0);
     HAL_Delay(10);
-    // ShowWheelStatus(&PioneerCar);
+
     // readUART(rawDSC);
     // DSC_Process(rawDSC,DSC_DATA);
     DSC_GET(DSC_DATA);
-    ShowDSCStatus(DSC_DATA);
+    MotionMoveInt(&PioneerCar,DSC_DATA[LStickX],DSC_DATA[LStickY]);
+
+    // ShowDSCStatus(DSC_DATA);
+    ShowWheelStatus(&PioneerCar);
 
   }
   /* USER CODE END 3 */
