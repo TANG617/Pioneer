@@ -25,6 +25,7 @@ static HAL_StatusTypeDef WheelInit(WheelType *_Wheel, uint8_t MoForPin, uint8_t 
     HAL_TIM_Encoder_Start(_Wheel->Encoder.Timer,TIM_CHANNEL_2);
     _Wheel->Encoder.NRound=0;
     _Wheel->Encoder.RadVelocity=0;
+    _Wheel->Encoder.Direction = 1;
     __HAL_TIM_SetCounter(_Wheel->Encoder.Timer,0);
     __HAL_TIM_ENABLE_IT(_Wheel->Encoder.Timer,TIM_IT_UPDATE);
 
@@ -46,6 +47,8 @@ HAL_StatusTypeDef MotionInit(MotionType *_Car, TIM_HandleTypeDef* LeFr, TIM_Hand
     WheelInit(&_Car->LeftRear,MotorLeftRearForward,MotorLeftRearBackward,LeRe);
     WheelInit(&_Car->RightFrot,MotorRightFrontForward,MotorRightFrontBackward,RiFr);
     WheelInit(&_Car->RightRear,MotorRightRearForward,MotorRightRearBackward,RiRe);
+
+    _Car->LeftRear.Encoder.Direction = -1;
 
     _Car->Position = 0.0f;
     _Car->Volocity = 0.0f;
@@ -97,7 +100,7 @@ static HAL_StatusTypeDef EncoderUpdate(WheelType *_Wheel)
     int16_t prvPulse = __HAL_TIM_GetCounter(_Wheel->Encoder.Timer);
     HAL_Delay(INTERVAL);
     int16_t curPulse = __HAL_TIM_GetCounter(_Wheel->Encoder.Timer);
-    int16_t Pulse = curPulse - prvPulse;
+    int16_t Pulse = (curPulse - prvPulse)*_Wheel->Encoder.Direction;
     // if(curPulse - prvPulse > 32767) Pulse = (-1) * (curPulse - prvPulse);
     // else Pulse = (curPulse - prvPulse);
     _Wheel->Encoder.RadPosition += Pulse/(REDUCE*PULSES)*0.17;

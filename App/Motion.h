@@ -36,6 +36,7 @@ typedef struct
     TIM_HandleTypeDef* Timer;
     float RadVelocity,RadPosition;
     uint16_t NPulse,NRound;
+    int8_t Direction;
 }EncoderType;
 
 typedef struct
