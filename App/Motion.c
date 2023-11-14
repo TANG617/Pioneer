@@ -151,8 +151,10 @@ void MotionMoveRad(MotionType *_Car, float DirectionRad, float Speed){
 
 void MotionMoveInt(MotionType *_Car, int X_intensity, int Y_intensity){
     float Xaxis, Yaxis;
-    Xaxis = 1.0 * X_intensity/128.0;
-    Yaxis = 1.0 * Y_intensity/128.0;
+    X_intensity = X_intensity >=40 || X_intensity <= -40 ? X_intensity : 0;
+    Y_intensity = Y_intensity >=40 || Y_intensity <= -40 ? Y_intensity : 0;
+    Xaxis = 1.0 * X_intensity/400.0;
+    Yaxis = 1.0 * Y_intensity/400.0;
 
     // float Speed;
     // float DirectionAngel;

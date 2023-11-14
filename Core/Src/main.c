@@ -54,10 +54,13 @@
 extern DSC_Type *_DSC;
 // uint8_t rawDSC[30] ="-118_0070_0083_0063_0171_-122#";
 int16_t DSC_DATA[6];
+MotionType PioneerCar;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
+
 
 /* USER CODE BEGIN PFP */
 
@@ -108,7 +111,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
   LCD_Init();
   LCD_Clear(BLACK);
-  MotionType PioneerCar;
   MotionInit(&PioneerCar,&htim4,&htim3,&htim2,&htim5);
   HAL_TIM_Base_Start_IT(&htim1);
   // HAL_UART_Receive(&huart2,rawDSC,30,HAL_MAX_DELAY);
@@ -128,13 +130,14 @@ int main(void)
 
     HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_0);
     // MotionMoveRad(&PioneerCar,3.14,0.3);
-    MotionMoveInt(&PioneerCar,0,0);
-    HAL_Delay(10);
+    // MotionMoveInt(&PioneerCar,0,0);
+    // HAL_Delay(100);
 
     // readUART(rawDSC);
     // DSC_Process(rawDSC,DSC_DATA);
     DSC_GET(DSC_DATA);
-    MotionMoveInt(&PioneerCar,DSC_DATA[LStickX],DSC_DATA[LStickY]);
+    MotionUpdate(&PioneerCar);
+    MotionMoveInt(&PioneerCar,DSC_DATA[LStickX],DSC_DATA[LStickY]*(-1));
 
     // ShowDSCStatus(DSC_DATA);
     ShowWheelStatus(&PioneerCar);
@@ -183,6 +186,15 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+// void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+// {
+//   if (htim->Instance == TIM1)
+//   {
+//
+//     MotionUpdate(&PioneerCar);
+//     MotionMoveInt(&PioneerCar,DSC_DATA[LStickX],DSC_DATA[LStickY]);
+//   }
+// }
 
 /* USER CODE END 4 */
 
@@ -197,6 +209,7 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
   {
+
   }
   /* USER CODE END Error_Handler_Debug */
 }

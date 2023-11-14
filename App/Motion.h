@@ -67,6 +67,7 @@ extern I2C_HandleTypeDef hi2c2;
 HAL_StatusTypeDef MotionInit(MotionType *_Car, TIM_HandleTypeDef* LeFr, TIM_HandleTypeDef* LeRe, TIM_HandleTypeDef* RiFr, TIM_HandleTypeDef* RiRe);
 void MotionMoveRad(MotionType *_Car, float DirectionRad, float Speed);
 void MotionMoveInt(MotionType *_Car, int X_intensity, int Y_intensity);
+HAL_StatusTypeDef MotionUpdate(MotionType *_Car);
 
 
 
