@@ -72,7 +72,7 @@ HAL_StatusTypeDef WheelSetRadVolocity(WheelType *_Wheel, float targetVolocity)
 
 static float VelocityCurve(float rawVelocity)
 {
-    return rawVelocity / 100.0;
+    return rawVelocity ;
 }
 
 static HAL_StatusTypeDef MotorOutSpeed(WheelType *_Wheel)
@@ -93,11 +93,17 @@ static HAL_StatusTypeDef MotorOutSpeed(WheelType *_Wheel)
 
 static HAL_StatusTypeDef EncoderUpdate(WheelType *_Wheel)
 {
-    uint16_t Pulse = __HAL_TIM_GetCounter(_Wheel->Encoder.Timer);
+    __HAL_TIM_SetCounter(_Wheel->Encoder.Timer,0);
+    int16_t prvPulse = __HAL_TIM_GetCounter(_Wheel->Encoder.Timer);
+    HAL_Delay(INTERVAL);
+    int16_t curPulse = __HAL_TIM_GetCounter(_Wheel->Encoder.Timer);
+    int16_t Pulse = curPulse - prvPulse;
+    // if(curPulse - prvPulse > 32767) Pulse = (-1) * (curPulse - prvPulse);
+    // else Pulse = (curPulse - prvPulse);
     _Wheel->Encoder.RadPosition += Pulse/(REDUCE*PULSES)*0.17;
-    _Wheel->Encoder.RadVelocity = Pulse/(INTERVAL)*0.17;
+    _Wheel->Encoder.RadVelocity = Pulse/(REDUCE*PULSES*INTERVAL)*360*0.17;
     _Wheel->Encoder.NPulse += Pulse;
-    _Wheel->Encoder.NRound = _Wheel->Encoder.NPulse / (REDUCE*PULSES); //debug
+    _Wheel->Encoder.NRound = Pulse; //debug
     __HAL_TIM_SetCounter(_Wheel->Encoder.Timer,0);
     return HAL_OK;
 }

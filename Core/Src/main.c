@@ -117,7 +117,7 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
     HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_0);
-    MotionMoveRad(&PioneerCar,3.14,30);
+    MotionMoveRad(&PioneerCar,3.14,0.3);
     HAL_Delay(10);
     // LCD_ShowNum(10,10,PioneerCar.RightFrot.Encoder.NPulse,6,24);
     // LCD_ShowNum(10,40,PioneerCar.LeftFrot.Encoder.NRound,6,24);
@@ -125,11 +125,11 @@ int main(void)
     LCD_ShowNum(10,40,PioneerCar.LeftFrot.Motor.RadVelocity*100,6,24);
     LCD_ShowNum(10,70,PioneerCar.LeftFrot.Parameter.PID*100,6,24);
 
-    LCD_ShowNum(140,10,PioneerCar.RightFrot.Encoder.RadVelocity*100,6,24);
+    LCD_ShowNum(140,10,PioneerCar.RightFrot.Encoder.RadVelocity*100*(-1),6,24);
     LCD_ShowNum(140,40,PioneerCar.RightFrot.Motor.RadVelocity*100*(-1),6,24);
     LCD_ShowNum(140,70,PioneerCar.RightFrot.Parameter.PID*100*(-1),6,24);
 
-    LCD_ShowNum(10,150,PioneerCar.LeftRear.Encoder.RadVelocity*100,6,24);
+    LCD_ShowNum(10,150,PioneerCar.LeftRear.Encoder.RadVelocity*100*(-1),6,24);
     LCD_ShowNum(10,180,PioneerCar.LeftRear.Motor.RadVelocity*100*(-1),6,24);
     LCD_ShowNum(10,210,PioneerCar.LeftRear.Parameter.PID*100*(-1),6,24);
 

@@ -8,8 +8,8 @@
 #include "PCA9685.h"
 #include <math.h>
 
-#define KP 0.01
-#define KI 0.01
+#define KP 0.5
+#define KI 0
 #define KD 0
 
 #define MotorLeftFrontForward   15
