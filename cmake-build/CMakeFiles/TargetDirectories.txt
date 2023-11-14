@@ -1,0 +1,3 @@
+/Users/timli/STM32Projects/Pioneer/cmake-build/CMakeFiles/Pioneer.elf.dir
+/Users/timli/STM32Projects/Pioneer/cmake-build/CMakeFiles/edit_cache.dir
+/Users/timli/STM32Projects/Pioneer/cmake-build/CMakeFiles/rebuild_cache.dir
