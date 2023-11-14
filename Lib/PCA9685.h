@@ -5,11 +5,8 @@
 #ifndef PCA9685_H
 #define PCA9685_H
 #include "stm32f1xx_hal.h"
+#include "GLOBAL.h"
 
-typedef enum {
-    false = 0x00,
-    true = 0x01
-} bool;
 
 typedef enum {
     PCA9685_ACCEPTED = 0x00,

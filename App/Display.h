@@ -10,6 +10,10 @@
 #include "stdlib.h"
 #include "stdarg.h"
 #include "stdio.h"
+#include "Motion.h"
+#include "DualSenseController.h"
 
 HAL_StatusTypeDef DisplayNum(float num);
+HAL_StatusTypeDef ShowWheelStatus(MotionType *_Car);
+HAL_StatusTypeDef ShowDSCStatus(int16_t *Data);
 #endif //DISPLAY_H

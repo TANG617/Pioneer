@@ -27,8 +27,10 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "LCD.h"
-#include  "Display.h"
+#include "Display.h"
 #include "Motion.h"
+#include "UART.h"
+#include "DualSenseController.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -49,11 +51,14 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+extern DSC_Type *_DSC;
+uint8_t rawDSC[30] ="-118_0070_0083_0063_0171_-122#";
+int16_t DSC_DATA[6];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -106,6 +111,10 @@ int main(void)
   MotionType PioneerCar;
   MotionInit(&PioneerCar,&htim4,&htim3,&htim2,&htim5);
   HAL_TIM_Base_Start_IT(&htim1);
+  // HAL_UART_Receive(&huart2,rawDSC,30,HAL_MAX_DELAY);
+  // DSC_Init(DSC_DATA);
+  // readUART(rawDSC);
+  // DSC_Process(rawDSC,DSC_DATA);
   // MotionMoveRad(&PioneerCar,3.14,80);
   /* USER CODE END 2 */
 
@@ -118,36 +127,14 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
     HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_0);
-    MotionMoveRad(&PioneerCar,3.14,0.3);
+    // MotionMoveRad(&PioneerCar,3.14,0.3);
     HAL_Delay(10);
-    // LCD_ShowNum(10,10,PioneerCar.RightFrot.Encoder.NPulse,6,24);
-    // LCD_ShowNum(10,40,PioneerCar.LeftFrot.Encoder.NRound,6,24);
-    LCD_ShowNum(10,10,PioneerCar.LeftFrot.Encoder.RadVelocity*100,6,24);
-    LCD_ShowNum(10,40,PioneerCar.LeftFrot.Motor.RadVelocity*100,6,24);
-    LCD_ShowNum(10,70,PioneerCar.LeftFrot.Parameter.PID*100,6,24);
+    // ShowWheelStatus(&PioneerCar);
+    // readUART(rawDSC);
+    // DSC_Process(rawDSC,DSC_DATA);
+    DSC_GET(DSC_DATA);
+    ShowDSCStatus(DSC_DATA);
 
-    LCD_ShowNum(140,10,PioneerCar.RightFrot.Encoder.RadVelocity*100*(-1),6,24);
-    LCD_ShowNum(140,40,PioneerCar.RightFrot.Motor.RadVelocity*100*(-1),6,24);
-    LCD_ShowNum(140,70,PioneerCar.RightFrot.Parameter.PID*100*(-1),6,24);
-
-    LCD_ShowNum(10,150,PioneerCar.LeftRear.Encoder.RadVelocity*100*(-1),6,24);
-    LCD_ShowNum(10,180,PioneerCar.LeftRear.Motor.RadVelocity*100*(-1),6,24);
-    LCD_ShowNum(10,210,PioneerCar.LeftRear.Parameter.PID*100*(-1),6,24);
-
-    LCD_ShowNum(140,150,PioneerCar.RightRear.Encoder.RadVelocity*100,6,24);
-    LCD_ShowNum(140,180,PioneerCar.RightRear.Motor.RadVelocity*100,6,24);
-    LCD_ShowNum(140,210,PioneerCar.RightRear.Parameter.PID*100,6,24);
-
-
-    // LCD_ShowNum(10,100,PioneerCar.LeftRear.Encoder.RadVelocity*100,6,24);
-    // LCD_ShowNum(10,130,PioneerCar.RightFrot.Encoder.RadVelocity*100,6,24);
-    // LCD_ShowNum(10,160,PioneerCar.RightRear.Encoder.RadVelocity*100,6,24);
-    // LCD_ShowNum(10,100,PioneerCar.LeftFrot.Encoder.RadPosition*100,6,24);
-
-
-    // HAL_Delay(10);
-    // DisplayNum(8.6629);
-    // HAL_Delay(10);
   }
   /* USER CODE END 3 */
 }
