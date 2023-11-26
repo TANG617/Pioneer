@@ -3,10 +3,16 @@
 //
 
 #include "Display.h"
+#include "LCD_Image.h"
 HAL_StatusTypeDef DisplayNum(float num)
 {
     LCD_ShowNum(0, 0, num*10000, 6, 32);
     return HAL_OK;
+}
+
+HAL_StatusTypeDef ShowHelloWorld()
+{
+    LCD_Show_Image(0,0,240,240,gImage_homer);
 }
 
 HAL_StatusTypeDef ShowWheelStatus(MotionType *_Car)

@@ -215,16 +215,49 @@ Discarded input sections
  .bss           0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
  .text.DisplayNum
                 0x00000000       0x2c CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
+ .text.ShowWheelStatus
+                0x00000000      0x150 CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
  .text.ShowDSCStatus
                 0x00000000       0x6c CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
  .text          0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
  .data          0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
  .bss           0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
+ .text.DSC_GET  0x00000000       0xa0 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
+ .debug_info    0x00000000      0x70b CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
+ .debug_abbrev  0x00000000      0x1cf CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
+ .debug_loclists
+                0x00000000       0xd7 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
+ .debug_aranges
+                0x00000000       0x20 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
+ .debug_rnglists
+                0x00000000       0x14 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
+ .debug_line    0x00000000      0x2f4 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
+ .debug_str     0x00000000      0x6a6 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
+ .comment       0x00000000       0x45 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
+ .debug_frame   0x00000000       0x30 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
+ .ARM.attributes
+                0x00000000       0x2d CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
  .text          0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
  .data          0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
  .bss           0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+ .text.VelocityCurve
+                0x00000000        0x2 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+ .text.WheelRadVelocityLoop
+                0x00000000       0x42 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+ .text.MotorOutSpeed
+                0x00000000       0x68 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+ .text.EncoderUpdate
+                0x00000000       0xcc CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+ .text.WheelUpdate
+                0x00000000       0x18 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+ .text.WheelSetRadVolocity
+                0x00000000        0x6 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+ .text.MotionUpdate
+                0x00000000       0x24 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
  .text.MotionMoveRad
                 0x00000000       0x64 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+ .text.MotionMoveInt
+                0x00000000       0x88 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
  .text          0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
  .data          0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
  .bss           0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
@@ -236,6 +269,7 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
  .data          0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
  .bss           0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
+ .bss.DSC_DATA  0x00000000        0xc CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
  .text          0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
  .data          0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
  .bss           0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
@@ -1252,6 +1286,8 @@ Discarded input sections
                 0x00000000       0x5c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
  .text.UART_Transmit_IT
                 0x00000000       0x60 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .text.UART_WaitOnFlagUntilTimeout
+                0x00000000       0x84 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
  .text.HAL_UART_MspInit
                 0x00000000        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
  .text.HAL_HalfDuplex_Init
@@ -1266,6 +1302,8 @@ Discarded input sections
                 0x00000000       0x34 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
  .text.HAL_UART_Transmit
                 0x00000000       0xbe CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .text.HAL_UART_Receive
+                0x00000000       0xca CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
  .text.HAL_UART_Transmit_IT
                 0x00000000       0x38 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
  .text.HAL_UART_Transmit_DMA
@@ -1365,6 +1403,9 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .data          0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .bss           0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+ .text.LCD_Pow  0x00000000       0x16 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+ .text.LCD_Write_HalfWord
+                0x00000000       0x30 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .text.LCD_DisplayOn
                 0x00000000        0x2 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .text.LCD_DisplayOff
@@ -1381,12 +1422,26 @@ Discarded input sections
                 0x00000000       0x36 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .text.LCD_Draw_Circle
                 0x00000000       0xda CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+ .text.LCD_ShowChar
+                0x00000000      0x1c8 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+ .text.LCD_ShowNum
+                0x00000000       0x88 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .text.LCD_ShowxNum
                 0x00000000       0xa4 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .text.LCD_ShowString
                 0x00000000       0x52 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
- .text.LCD_Show_Image
-                0x00000000       0x74 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+ .bss.BACK_COLOR
+                0x00000000        0x2 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+ .data.POINT_COLOR
+                0x00000000        0x2 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+ .rodata.asc2_3216
+                0x00000000     0x2f80 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+ .rodata.asc2_2412
+                0x00000000     0x11d0 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+ .rodata.asc2_1608
+                0x00000000      0x5f0 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+ .rodata.asc2_1206
+                0x00000000      0x474 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .text          0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
  .data          0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
  .bss           0x00000000        0x0 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
@@ -1459,12 +1514,30 @@ Discarded input sections
  .debug_frame   0x00000000       0x24 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_mulsf3.o)
  .ARM.attributes
                 0x00000000       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_mulsf3.o)
+ .text          0x00000000      0x378 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubdf3.o)
  .data          0x00000000        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubdf3.o)
  .bss           0x00000000        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubdf3.o)
+ .debug_line_str
+                0x00000000       0xd3 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x00000000       0xac /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubdf3.o)
+ .ARM.attributes
+                0x00000000       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubdf3.o)
+ .text          0x00000000      0x424 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivdf3.o)
  .data          0x00000000        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivdf3.o)
  .bss           0x00000000        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivdf3.o)
+ .debug_line_str
+                0x00000000       0xd3 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivdf3.o)
+ .debug_frame   0x00000000       0x50 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivdf3.o)
+ .ARM.attributes
+                0x00000000       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivdf3.o)
+ .text          0x00000000       0xa0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_truncdfsf2.o)
  .data          0x00000000        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_truncdfsf2.o)
  .bss           0x00000000        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_truncdfsf2.o)
+ .debug_line_str
+                0x00000000       0xd3 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_truncdfsf2.o)
+ .debug_frame   0x00000000       0x24 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_truncdfsf2.o)
+ .ARM.attributes
+                0x00000000       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_truncdfsf2.o)
  .data          0x00000000        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubsf3.o)
  .bss           0x00000000        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubsf3.o)
  .data          0x00000000        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivsf3.o)
@@ -2436,613 +2509,546 @@ LOAD /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-no
                 0x08006000                g_pfnVectors
                 0x080061e4                        . = ALIGN (0x4)
 
-.text           0x080061e8     0x49a4
-                0x080061e8                        . = ALIGN (0x4)
+.text           0x080061e4     0x39c8
+                0x080061e4                        . = ALIGN (0x4)
  *(.text)
- .text          0x080061e8      0x378 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubdf3.o)
-                0x080061e8                __aeabi_drsub
-                0x080061f0                __subdf3
-                0x080061f0                __aeabi_dsub
-                0x080061f4                __aeabi_dadd
-                0x080061f4                __adddf3
-                0x0800646c                __aeabi_ui2d
-                0x0800646c                __floatunsidf
-                0x0800648c                __floatsidf
-                0x0800648c                __aeabi_i2d
-                0x080064b0                __extendsfdf2
-                0x080064b0                __aeabi_f2d
-                0x080064f4                __aeabi_ul2d
-                0x080064f4                __floatundidf
-                0x08006504                __aeabi_l2d
-                0x08006504                __floatdidf
- .text          0x08006560      0x424 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivdf3.o)
-                0x08006560                __aeabi_dmul
-                0x08006560                __muldf3
-                0x080067b4                __aeabi_ddiv
-                0x080067b4                __divdf3
- .text          0x08006984       0xa0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_truncdfsf2.o)
-                0x08006984                __aeabi_d2f
-                0x08006984                __truncdfsf2
- .text          0x08006a24      0x21c /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubsf3.o)
-                0x08006a24                __aeabi_frsub
-                0x08006a2c                __aeabi_fsub
-                0x08006a2c                __subsf3
-                0x08006a30                __aeabi_fadd
-                0x08006a30                __addsf3
-                0x08006b90                __aeabi_ui2f
-                0x08006b90                __floatunsisf
-                0x08006b98                __floatsisf
-                0x08006b98                __aeabi_i2f
-                0x08006bb4                __aeabi_ul2f
-                0x08006bb4                __floatundisf
-                0x08006bc4                __aeabi_l2f
-                0x08006bc4                __floatdisf
- .text          0x08006c40      0x2a0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivsf3.o)
-                0x08006c40                __mulsf3
-                0x08006c40                __aeabi_fmul
-                0x08006da8                __divsf3
-                0x08006da8                __aeabi_fdiv
- .text          0x08006ee0       0xec /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_cmpsf2.o)
-                0x08006ee0                __gesf2
-                0x08006ee0                __gtsf2
-                0x08006ee8                __ltsf2
-                0x08006ee8                __lesf2
-                0x08006ef0                __nesf2
-                0x08006ef0                __eqsf2
-                0x08006ef0                __cmpsf2
-                0x08006f50                __aeabi_cfrcmple
-                0x08006f58                __aeabi_cfcmpeq
-                0x08006f58                __aeabi_cfcmple
-                0x08006f68                __aeabi_fcmpeq
-                0x08006f7c                __aeabi_fcmplt
-                0x08006f90                __aeabi_fcmple
-                0x08006fa4                __aeabi_fcmpge
-                0x08006fb8                __aeabi_fcmpgt
- .text          0x08006fcc       0x40 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixunssfsi.o)
-                0x08006fcc                __aeabi_f2uiz
-                0x08006fcc                __fixunssfsi
+ .text          0x080061e4      0x21c /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubsf3.o)
+                0x080061e4                __aeabi_frsub
+                0x080061ec                __aeabi_fsub
+                0x080061ec                __subsf3
+                0x080061f0                __aeabi_fadd
+                0x080061f0                __addsf3
+                0x08006350                __aeabi_ui2f
+                0x08006350                __floatunsisf
+                0x08006358                __floatsisf
+                0x08006358                __aeabi_i2f
+                0x08006374                __aeabi_ul2f
+                0x08006374                __floatundisf
+                0x08006384                __aeabi_l2f
+                0x08006384                __floatdisf
+ .text          0x08006400      0x2a0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivsf3.o)
+                0x08006400                __mulsf3
+                0x08006400                __aeabi_fmul
+                0x08006568                __divsf3
+                0x08006568                __aeabi_fdiv
+ .text          0x080066a0       0xec /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_cmpsf2.o)
+                0x080066a0                __gesf2
+                0x080066a0                __gtsf2
+                0x080066a8                __ltsf2
+                0x080066a8                __lesf2
+                0x080066b0                __nesf2
+                0x080066b0                __eqsf2
+                0x080066b0                __cmpsf2
+                0x08006710                __aeabi_cfrcmple
+                0x08006718                __aeabi_cfcmpeq
+                0x08006718                __aeabi_cfcmple
+                0x08006728                __aeabi_fcmpeq
+                0x0800673c                __aeabi_fcmplt
+                0x08006750                __aeabi_fcmple
+                0x08006764                __aeabi_fcmpge
+                0x08006778                __aeabi_fcmpgt
+ .text          0x0800678c       0x40 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixunssfsi.o)
+                0x0800678c                __aeabi_f2uiz
+                0x0800678c                __fixunssfsi
  *(.text*)
  .text.deregister_tm_clones
-                0x0800700c       0x1c /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
+                0x080067cc       0x1c /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
  .text.register_tm_clones
-                0x08007028       0x24 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
+                0x080067e8       0x24 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
  .text.__do_global_dtors_aux
-                0x0800704c       0x28 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
+                0x0800680c       0x28 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
  .text.frame_dummy
-                0x08007074       0x24 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
- .text.ShowWheelStatus
-                0x08007098      0x150 CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
-                0x08007098                ShowWheelStatus
- .text.DSC_GET  0x080071e8       0xa0 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
-                0x080071e8                DSC_GET
- .text.VelocityCurve
-                0x08007288        0x2 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
- .text.WheelRadVelocityLoop
-                0x0800728a       0x42 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
- .text.MotorOutSpeed
-                0x080072cc       0x68 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
- .text.i2c_tx   0x08007334       0x2c CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
- .text.i2c_rx   0x08007360       0x24 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+                0x08006834       0x24 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
+ .text.ShowHelloWorld
+                0x08006858       0x20 CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
+                0x08006858                ShowHelloWorld
+ .text.i2c_tx   0x08006878       0x2c CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+ .text.i2c_rx   0x080068a4       0x24 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
  .text.WheelInit
-                0x08007384       0x4c CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
- .text.EncoderUpdate
-                0x080073d0       0xcc CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
- .text.WheelUpdate
-                0x0800749c       0x18 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+                0x080068c8       0x4c CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
  .text.MotionInit
-                0x080074b4       0xa0 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
-                0x080074b4                MotionInit
- .text.WheelSetRadVolocity
-                0x08007554        0x6 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
-                0x08007554                WheelSetRadVolocity
- .text.MotionUpdate
-                0x0800755a       0x24 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
-                0x0800755a                MotionUpdate
- *fill*         0x0800757e        0x2 
- .text.MotionMoveInt
-                0x08007580       0x88 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
-                0x08007580                MotionMoveInt
+                0x08006914       0xa0 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+                0x08006914                MotionInit
  .text.MX_GPIO_Init
-                0x08007608      0x104 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
-                0x08007608                MX_GPIO_Init
+                0x080069b4      0x104 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
+                0x080069b4                MX_GPIO_Init
  .text.MX_I2C2_Init
-                0x0800770c       0x3c CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
-                0x0800770c                MX_I2C2_Init
+                0x08006ab8       0x3c CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
+                0x08006ab8                MX_I2C2_Init
  .text.HAL_I2C_MspInit
-                0x08007748       0x64 CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
-                0x08007748                HAL_I2C_MspInit
+                0x08006af4       0x64 CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
+                0x08006af4                HAL_I2C_MspInit
  .text.Error_Handler
-                0x080077ac        0x4 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
-                0x080077ac                Error_Handler
+                0x08006b58        0x4 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
+                0x08006b58                Error_Handler
  .text.SystemClock_Config
-                0x080077b0       0x64 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
-                0x080077b0                SystemClock_Config
- .text.main     0x08007814       0xa4 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
-                0x08007814                main
+                0x08006b5c       0x64 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
+                0x08006b5c                SystemClock_Config
+ .text.main     0x08006bc0       0x88 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
+                0x08006bc0                main
  .text.MX_SPI2_Init
-                0x080078b8       0x44 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
-                0x080078b8                MX_SPI2_Init
+                0x08006c48       0x44 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
+                0x08006c48                MX_SPI2_Init
  .text.HAL_SPI_MspInit
-                0x080078fc       0x64 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
-                0x080078fc                HAL_SPI_MspInit
+                0x08006c8c       0x64 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
+                0x08006c8c                HAL_SPI_MspInit
  .text.HAL_MspInit
-                0x08007960       0x44 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
-                0x08007960                HAL_MspInit
+                0x08006cf0       0x44 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+                0x08006cf0                HAL_MspInit
  .text.NMI_Handler
-                0x080079a4        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080079a4                NMI_Handler
+                0x08006d34        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d34                NMI_Handler
  .text.HardFault_Handler
-                0x080079a6        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080079a6                HardFault_Handler
+                0x08006d36        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d36                HardFault_Handler
  .text.MemManage_Handler
-                0x080079a8        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080079a8                MemManage_Handler
+                0x08006d38        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d38                MemManage_Handler
  .text.BusFault_Handler
-                0x080079aa        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080079aa                BusFault_Handler
+                0x08006d3a        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d3a                BusFault_Handler
  .text.UsageFault_Handler
-                0x080079ac        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080079ac                UsageFault_Handler
+                0x08006d3c        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d3c                UsageFault_Handler
  .text.SVC_Handler
-                0x080079ae        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080079ae                SVC_Handler
+                0x08006d3e        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d3e                SVC_Handler
  .text.DebugMon_Handler
-                0x080079b0        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080079b0                DebugMon_Handler
+                0x08006d40        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d40                DebugMon_Handler
  .text.PendSV_Handler
-                0x080079b2        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080079b2                PendSV_Handler
+                0x08006d42        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d42                PendSV_Handler
  .text.SysTick_Handler
-                0x080079b4        0x8 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080079b4                SysTick_Handler
+                0x08006d44        0x8 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d44                SysTick_Handler
  .text.EXTI0_IRQHandler
-                0x080079bc        0xa CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080079bc                EXTI0_IRQHandler
+                0x08006d4c        0xa CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d4c                EXTI0_IRQHandler
  .text.EXTI1_IRQHandler
-                0x080079c6        0xa CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080079c6                EXTI1_IRQHandler
+                0x08006d56        0xa CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d56                EXTI1_IRQHandler
  .text.EXTI2_IRQHandler
-                0x080079d0        0xa CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080079d0                EXTI2_IRQHandler
- *fill*         0x080079da        0x2 
+                0x08006d60        0xa CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d60                EXTI2_IRQHandler
+ *fill*         0x08006d6a        0x2 
  .text.TIM1_UP_IRQHandler
-                0x080079dc       0x10 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080079dc                TIM1_UP_IRQHandler
+                0x08006d6c       0x10 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d6c                TIM1_UP_IRQHandler
  .text.TIM2_IRQHandler
-                0x080079ec       0x10 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080079ec                TIM2_IRQHandler
+                0x08006d7c       0x10 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d7c                TIM2_IRQHandler
  .text.TIM3_IRQHandler
-                0x080079fc       0x10 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x080079fc                TIM3_IRQHandler
+                0x08006d8c       0x10 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d8c                TIM3_IRQHandler
  .text.TIM4_IRQHandler
-                0x08007a0c       0x10 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x08007a0c                TIM4_IRQHandler
+                0x08006d9c       0x10 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006d9c                TIM4_IRQHandler
  .text.TIM5_IRQHandler
-                0x08007a1c       0x10 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
-                0x08007a1c                TIM5_IRQHandler
+                0x08006dac       0x10 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x08006dac                TIM5_IRQHandler
  .text.SystemInit
-                0x08007a2c        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
-                0x08007a2c                SystemInit
- *fill*         0x08007a2e        0x2 
+                0x08006dbc        0x2 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
+                0x08006dbc                SystemInit
+ *fill*         0x08006dbe        0x2 
  .text.MX_TIM1_Init
-                0x08007a30       0x70 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
-                0x08007a30                MX_TIM1_Init
+                0x08006dc0       0x70 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x08006dc0                MX_TIM1_Init
  .text.MX_TIM2_Init
-                0x08007aa0       0x68 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
-                0x08007aa0                MX_TIM2_Init
+                0x08006e30       0x68 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x08006e30                MX_TIM2_Init
  .text.MX_TIM3_Init
-                0x08007b08       0x6c CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
-                0x08007b08                MX_TIM3_Init
+                0x08006e98       0x6c CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x08006e98                MX_TIM3_Init
  .text.MX_TIM4_Init
-                0x08007b74       0x6c CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
-                0x08007b74                MX_TIM4_Init
+                0x08006f04       0x6c CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x08006f04                MX_TIM4_Init
  .text.MX_TIM5_Init
-                0x08007be0       0x6c CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
-                0x08007be0                MX_TIM5_Init
+                0x08006f70       0x6c CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x08006f70                MX_TIM5_Init
  .text.HAL_TIM_Base_MspInit
-                0x08007c4c       0x40 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
-                0x08007c4c                HAL_TIM_Base_MspInit
+                0x08006fdc       0x40 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x08006fdc                HAL_TIM_Base_MspInit
  .text.HAL_TIM_Encoder_MspInit
-                0x08007c8c      0x194 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
-                0x08007c8c                HAL_TIM_Encoder_MspInit
+                0x0800701c      0x194 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x0800701c                HAL_TIM_Encoder_MspInit
  .text.MX_USART1_UART_Init
-                0x08007e20       0x34 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
-                0x08007e20                MX_USART1_UART_Init
+                0x080071b0       0x34 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
+                0x080071b0                MX_USART1_UART_Init
  .text.MX_USART2_UART_Init
-                0x08007e54       0x34 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
-                0x08007e54                MX_USART2_UART_Init
+                0x080071e4       0x34 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
+                0x080071e4                MX_USART2_UART_Init
  .text.HAL_UART_MspInit
-                0x08007e88       0xd4 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
-                0x08007e88                HAL_UART_MspInit
+                0x08007218       0xd4 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
+                0x08007218                HAL_UART_MspInit
  .text.Reset_Handler
-                0x08007f5c       0x48 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
-                0x08007f5c                Reset_Handler
+                0x080072ec       0x48 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
+                0x080072ec                Reset_Handler
  .text.Default_Handler
-                0x08007fa4        0x2 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
-                0x08007fa4                DMA2_Channel3_IRQHandler
-                0x08007fa4                TIM8_TRG_COM_IRQHandler
-                0x08007fa4                TIM8_CC_IRQHandler
-                0x08007fa4                TIM1_CC_IRQHandler
-                0x08007fa4                TIM6_IRQHandler
-                0x08007fa4                PVD_IRQHandler
-                0x08007fa4                SDIO_IRQHandler
-                0x08007fa4                EXTI3_IRQHandler
-                0x08007fa4                I2C2_EV_IRQHandler
-                0x08007fa4                ADC1_2_IRQHandler
-                0x08007fa4                SPI1_IRQHandler
-                0x08007fa4                TAMPER_IRQHandler
-                0x08007fa4                TIM8_UP_IRQHandler
-                0x08007fa4                DMA2_Channel2_IRQHandler
-                0x08007fa4                DMA1_Channel4_IRQHandler
-                0x08007fa4                USART3_IRQHandler
-                0x08007fa4                RTC_IRQHandler
-                0x08007fa4                DMA1_Channel7_IRQHandler
-                0x08007fa4                CAN1_RX1_IRQHandler
-                0x08007fa4                UART5_IRQHandler
-                0x08007fa4                ADC3_IRQHandler
-                0x08007fa4                DMA2_Channel1_IRQHandler
-                0x08007fa4                I2C1_EV_IRQHandler
-                0x08007fa4                DMA1_Channel6_IRQHandler
-                0x08007fa4                UART4_IRQHandler
-                0x08007fa4                RCC_IRQHandler
-                0x08007fa4                TIM1_TRG_COM_IRQHandler
-                0x08007fa4                DMA1_Channel1_IRQHandler
-                0x08007fa4                Default_Handler
-                0x08007fa4                EXTI15_10_IRQHandler
-                0x08007fa4                TIM7_IRQHandler
-                0x08007fa4                EXTI9_5_IRQHandler
-                0x08007fa4                SPI2_IRQHandler
-                0x08007fa4                DMA1_Channel5_IRQHandler
-                0x08007fa4                EXTI4_IRQHandler
-                0x08007fa4                USB_LP_CAN1_RX0_IRQHandler
-                0x08007fa4                USB_HP_CAN1_TX_IRQHandler
-                0x08007fa4                DMA1_Channel3_IRQHandler
-                0x08007fa4                FSMC_IRQHandler
-                0x08007fa4                WWDG_IRQHandler
-                0x08007fa4                TIM1_BRK_IRQHandler
-                0x08007fa4                DMA2_Channel4_5_IRQHandler
-                0x08007fa4                USART2_IRQHandler
-                0x08007fa4                I2C2_ER_IRQHandler
-                0x08007fa4                DMA1_Channel2_IRQHandler
-                0x08007fa4                TIM8_BRK_IRQHandler
-                0x08007fa4                CAN1_SCE_IRQHandler
-                0x08007fa4                FLASH_IRQHandler
-                0x08007fa4                USART1_IRQHandler
-                0x08007fa4                SPI3_IRQHandler
-                0x08007fa4                I2C1_ER_IRQHandler
-                0x08007fa4                USBWakeUp_IRQHandler
-                0x08007fa4                RTC_Alarm_IRQHandler
- *fill*         0x08007fa6        0x2 
+                0x08007334        0x2 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
+                0x08007334                DMA2_Channel3_IRQHandler
+                0x08007334                TIM8_TRG_COM_IRQHandler
+                0x08007334                TIM8_CC_IRQHandler
+                0x08007334                TIM1_CC_IRQHandler
+                0x08007334                TIM6_IRQHandler
+                0x08007334                PVD_IRQHandler
+                0x08007334                SDIO_IRQHandler
+                0x08007334                EXTI3_IRQHandler
+                0x08007334                I2C2_EV_IRQHandler
+                0x08007334                ADC1_2_IRQHandler
+                0x08007334                SPI1_IRQHandler
+                0x08007334                TAMPER_IRQHandler
+                0x08007334                TIM8_UP_IRQHandler
+                0x08007334                DMA2_Channel2_IRQHandler
+                0x08007334                DMA1_Channel4_IRQHandler
+                0x08007334                USART3_IRQHandler
+                0x08007334                RTC_IRQHandler
+                0x08007334                DMA1_Channel7_IRQHandler
+                0x08007334                CAN1_RX1_IRQHandler
+                0x08007334                UART5_IRQHandler
+                0x08007334                ADC3_IRQHandler
+                0x08007334                DMA2_Channel1_IRQHandler
+                0x08007334                I2C1_EV_IRQHandler
+                0x08007334                DMA1_Channel6_IRQHandler
+                0x08007334                UART4_IRQHandler
+                0x08007334                RCC_IRQHandler
+                0x08007334                TIM1_TRG_COM_IRQHandler
+                0x08007334                DMA1_Channel1_IRQHandler
+                0x08007334                Default_Handler
+                0x08007334                EXTI15_10_IRQHandler
+                0x08007334                TIM7_IRQHandler
+                0x08007334                EXTI9_5_IRQHandler
+                0x08007334                SPI2_IRQHandler
+                0x08007334                DMA1_Channel5_IRQHandler
+                0x08007334                EXTI4_IRQHandler
+                0x08007334                USB_LP_CAN1_RX0_IRQHandler
+                0x08007334                USB_HP_CAN1_TX_IRQHandler
+                0x08007334                DMA1_Channel3_IRQHandler
+                0x08007334                FSMC_IRQHandler
+                0x08007334                WWDG_IRQHandler
+                0x08007334                TIM1_BRK_IRQHandler
+                0x08007334                DMA2_Channel4_5_IRQHandler
+                0x08007334                USART2_IRQHandler
+                0x08007334                I2C2_ER_IRQHandler
+                0x08007334                DMA1_Channel2_IRQHandler
+                0x08007334                TIM8_BRK_IRQHandler
+                0x08007334                CAN1_SCE_IRQHandler
+                0x08007334                FLASH_IRQHandler
+                0x08007334                USART1_IRQHandler
+                0x08007334                SPI3_IRQHandler
+                0x08007334                I2C1_ER_IRQHandler
+                0x08007334                USBWakeUp_IRQHandler
+                0x08007334                RTC_Alarm_IRQHandler
+ *fill*         0x08007336        0x2 
  .text.HAL_InitTick
-                0x08007fa8       0x4c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
-                0x08007fa8                HAL_InitTick
+                0x08007338       0x4c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+                0x08007338                HAL_InitTick
  .text.HAL_Init
-                0x08007ff4       0x24 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
-                0x08007ff4                HAL_Init
+                0x08007384       0x24 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+                0x08007384                HAL_Init
  .text.HAL_IncTick
-                0x08008018       0x18 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
-                0x08008018                HAL_IncTick
+                0x080073a8       0x18 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+                0x080073a8                HAL_IncTick
  .text.HAL_GetTick
-                0x08008030        0xc CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
-                0x08008030                HAL_GetTick
+                0x080073c0        0xc CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+                0x080073c0                HAL_GetTick
  .text.HAL_Delay
-                0x0800803c       0x28 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
-                0x0800803c                HAL_Delay
+                0x080073cc       0x28 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+                0x080073cc                HAL_Delay
  .text.__NVIC_SetPriority
-                0x08008064       0x28 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+                0x080073f4       0x28 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
  .text.NVIC_EncodePriority
-                0x0800808c       0x3e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
- *fill*         0x080080ca        0x2 
+                0x0800741c       0x3e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ *fill*         0x0800745a        0x2 
  .text.HAL_NVIC_SetPriorityGrouping
-                0x080080cc       0x24 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
-                0x080080cc                HAL_NVIC_SetPriorityGrouping
+                0x0800745c       0x24 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+                0x0800745c                HAL_NVIC_SetPriorityGrouping
  .text.HAL_NVIC_SetPriority
-                0x080080f0       0x20 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
-                0x080080f0                HAL_NVIC_SetPriority
+                0x08007480       0x20 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+                0x08007480                HAL_NVIC_SetPriority
  .text.HAL_NVIC_EnableIRQ
-                0x08008110       0x1c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
-                0x08008110                HAL_NVIC_EnableIRQ
+                0x080074a0       0x1c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+                0x080074a0                HAL_NVIC_EnableIRQ
  .text.HAL_SYSTICK_Config
-                0x0800812c       0x28 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
-                0x0800812c                HAL_SYSTICK_Config
+                0x080074bc       0x28 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+                0x080074bc                HAL_SYSTICK_Config
  .text.HAL_GPIO_Init
-                0x08008154      0x238 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
-                0x08008154                HAL_GPIO_Init
+                0x080074e4      0x238 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+                0x080074e4                HAL_GPIO_Init
  .text.HAL_GPIO_WritePin
-                0x0800838c        0xc CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
-                0x0800838c                HAL_GPIO_WritePin
+                0x0800771c        0xc CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+                0x0800771c                HAL_GPIO_WritePin
  .text.HAL_GPIO_TogglePin
-                0x08008398       0x12 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
-                0x08008398                HAL_GPIO_TogglePin
+                0x08007728       0x12 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+                0x08007728                HAL_GPIO_TogglePin
  .text.HAL_GPIO_EXTI_Callback
-                0x080083aa        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
-                0x080083aa                HAL_GPIO_EXTI_Callback
+                0x0800773a        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+                0x0800773a                HAL_GPIO_EXTI_Callback
  .text.HAL_GPIO_EXTI_IRQHandler
-                0x080083ac       0x1c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
-                0x080083ac                HAL_GPIO_EXTI_IRQHandler
+                0x0800773c       0x1c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+                0x0800773c                HAL_GPIO_EXTI_IRQHandler
  .text.I2C_IsAcknowledgeFailed
-                0x080083c8       0x32 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+                0x08007758       0x32 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
  .text.I2C_WaitOnFlagUntilTimeout
-                0x080083fa       0xaa CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+                0x0800778a       0xaa CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
  .text.I2C_WaitOnMasterAddressFlagUntilTimeout
-                0x080084a4       0xd6 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+                0x08007834       0xd6 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
  .text.I2C_WaitOnTXEFlagUntilTimeout
-                0x0800857a       0x5e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+                0x0800790a       0x5e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
  .text.I2C_RequestMemoryWrite
-                0x080085d8       0xd8 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+                0x08007968       0xd8 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
  .text.I2C_RequestMemoryRead
-                0x080086b0      0x154 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+                0x08007a40      0x154 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
  .text.I2C_WaitOnBTFFlagUntilTimeout
-                0x08008804       0x5e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+                0x08007b94       0x5e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
  .text.I2C_WaitOnRXNEFlagUntilTimeout
-                0x08008862       0x78 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
- *fill*         0x080088da        0x2 
+                0x08007bf2       0x78 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+ *fill*         0x08007c6a        0x2 
  .text.HAL_I2C_Init
-                0x080088dc      0x1bc CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
-                0x080088dc                HAL_I2C_Init
+                0x08007c6c      0x1bc CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+                0x08007c6c                HAL_I2C_Init
  .text.HAL_I2C_Mem_Write
-                0x08008a98      0x164 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
-                0x08008a98                HAL_I2C_Mem_Write
+                0x08007e28      0x164 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+                0x08007e28                HAL_I2C_Mem_Write
  .text.HAL_I2C_Mem_Read
-                0x08008bfc      0x348 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
-                0x08008bfc                HAL_I2C_Mem_Read
+                0x08007f8c      0x348 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+                0x08007f8c                HAL_I2C_Mem_Read
  .text.RCC_Delay
-                0x08008f44       0x2c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x080082d4       0x2c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
  .text.HAL_RCC_OscConfig
-                0x08008f70      0x410 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
-                0x08008f70                HAL_RCC_OscConfig
+                0x08008300      0x410 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x08008300                HAL_RCC_OscConfig
  .text.HAL_RCC_GetSysClockFreq
-                0x08009380       0x54 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
-                0x08009380                HAL_RCC_GetSysClockFreq
+                0x08008710       0x54 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x08008710                HAL_RCC_GetSysClockFreq
  .text.HAL_RCC_ClockConfig
-                0x080093d4      0x16c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
-                0x080093d4                HAL_RCC_ClockConfig
+                0x08008764      0x16c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x08008764                HAL_RCC_ClockConfig
  .text.HAL_RCC_GetHCLKFreq
-                0x08009540        0xc CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
-                0x08009540                HAL_RCC_GetHCLKFreq
+                0x080088d0        0xc CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x080088d0                HAL_RCC_GetHCLKFreq
  .text.HAL_RCC_GetPCLK1Freq
-                0x0800954c       0x20 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
-                0x0800954c                HAL_RCC_GetPCLK1Freq
+                0x080088dc       0x20 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x080088dc                HAL_RCC_GetPCLK1Freq
  .text.HAL_RCC_GetPCLK2Freq
-                0x0800956c       0x20 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
-                0x0800956c                HAL_RCC_GetPCLK2Freq
+                0x080088fc       0x20 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x080088fc                HAL_RCC_GetPCLK2Freq
  .text.SPI_WaitFlagStateUntilTimeout
-                0x0800958c       0xc8 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+                0x0800891c       0xc8 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
  .text.SPI_EndRxTxTransaction
-                0x08009654       0x24 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+                0x080089e4       0x24 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
  .text.HAL_SPI_Init
-                0x08009678       0xb6 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
-                0x08009678                HAL_SPI_Init
+                0x08008a08       0xb6 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+                0x08008a08                HAL_SPI_Init
  .text.HAL_SPI_Transmit
-                0x0800972e      0x1b8 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
-                0x0800972e                HAL_SPI_Transmit
+                0x08008abe      0x1b8 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+                0x08008abe                HAL_SPI_Transmit
  .text.TIM_TI1_ConfigInputStage
-                0x080098e6       0x24 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08008c76       0x24 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
  .text.TIM_TI2_ConfigInputStage
-                0x0800990a       0x26 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08008c9a       0x26 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
  .text.TIM_ITRx_SetConfig
-                0x08009930       0x10 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08008cc0       0x10 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
  .text.HAL_TIM_Base_Start_IT
-                0x08009940       0x78 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08009940                HAL_TIM_Base_Start_IT
+                0x08008cd0       0x78 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08008cd0                HAL_TIM_Base_Start_IT
  .text.HAL_TIM_PeriodElapsedCallback
-                0x080099b8        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x080099b8                HAL_TIM_PeriodElapsedCallback
+                0x08008d48        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08008d48                HAL_TIM_PeriodElapsedCallback
  .text.HAL_TIM_OC_DelayElapsedCallback
-                0x080099ba        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x080099ba                HAL_TIM_OC_DelayElapsedCallback
+                0x08008d4a        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08008d4a                HAL_TIM_OC_DelayElapsedCallback
  .text.HAL_TIM_IC_CaptureCallback
-                0x080099bc        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x080099bc                HAL_TIM_IC_CaptureCallback
+                0x08008d4c        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08008d4c                HAL_TIM_IC_CaptureCallback
  .text.HAL_TIM_PWM_PulseFinishedCallback
-                0x080099be        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x080099be                HAL_TIM_PWM_PulseFinishedCallback
+                0x08008d4e        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08008d4e                HAL_TIM_PWM_PulseFinishedCallback
  .text.HAL_TIM_TriggerCallback
-                0x080099c0        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x080099c0                HAL_TIM_TriggerCallback
+                0x08008d50        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08008d50                HAL_TIM_TriggerCallback
  .text.HAL_TIM_IRQHandler
-                0x080099c2      0x17a CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x080099c2                HAL_TIM_IRQHandler
+                0x08008d52      0x17a CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08008d52                HAL_TIM_IRQHandler
  .text.TIM_Base_SetConfig
-                0x08009b3c       0x98 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08009b3c                TIM_Base_SetConfig
+                0x08008ecc       0x98 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08008ecc                TIM_Base_SetConfig
  .text.HAL_TIM_Base_Init
-                0x08009bd4       0x58 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08009bd4                HAL_TIM_Base_Init
+                0x08008f64       0x58 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08008f64                HAL_TIM_Base_Init
  .text.HAL_TIM_Encoder_Init
-                0x08009c2c       0xb6 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08009c2c                HAL_TIM_Encoder_Init
+                0x08008fbc       0xb6 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08008fbc                HAL_TIM_Encoder_Init
  .text.TIM_ETR_SetConfig
-                0x08009ce2       0x18 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08009ce2                TIM_ETR_SetConfig
+                0x08009072       0x18 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08009072                TIM_ETR_SetConfig
  .text.HAL_TIM_ConfigClockSource
-                0x08009cfa       0xfe CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08009cfa                HAL_TIM_ConfigClockSource
+                0x0800908a       0xfe CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x0800908a                HAL_TIM_ConfigClockSource
  .text.TIM_CCxChannelCmd
-                0x08009df8       0x1e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08009df8                TIM_CCxChannelCmd
+                0x08009188       0x1e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x08009188                TIM_CCxChannelCmd
  .text.HAL_TIM_Encoder_Start
-                0x08009e16       0xcc CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
-                0x08009e16                HAL_TIM_Encoder_Start
- *fill*         0x08009ee2        0x2 
+                0x080091a6       0xcc CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x080091a6                HAL_TIM_Encoder_Start
+ *fill*         0x08009272        0x2 
  .text.HAL_TIMEx_MasterConfigSynchronization
-                0x08009ee4       0x7c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
-                0x08009ee4                HAL_TIMEx_MasterConfigSynchronization
+                0x08009274       0x7c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+                0x08009274                HAL_TIMEx_MasterConfigSynchronization
  .text.HAL_TIMEx_CommutCallback
-                0x08009f60        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
-                0x08009f60                HAL_TIMEx_CommutCallback
+                0x080092f0        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+                0x080092f0                HAL_TIMEx_CommutCallback
  .text.HAL_TIMEx_BreakCallback
-                0x08009f62        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
-                0x08009f62                HAL_TIMEx_BreakCallback
+                0x080092f2        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+                0x080092f2                HAL_TIMEx_BreakCallback
  .text.UART_SetConfig
-                0x08009f64       0x94 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
- .text.UART_WaitOnFlagUntilTimeout
-                0x08009ff8       0x84 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+                0x080092f4       0x94 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
  .text.HAL_UART_Init
-                0x0800a07c       0x60 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
-                0x0800a07c                HAL_UART_Init
- .text.HAL_UART_Receive
-                0x0800a0dc       0xca CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
-                0x0800a0dc                HAL_UART_Receive
- .text.LCD_Pow  0x0800a1a6       0x16 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+                0x08009388       0x60 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+                0x08009388                HAL_UART_Init
  .text.LCD_SPI_Send
-                0x0800a1bc       0x18 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+                0x080093e8       0x18 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .text.LCD_Write_Data
-                0x0800a1d4       0x28 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+                0x08009400       0x28 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .text.LCD_Write_Cmd
-                0x0800a1fc       0x28 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
- .text.LCD_Write_HalfWord
-                0x0800a224       0x30 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
-                0x0800a224                LCD_Write_HalfWord
+                0x08009428       0x28 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .text.LCD_Address_Set
-                0x0800a254       0x4e CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
-                0x0800a254                LCD_Address_Set
- *fill*         0x0800a2a2        0x2 
+                0x08009450       0x4e CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+                0x08009450                LCD_Address_Set
+ *fill*         0x0800949e        0x2 
  .text.LCD_Clear
-                0x0800a2a4       0x68 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
-                0x0800a2a4                LCD_Clear
- .text.LCD_ShowChar
-                0x0800a30c      0x1c8 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
-                0x0800a30c                LCD_ShowChar
- .text.LCD_ShowNum
-                0x0800a4d4       0x88 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
-                0x0800a4d4                LCD_ShowNum
+                0x080094a0       0x68 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+                0x080094a0                LCD_Clear
+ .text.LCD_Show_Image
+                0x08009508       0x74 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+                0x08009508                LCD_Show_Image
  .text.LCD_Init
-                0x0800a55c      0x1b0 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
-                0x0800a55c                LCD_Init
+                0x0800957c      0x1b0 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+                0x0800957c                LCD_Init
  .text.PAL_PCA9685_IsSleep
-                0x0800a70c       0x30 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
-                0x0800a70c                PAL_PCA9685_IsSleep
+                0x0800972c       0x30 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
+                0x0800972c                PAL_PCA9685_IsSleep
  .text.PAL_PCA9685_Sleep
-                0x0800a73c       0x62 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
-                0x0800a73c                PAL_PCA9685_Sleep
- *fill*         0x0800a79e        0x2 
+                0x0800975c       0x62 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
+                0x0800975c                PAL_PCA9685_Sleep
+ *fill*         0x080097be        0x2 
  .text.PAL_PCA9685_SetFrequency
-                0x0800a7a0       0x9c CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
-                0x0800a7a0                PAL_PCA9685_SetFrequency
+                0x080097c0       0x9c CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
+                0x080097c0                PAL_PCA9685_SetFrequency
  .text.PAL_PCA9685_SetOutput
-                0x0800a83c      0x178 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
-                0x0800a83c                PAL_PCA9685_SetOutput
- .text.memset   0x0800a9b4       0xa0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-memset.o)
-                0x0800a9b4                memset
+                0x0800985c      0x178 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
+                0x0800985c                PAL_PCA9685_SetOutput
+ .text.memset   0x080099d4       0xa0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-memset.o)
+                0x080099d4                memset
  .text.__libc_init_array
-                0x0800aa54       0x50 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-init.o)
-                0x0800aa54                __libc_init_array
+                0x08009a74       0x50 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-init.o)
+                0x08009a74                __libc_init_array
  .text.__retarget_lock_acquire_recursive
-                0x0800aaa4        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-lock.o)
-                0x0800aaa4                __retarget_lock_acquire_recursive
+                0x08009ac4        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-lock.o)
+                0x08009ac4                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x0800aaa8        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-lock.o)
-                0x0800aaa8                __retarget_lock_release_recursive
+                0x08009ac8        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-lock.o)
+                0x08009ac8                __retarget_lock_release_recursive
  .text.startup.register_fini
-                0x0800aaac       0x14 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__call_atexit.o)
- .text.atexit   0x0800aac0        0xc /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-atexit.o)
-                0x0800aac0                atexit
+                0x08009acc       0x14 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__call_atexit.o)
+ .text.atexit   0x08009ae0        0xc /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-atexit.o)
+                0x08009ae0                atexit
  .text.__libc_fini_array
-                0x0800aacc       0x28 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-fini.o)
-                0x0800aacc                __libc_fini_array
+                0x08009aec       0x28 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-fini.o)
+                0x08009aec                __libc_fini_array
  .text.__register_exitproc
-                0x0800aaf4       0x80 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__atexit.o)
-                0x0800aaf4                __register_exitproc
+                0x08009b14       0x80 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__atexit.o)
+                0x08009b14                __register_exitproc
  *(.glue_7)
- .glue_7        0x0800ab74        0x0 linker stubs
+ .glue_7        0x08009b94        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0800ab74        0x0 linker stubs
+ .glue_7t       0x08009b94        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x0800ab74        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
+ .eh_frame      0x08009b94        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
  *(.init)
- .init          0x0800ab74        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crti.o
-                0x0800ab74                _init
- .init          0x0800ab78        0x8 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtn.o
+ .init          0x08009b94        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crti.o
+                0x08009b94                _init
+ .init          0x08009b98        0x8 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtn.o
  *(.fini)
- .fini          0x0800ab80        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crti.o
-                0x0800ab80                _fini
- .fini          0x0800ab84        0x8 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtn.o
-                0x0800ab8c                        . = ALIGN (0x4)
-                0x0800ab8c                        _etext = .
+ .fini          0x08009ba0        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crti.o
+                0x08009ba0                _fini
+ .fini          0x08009ba4        0x8 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtn.o
+                0x08009bac                        . = ALIGN (0x4)
+                0x08009bac                        _etext = .
 
-.vfp11_veneer   0x0800ab8c        0x0
- .vfp11_veneer  0x0800ab8c        0x0 linker stubs
+.vfp11_veneer   0x08009bac        0x0
+ .vfp11_veneer  0x08009bac        0x0 linker stubs
 
-.v4_bx          0x0800ab8c        0x0
- .v4_bx         0x0800ab8c        0x0 linker stubs
+.v4_bx          0x08009bac        0x0
+ .v4_bx         0x08009bac        0x0 linker stubs
 
-.iplt           0x0800ab8c        0x0
- .iplt          0x0800ab8c        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
+.iplt           0x08009bac        0x0
+ .iplt          0x08009bac        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
 
-.rodata         0x0800ab8c     0x4be0
-                0x0800ab8c                        . = ALIGN (0x4)
+.rodata         0x08009bac    0x1c234
+                0x08009bac                        . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
+ .rodata.gImage_homer
+                0x08009bac    0x1c208 CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
+                0x08009bac                gImage_homer
  .rodata.APBPrescTable
-                0x0800ab8c        0x8 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
-                0x0800ab8c                APBPrescTable
+                0x08025db4        0x8 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
+                0x08025db4                APBPrescTable
  .rodata.AHBPrescTable
-                0x0800ab94       0x10 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
-                0x0800ab94                AHBPrescTable
+                0x08025dbc       0x10 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
+                0x08025dbc                AHBPrescTable
  .rodata.aPredivFactorTable.0
-                0x0800aba4        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- *fill*         0x0800aba6        0x2 
+                0x08025dcc        0x2 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ *fill*         0x08025dce        0x2 
  .rodata.aPLLMULFactorTable.1
-                0x0800aba8       0x10 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- .rodata.asc2_3216
-                0x0800abb8     0x2f80 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
-                0x0800abb8                asc2_3216
- .rodata.asc2_2412
-                0x0800db38     0x11d0 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
-                0x0800db38                asc2_2412
- .rodata.asc2_1608
-                0x0800ed08      0x5f0 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
-                0x0800ed08                asc2_1608
- .rodata.asc2_1206
-                0x0800f2f8      0x474 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
-                0x0800f2f8                asc2_1206
-                0x0800f76c                        . = ALIGN (0x4)
+                0x08025dd0       0x10 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x08025de0                        . = ALIGN (0x4)
 
-.rel.dyn        0x0800f76c        0x0
- .rel.iplt      0x0800f76c        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
+.rel.dyn        0x08025de0        0x0
+ .rel.iplt      0x08025de0        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
 
-.ARM.extab      0x0800f76c        0x0
-                0x0800f76c                        . = ALIGN (0x4)
+.ARM.extab      0x08025de0        0x0
+                0x08025de0                        . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0800f76c                        . = ALIGN (0x4)
+                0x08025de0                        . = ALIGN (0x4)
 
-.ARM            0x0800f76c        0x0
-                0x0800f76c                        . = ALIGN (0x4)
-                0x0800f76c                        __exidx_start = .
+.ARM            0x08025de0        0x0
+                0x08025de0                        . = ALIGN (0x4)
+                0x08025de0                        __exidx_start = .
  *(.ARM.exidx*)
-                0x0800f76c                        __exidx_end = .
-                0x0800f76c                        . = ALIGN (0x4)
+                0x08025de0                        __exidx_end = .
+                0x08025de0                        . = ALIGN (0x4)
 
-.preinit_array  0x0800f76c        0x0
-                0x0800f76c                        . = ALIGN (0x4)
-                0x0800f76c                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x08025de0        0x0
+                0x08025de0                        . = ALIGN (0x4)
+                0x08025de0                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0800f76c                        PROVIDE (__preinit_array_end = .)
-                0x0800f76c                        . = ALIGN (0x4)
+                0x08025de0                        PROVIDE (__preinit_array_end = .)
+                0x08025de0                        . = ALIGN (0x4)
 
-.init_array     0x0800f76c        0x8
-                0x0800f76c                        . = ALIGN (0x4)
-                0x0800f76c                        PROVIDE (__init_array_start = .)
+.init_array     0x08025de0        0x8
+                0x08025de0                        . = ALIGN (0x4)
+                0x08025de0                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00000
-                0x0800f76c        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__call_atexit.o)
+                0x08025de0        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__call_atexit.o)
  *(.init_array*)
- .init_array    0x0800f770        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
-                0x0800f774                        PROVIDE (__init_array_end = .)
-                0x0800f774                        . = ALIGN (0x4)
+ .init_array    0x08025de4        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
+                0x08025de8                        PROVIDE (__init_array_end = .)
+                0x08025de8                        . = ALIGN (0x4)
 
-.fini_array     0x0800f774        0x4
-                0x0800f774                        . = ALIGN (0x4)
-                0x0800f774                        PROVIDE (__fini_array_start = .)
+.fini_array     0x08025de8        0x4
+                0x08025de8                        . = ALIGN (0x4)
+                0x08025de8                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0800f774        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
-                0x0800f778                        PROVIDE (__fini_array_end = .)
-                0x0800f778                        . = ALIGN (0x4)
-                0x0800f778                        _sidata = LOADADDR (.data)
+ .fini_array    0x08025de8        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
+                0x08025dec                        PROVIDE (__fini_array_end = .)
+                0x08025dec                        . = ALIGN (0x4)
+                0x08025dec                        _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x14 load address 0x0800f778
+.data           0x20000000       0x10 load address 0x08025dec
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
@@ -3057,94 +3063,85 @@ LOAD /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-no
  .data.uwTickPrio
                 0x20000008        0x4 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
                 0x20000008                uwTickPrio
- .data.POINT_COLOR
-                0x2000000c        0x2 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
-                0x2000000c                POINT_COLOR
- *fill*         0x2000000e        0x2 
  .data.__atexit_recursive_mutex
-                0x20000010        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__call_atexit.o)
-                0x20000010                __atexit_recursive_mutex
+                0x2000000c        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__call_atexit.o)
+                0x2000000c                __atexit_recursive_mutex
  *(.RamFunc)
  *(.RamFunc*)
-                0x20000014                        . = ALIGN (0x4)
-                0x20000014                        _edata = .
+                0x20000010                        . = ALIGN (0x4)
+                0x20000010                        _edata = .
 
 .tm_clone_table
-                0x20000014        0x0 load address 0x0800f78c
+                0x20000010        0x0 load address 0x08025dfc
  .tm_clone_table
-                0x20000014        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
+                0x20000010        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
  .tm_clone_table
-                0x20000014        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtend.o
+                0x20000010        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtend.o
 
-.igot.plt       0x20000014        0x0 load address 0x0800f78c
- .igot.plt      0x20000014        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
-                0x20000014                        . = ALIGN (0x4)
+.igot.plt       0x20000010        0x0 load address 0x08025dfc
+ .igot.plt      0x20000010        0x0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
+                0x20000010                        . = ALIGN (0x4)
 
-.bss            0x20000014      0x9d4 load address 0x0800f78c
-                0x20000014                        _sbss = .
-                0x20000014                        __bss_start__ = _sbss
+.bss            0x20000010      0x9c4 load address 0x08025dfc
+                0x20000010                        _sbss = .
+                0x20000010                        __bss_start__ = _sbss
  *(.bss)
  *(.bss*)
  .bss.completed.1
-                0x20000014        0x1 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
- *fill*         0x20000015        0x3 
- .bss.object.0  0x20000018       0x18 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
- .bss.PCA9685   0x20000030       0x10 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
-                0x20000030                PCA9685
- .bss.hi2c2     0x20000040       0x54 CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
-                0x20000040                hi2c2
+                0x20000010        0x1 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
+ *fill*         0x20000011        0x3 
+ .bss.object.0  0x20000014       0x18 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtbegin.o
+ .bss.PCA9685   0x2000002c       0x10 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+                0x2000002c                PCA9685
+ .bss.hi2c2     0x2000003c       0x54 CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
+                0x2000003c                hi2c2
  .bss.PioneerCar
-                0x20000094       0xd8 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
-                0x20000094                PioneerCar
- .bss.DSC_DATA  0x2000016c        0xc CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
-                0x2000016c                DSC_DATA
- .bss.hspi2     0x20000178       0x58 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
-                0x20000178                hspi2
- .bss.htim5     0x200001d0       0x48 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
-                0x200001d0                htim5
- .bss.htim4     0x20000218       0x48 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
-                0x20000218                htim4
- .bss.htim3     0x20000260       0x48 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
-                0x20000260                htim3
- .bss.htim2     0x200002a8       0x48 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
-                0x200002a8                htim2
- .bss.htim1     0x200002f0       0x48 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
-                0x200002f0                htim1
- .bss.huart2    0x20000338       0x48 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
-                0x20000338                huart2
- .bss.huart1    0x20000380       0x48 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
-                0x20000380                huart1
- .bss.uwTick    0x200003c8        0x4 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
-                0x200003c8                uwTick
- .bss.BACK_COLOR
-                0x200003cc        0x2 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
-                0x200003cc                BACK_COLOR
- *fill*         0x200003ce        0x2 
- .bss.lcd_buf   0x200003d0      0x480 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+                0x20000090       0xd8 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
+                0x20000090                PioneerCar
+ .bss.hspi2     0x20000168       0x58 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
+                0x20000168                hspi2
+ .bss.htim5     0x200001c0       0x48 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x200001c0                htim5
+ .bss.htim4     0x20000208       0x48 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x20000208                htim4
+ .bss.htim3     0x20000250       0x48 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x20000250                htim3
+ .bss.htim2     0x20000298       0x48 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x20000298                htim2
+ .bss.htim1     0x200002e0       0x48 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x200002e0                htim1
+ .bss.huart2    0x20000328       0x48 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
+                0x20000328                huart2
+ .bss.huart1    0x20000370       0x48 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
+                0x20000370                huart1
+ .bss.uwTick    0x200003b8        0x4 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+                0x200003b8                uwTick
+ .bss.lcd_buf   0x200003bc      0x480 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .bss.__lock___atexit_recursive_mutex
-                0x20000850        0x1 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-lock.o)
-                0x20000850                __lock___atexit_recursive_mutex
- *fill*         0x20000851        0x3 
- .bss.__atexit  0x20000854        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__call_atexit.o)
-                0x20000854                __atexit
+                0x2000083c        0x1 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-lock.o)
+                0x2000083c                __lock___atexit_recursive_mutex
+ *fill*         0x2000083d        0x3 
+ .bss.__atexit  0x20000840        0x4 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__call_atexit.o)
+                0x20000840                __atexit
  .bss.__atexit0
-                0x20000858      0x190 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__atexit.o)
-                0x20000858                __atexit0
+                0x20000844      0x190 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__atexit.o)
+                0x20000844                __atexit0
  *(COMMON)
-                0x200009e8                        . = ALIGN (0x4)
-                0x200009e8                        _ebss = .
-                0x200009e8                        __bss_end__ = _ebss
+                0x200009d4                        . = ALIGN (0x4)
+                0x200009d4                        _ebss = .
+                0x200009d4                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x200009e8     0x1100 load address 0x0800f78c
-                0x200009e8                        . = ALIGN (0x8)
+                0x200009d4     0x1104 load address 0x08025dfc
+                0x200009d8                        . = ALIGN (0x8)
+ *fill*         0x200009d4        0x4 
                 [!provide]                        PROVIDE (end = .)
-                0x200009e8                        PROVIDE (_end = .)
-                0x20000be8                        . = (. + _Min_Heap_Size)
- *fill*         0x200009e8      0x200 
-                0x20001ae8                        . = (. + _Min_Stack_Size)
- *fill*         0x20000be8      0xf00 
-                0x20001ae8                        . = ALIGN (0x8)
+                0x200009d8                        PROVIDE (_end = .)
+                0x20000bd8                        . = (. + _Min_Heap_Size)
+ *fill*         0x200009d8      0x200 
+                0x20001ad8                        . = (. + _Min_Stack_Size)
+ *fill*         0x20000bd8      0xf00 
+                0x20001ad8                        . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
@@ -3161,342 +3158,323 @@ LOAD /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-no
  .ARM.attributes
                 0x0000004a       0x2d CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
  .ARM.attributes
-                0x00000077       0x2d CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
+                0x00000077       0x2d CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
  .ARM.attributes
-                0x000000a4       0x2d CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+                0x000000a4       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
  .ARM.attributes
-                0x000000d1       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
+                0x000000d1       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
  .ARM.attributes
-                0x000000fe       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
+                0x000000fe       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
  .ARM.attributes
-                0x0000012b       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
+                0x0000012b       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
  .ARM.attributes
-                0x00000158       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
+                0x00000158       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
  .ARM.attributes
-                0x00000185       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+                0x00000185       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
  .ARM.attributes
-                0x000001b2       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x000001b2       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
  .ARM.attributes
-                0x000001df       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
+                0x000001df       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
  .ARM.attributes
-                0x0000020c       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x0000020c       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
  .ARM.attributes
-                0x00000239       0x2d CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
+                0x00000239       0x21 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
  .ARM.attributes
-                0x00000266       0x21 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
+                0x0000025a       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
  .ARM.attributes
-                0x00000287       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+                0x00000287       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
  .ARM.attributes
-                0x000002b4       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+                0x000002b4       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
  .ARM.attributes
-                0x000002e1       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+                0x000002e1       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
  .ARM.attributes
-                0x0000030e       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+                0x0000030e       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
  .ARM.attributes
-                0x0000033b       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x0000033b       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
  .ARM.attributes
-                0x00000368       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+                0x00000368       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
  .ARM.attributes
-                0x00000395       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x00000395       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
  .ARM.attributes
-                0x000003c2       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+                0x000003c2       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
  .ARM.attributes
-                0x000003ef       0x2d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+                0x000003ef       0x2d CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .ARM.attributes
-                0x0000041c       0x2d CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+                0x0000041c       0x2d CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
  .ARM.attributes
-                0x00000449       0x2d CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
+                0x00000449       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubsf3.o)
  .ARM.attributes
-                0x00000476       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubdf3.o)
+                0x00000466       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivsf3.o)
  .ARM.attributes
-                0x00000493       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivdf3.o)
+                0x00000483       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_cmpsf2.o)
  .ARM.attributes
-                0x000004b0       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_truncdfsf2.o)
+                0x000004a0       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixunssfsi.o)
  .ARM.attributes
-                0x000004cd       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubsf3.o)
+                0x000004bd       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-memset.o)
  .ARM.attributes
-                0x000004ea       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivsf3.o)
+                0x000004ea       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-init.o)
  .ARM.attributes
-                0x00000507       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_cmpsf2.o)
+                0x00000517       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-lock.o)
  .ARM.attributes
-                0x00000524       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixunssfsi.o)
+                0x00000544       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__call_atexit.o)
  .ARM.attributes
-                0x00000541       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-memset.o)
+                0x00000571       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-atexit.o)
  .ARM.attributes
-                0x0000056e       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-init.o)
+                0x0000059e       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-fini.o)
  .ARM.attributes
-                0x0000059b       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-lock.o)
+                0x000005cb       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__atexit.o)
  .ARM.attributes
-                0x000005c8       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__call_atexit.o)
+                0x000005f8       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtend.o
  .ARM.attributes
-                0x000005f5       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-atexit.o)
- .ARM.attributes
-                0x00000622       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-fini.o)
- .ARM.attributes
-                0x0000064f       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__atexit.o)
- .ARM.attributes
-                0x0000067c       0x2d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtend.o
- .ARM.attributes
-                0x000006a9       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtn.o
+                0x00000625       0x1d /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/crtn.o
 OUTPUT(Pioneer.elf elf32-littlearm)
 LOAD linker stubs
 LOAD /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libc.a
 LOAD /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libm.a
 LOAD /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a
 
-.debug_info     0x00000000    0x1afab
- .debug_info    0x00000000      0xcae CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
- .debug_info    0x00000cae      0x70b CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
- .debug_info    0x000013b9     0x1684 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
- .debug_info    0x00002a3d      0x5d9 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
- .debug_info    0x00003016      0x859 CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
- .debug_info    0x0000386f      0xd94 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
- .debug_info    0x00004603      0x81c CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
- .debug_info    0x00004e1f      0x1f4 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
- .debug_info    0x00005013      0x7f1 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
- .debug_info    0x00005804      0x22d CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
- .debug_info    0x00005a31     0x1380 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
- .debug_info    0x00006db1      0x8dc CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
- .debug_info    0x0000768d       0x30 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
- .debug_info    0x000076bd      0x808 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
- .debug_info    0x00007ec5      0xd3f CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
- .debug_info    0x00008c04      0x604 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
- .debug_info    0x00009208     0x3905 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
- .debug_info    0x0000cb0d      0x9c7 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- .debug_info    0x0000d4d4     0x1c94 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
- .debug_info    0x0000f168     0x3be7 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
- .debug_info    0x00012d4f     0x1aac CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
- .debug_info    0x000147fb     0x407d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
- .debug_info    0x00018878     0x1c44 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
- .debug_info    0x0001a4bc      0xaef CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
+.debug_info     0x00000000    0x1a898
+ .debug_info    0x00000000      0xd4e CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
+ .debug_info    0x00000d4e     0x1684 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+ .debug_info    0x000023d2      0x5d9 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
+ .debug_info    0x000029ab      0x859 CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
+ .debug_info    0x00003204      0xcec CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
+ .debug_info    0x00003ef0      0x81c CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
+ .debug_info    0x0000470c      0x1f4 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+ .debug_info    0x00004900      0x7f1 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+ .debug_info    0x000050f1      0x22d CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
+ .debug_info    0x0000531e     0x1380 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+ .debug_info    0x0000669e      0x8dc CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
+ .debug_info    0x00006f7a       0x30 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
+ .debug_info    0x00006faa      0x808 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+ .debug_info    0x000077b2      0xd3f CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ .debug_info    0x000084f1      0x604 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+ .debug_info    0x00008af5     0x3905 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+ .debug_info    0x0000c3fa      0x9c7 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ .debug_info    0x0000cdc1     0x1c94 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+ .debug_info    0x0000ea55     0x3be7 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+ .debug_info    0x0001263c     0x1aac CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+ .debug_info    0x000140e8     0x407d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .debug_info    0x00018165     0x1c44 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+ .debug_info    0x00019da9      0xaef CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
 
-.debug_abbrev   0x00000000     0x3303
- .debug_abbrev  0x00000000      0x1bf CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
- .debug_abbrev  0x000001bf      0x1cf CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
- .debug_abbrev  0x0000038e      0x27f CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
- .debug_abbrev  0x0000060d      0x173 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
- .debug_abbrev  0x00000780      0x1fc CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
- .debug_abbrev  0x0000097c      0x270 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
- .debug_abbrev  0x00000bec      0x1fe CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
- .debug_abbrev  0x00000dea       0xed CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
- .debug_abbrev  0x00000ed7      0x1e0 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
- .debug_abbrev  0x000010b7      0x143 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
- .debug_abbrev  0x000011fa      0x2b2 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
- .debug_abbrev  0x000014ac      0x208 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
- .debug_abbrev  0x000016b4       0x24 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
- .debug_abbrev  0x000016d8      0x22d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
- .debug_abbrev  0x00001905      0x36d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
- .debug_abbrev  0x00001c72      0x1f7 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
- .debug_abbrev  0x00001e69      0x2be CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
- .debug_abbrev  0x00002127      0x2a0 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- .debug_abbrev  0x000023c7      0x27c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
- .debug_abbrev  0x00002643      0x270 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
- .debug_abbrev  0x000028b3      0x26e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
- .debug_abbrev  0x00002b21      0x31c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
- .debug_abbrev  0x00002e3d      0x34e CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
- .debug_abbrev  0x0000318b      0x178 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
+.debug_abbrev   0x00000000     0x31a4
+ .debug_abbrev  0x00000000      0x1ff CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
+ .debug_abbrev  0x000001ff      0x27f CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+ .debug_abbrev  0x0000047e      0x173 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
+ .debug_abbrev  0x000005f1      0x1fc CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
+ .debug_abbrev  0x000007ed      0x2a0 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
+ .debug_abbrev  0x00000a8d      0x1fe CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
+ .debug_abbrev  0x00000c8b       0xed CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+ .debug_abbrev  0x00000d78      0x1e0 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+ .debug_abbrev  0x00000f58      0x143 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
+ .debug_abbrev  0x0000109b      0x2b2 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+ .debug_abbrev  0x0000134d      0x208 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
+ .debug_abbrev  0x00001555       0x24 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
+ .debug_abbrev  0x00001579      0x22d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+ .debug_abbrev  0x000017a6      0x36d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ .debug_abbrev  0x00001b13      0x1f7 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+ .debug_abbrev  0x00001d0a      0x2be CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+ .debug_abbrev  0x00001fc8      0x2a0 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ .debug_abbrev  0x00002268      0x27c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+ .debug_abbrev  0x000024e4      0x270 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+ .debug_abbrev  0x00002754      0x26e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+ .debug_abbrev  0x000029c2      0x31c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .debug_abbrev  0x00002cde      0x34e CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+ .debug_abbrev  0x0000302c      0x178 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
 
 .debug_loclists
-                0x00000000     0xeb18
+                0x00000000     0xea41
  .debug_loclists
                 0x00000000       0x60 CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
  .debug_loclists
-                0x00000060       0xd7 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
+                0x00000060      0x3c2 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
  .debug_loclists
-                0x00000137      0x3c2 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+                0x00000422       0x5d CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
  .debug_loclists
-                0x000004f9       0x5d CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
+                0x0000047f       0x74 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
  .debug_loclists
-                0x00000556       0x74 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
+                0x000004f3       0x17 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
  .debug_loclists
-                0x000005ca       0x17 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+                0x0000050a       0xb7 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
  .debug_loclists
-                0x000005e1       0xb7 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
+                0x000005c1      0x180 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
  .debug_loclists
-                0x00000698      0x180 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x00000741       0xa5 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
  .debug_loclists
-                0x00000818       0xa5 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
+                0x000007e6       0xe1 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
  .debug_loclists
-                0x000008bd       0xe1 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+                0x000008c7      0x530 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
  .debug_loclists
-                0x0000099e      0x530 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+                0x00000df7      0x31c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
  .debug_loclists
-                0x00000ece      0x31c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+                0x00001113     0x31cd CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
  .debug_loclists
-                0x000011ea     0x31cd CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+                0x000042e0      0x42e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
  .debug_loclists
-                0x000043b7      0x42e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x0000470e     0x1685 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
  .debug_loclists
-                0x000047e5     0x1685 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+                0x00005d93     0x3773 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
  .debug_loclists
-                0x00005e6a     0x3773 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x00009506     0x13c9 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
  .debug_loclists
-                0x000095dd     0x13c9 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+                0x0000a8cf     0x2d99 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
  .debug_loclists
-                0x0000a9a6     0x2d99 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+                0x0000d668      0xd2b CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .debug_loclists
-                0x0000d73f      0xd2b CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
- .debug_loclists
-                0x0000e46a      0x6ae CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
+                0x0000e393      0x6ae CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
 
-.debug_aranges  0x00000000     0x1280
+.debug_aranges  0x00000000     0x1268
  .debug_aranges
-                0x00000000       0x30 CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
+                0x00000000       0x38 CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
  .debug_aranges
-                0x00000030       0x20 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
+                0x00000038       0x80 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
  .debug_aranges
-                0x00000050       0x80 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+                0x000000b8       0x20 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
  .debug_aranges
-                0x000000d0       0x20 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
+                0x000000d8       0x30 CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
  .debug_aranges
-                0x000000f0       0x30 CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
+                0x00000108       0x30 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
  .debug_aranges
-                0x00000120       0x30 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
+                0x00000138       0x30 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
  .debug_aranges
-                0x00000150       0x30 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
+                0x00000168       0x20 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
  .debug_aranges
-                0x00000180       0x20 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+                0x00000188       0xa0 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
  .debug_aranges
-                0x000001a0       0xa0 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x00000228       0x28 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
  .debug_aranges
-                0x00000240       0x28 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
+                0x00000250       0x60 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
  .debug_aranges
-                0x00000268       0x60 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x000002b0       0x38 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
  .debug_aranges
-                0x000002c8       0x38 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
+                0x000002e8       0x28 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
  .debug_aranges
-                0x00000300       0x28 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
+                0x00000310       0xe0 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
  .debug_aranges
-                0x00000328       0xe0 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+                0x000003f0       0xc0 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
  .debug_aranges
-                0x00000408       0xc0 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+                0x000004b0       0x58 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
  .debug_aranges
-                0x000004c8       0x58 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+                0x00000508      0x2a8 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
  .debug_aranges
-                0x00000520      0x2a8 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+                0x000007b0       0x90 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
  .debug_aranges
-                0x000007c8       0x90 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x00000840      0x1d0 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
  .debug_aranges
-                0x00000858      0x1d0 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+                0x00000a10      0x3d0 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
  .debug_aranges
-                0x00000a28      0x3d0 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x00000de0      0x168 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
  .debug_aranges
-                0x00000df8      0x168 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+                0x00000f48      0x208 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
  .debug_aranges
-                0x00000f60      0x208 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+                0x00001150       0xc0 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .debug_aranges
-                0x00001168       0xc0 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
- .debug_aranges
-                0x00001228       0x58 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
+                0x00001210       0x58 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
 
 .debug_rnglists
-                0x00000000      0xe3e
+                0x00000000      0xe30
  .debug_rnglists
-                0x00000000       0x20 CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
+                0x00000000       0x26 CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
  .debug_rnglists
-                0x00000020       0x14 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
+                0x00000026       0x5e CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
  .debug_rnglists
-                0x00000034       0x5e CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+                0x00000084       0x14 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
  .debug_rnglists
-                0x00000092       0x14 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
+                0x00000098       0x1f CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
  .debug_rnglists
-                0x000000a6       0x1f CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
+                0x000000b7       0x20 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
  .debug_rnglists
-                0x000000c5       0x20 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
+                0x000000d7       0x1f CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
  .debug_rnglists
-                0x000000e5       0x1f CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
+                0x000000f6       0x13 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
  .debug_rnglists
-                0x00000104       0x13 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+                0x00000109       0x73 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
  .debug_rnglists
-                0x00000117       0x73 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+                0x0000017c       0x1a CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
  .debug_rnglists
-                0x0000018a       0x1a CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
+                0x00000196       0x45 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
  .debug_rnglists
-                0x000001a4       0x45 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+                0x000001db       0x26 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
  .debug_rnglists
-                0x000001e9       0x26 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
+                0x00000201       0x19 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
  .debug_rnglists
-                0x0000020f       0x19 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
+                0x0000021a       0xa3 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
  .debug_rnglists
-                0x00000228       0xa3 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+                0x000002bd       0x8b CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
  .debug_rnglists
-                0x000002cb       0x8b CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+                0x00000348       0x3f CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
  .debug_rnglists
-                0x00000356       0x3f CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+                0x00000387      0x236 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
  .debug_rnglists
-                0x00000395      0x236 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+                0x000005bd       0x7d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
  .debug_rnglists
-                0x000005cb       0x7d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+                0x0000063a      0x168 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
  .debug_rnglists
-                0x00000648      0x168 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+                0x000007a2      0x301 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
  .debug_rnglists
-                0x000007b0      0x301 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+                0x00000aa3      0x11a CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
  .debug_rnglists
-                0x00000ab1      0x11a CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+                0x00000bbd      0x1a1 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
  .debug_rnglists
-                0x00000bcb      0x1a1 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+                0x00000d5e       0x91 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .debug_rnglists
-                0x00000d6c       0x91 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
- .debug_rnglists
-                0x00000dfd       0x41 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
+                0x00000def       0x41 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
 
-.debug_line     0x00000000    0x17529
- .debug_line    0x00000000      0x31c CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
- .debug_line    0x0000031c      0x2f4 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
- .debug_line    0x00000610      0x644 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
- .debug_line    0x00000c54      0x286 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
- .debug_line    0x00000eda      0x357 CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
- .debug_line    0x00001231      0x4a2 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
- .debug_line    0x000016d3      0x36d CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
- .debug_line    0x00001a40      0x1ad CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
- .debug_line    0x00001bed      0x3c9 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
- .debug_line    0x00001fb6      0x275 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
- .debug_line    0x0000222b      0x7e6 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
- .debug_line    0x00002a11      0x43a CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
- .debug_line    0x00002e4b       0x79 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
- .debug_line    0x00002ec4      0x5a4 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
- .debug_line    0x00003468      0x6fa CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
- .debug_line    0x00003b62      0x64b CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
- .debug_line    0x000041ad     0x5657 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
- .debug_line    0x00009804      0xcfd CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- .debug_line    0x0000a501     0x249e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
- .debug_line    0x0000c99f     0x474d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
- .debug_line    0x000110ec     0x1aca CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
- .debug_line    0x00012bb6     0x3591 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
- .debug_line    0x00016147      0xbc5 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
- .debug_line    0x00016d0c      0x81d CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
+.debug_line     0x00000000    0x1723c
+ .debug_line    0x00000000      0x343 CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
+ .debug_line    0x00000343      0x644 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+ .debug_line    0x00000987      0x286 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
+ .debug_line    0x00000c0d      0x357 CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
+ .debug_line    0x00000f64      0x482 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
+ .debug_line    0x000013e6      0x36d CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
+ .debug_line    0x00001753      0x1ad CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+ .debug_line    0x00001900      0x3c9 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+ .debug_line    0x00001cc9      0x275 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
+ .debug_line    0x00001f3e      0x7e6 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+ .debug_line    0x00002724      0x43a CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
+ .debug_line    0x00002b5e       0x79 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
+ .debug_line    0x00002bd7      0x5a4 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+ .debug_line    0x0000317b      0x6fa CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ .debug_line    0x00003875      0x64b CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+ .debug_line    0x00003ec0     0x5657 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+ .debug_line    0x00009517      0xcfd CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ .debug_line    0x0000a214     0x249e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+ .debug_line    0x0000c6b2     0x474d CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+ .debug_line    0x00010dff     0x1aca CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+ .debug_line    0x000128c9     0x3591 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .debug_line    0x00015e5a      0xbc5 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+ .debug_line    0x00016a1f      0x81d CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
 
-.debug_str      0x00000000     0x52b1
- .debug_str     0x00000000     0x52b1 CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
-                                0x867 (size before relaxing)
- .debug_str     0x000052b1      0x6a6 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
- .debug_str     0x000052b1      0xd6e CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
- .debug_str     0x000052b1      0x6a4 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
- .debug_str     0x000052b1      0x774 CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
- .debug_str     0x000052b1      0xaed CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
- .debug_str     0x000052b1      0x6d1 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
- .debug_str     0x000052b1      0x24d CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
- .debug_str     0x000052b1      0x7fc CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
- .debug_str     0x000052b1      0x282 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
- .debug_str     0x000052b1      0xe33 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
- .debug_str     0x000052b1      0x71b CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
- .debug_str     0x000052b1       0x93 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
- .debug_str     0x000052b1      0x940 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
- .debug_str     0x000052b1      0x9e5 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
- .debug_str     0x000052b1      0x42e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
- .debug_str     0x000052b1      0xff3 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
- .debug_str     0x000052b1      0x659 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- .debug_str     0x000052b1      0xb9b CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
- .debug_str     0x000052b1     0x16a3 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
- .debug_str     0x000052b1      0xebf CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
- .debug_str     0x000052b1      0xd22 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
- .debug_str     0x000052b1      0x849 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
- .debug_str     0x000052b1      0x44d CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
+.debug_str      0x00000000     0x5260
+ .debug_str     0x00000000     0x5260 CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
+                                0x892 (size before relaxing)
+ .debug_str     0x00005260      0xd6e CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+ .debug_str     0x00005260      0x6a4 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
+ .debug_str     0x00005260      0x774 CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
+ .debug_str     0x00005260      0xaa3 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
+ .debug_str     0x00005260      0x6d1 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
+ .debug_str     0x00005260      0x24d CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+ .debug_str     0x00005260      0x7fc CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+ .debug_str     0x00005260      0x282 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
+ .debug_str     0x00005260      0xe33 CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+ .debug_str     0x00005260      0x71b CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
+ .debug_str     0x00005260       0x93 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
+ .debug_str     0x00005260      0x940 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+ .debug_str     0x00005260      0x9e5 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ .debug_str     0x00005260      0x42e CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+ .debug_str     0x00005260      0xff3 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+ .debug_str     0x00005260      0x659 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ .debug_str     0x00005260      0xb9b CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+ .debug_str     0x00005260     0x16a3 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+ .debug_str     0x00005260      0xebf CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+ .debug_str     0x00005260      0xd22 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .debug_str     0x00005260      0x849 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+ .debug_str     0x00005260      0x44d CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
 
 .comment        0x00000000       0x44
  .comment       0x00000000       0x44 CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
                                  0x45 (size before relaxing)
- .comment       0x00000044       0x45 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
  .comment       0x00000044       0x45 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
  .comment       0x00000044       0x45 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
  .comment       0x00000044       0x45 CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
@@ -3519,61 +3497,51 @@ LOAD /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-no
  .comment       0x00000044       0x45 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
  .comment       0x00000044       0x45 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
 
-.debug_frame    0x00000000     0x38e4
- .debug_frame   0x00000000       0x6c CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
- .debug_frame   0x0000006c       0x30 CMakeFiles/Pioneer.elf.dir/App/DualSenseController.c.obj
- .debug_frame   0x0000009c      0x170 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
- .debug_frame   0x0000020c       0x38 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
- .debug_frame   0x00000244       0x60 CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
- .debug_frame   0x000002a4       0x58 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
- .debug_frame   0x000002fc       0x60 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
- .debug_frame   0x0000035c       0x28 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
- .debug_frame   0x00000384      0x168 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
- .debug_frame   0x000004ec       0x30 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
- .debug_frame   0x0000051c      0x11c CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
- .debug_frame   0x00000638       0x78 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
- .debug_frame   0x000006b0      0x1cc CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
- .debug_frame   0x0000087c      0x19c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
- .debug_frame   0x00000a18       0xe4 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
- .debug_frame   0x00000afc      0x984 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
- .debug_frame   0x00001480      0x184 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
- .debug_frame   0x00001604      0x5ac CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
- .debug_frame   0x00001bb0      0xb04 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
- .debug_frame   0x000026b4      0x418 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
- .debug_frame   0x00002acc      0x5d4 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
- .debug_frame   0x000030a0      0x280 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
- .debug_frame   0x00003320      0x148 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
- .debug_frame   0x00003468       0xac /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x00003514       0x50 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivdf3.o)
- .debug_frame   0x00003564       0x24 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_truncdfsf2.o)
- .debug_frame   0x00003588       0x4c /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubsf3.o)
- .debug_frame   0x000035d4       0x38 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivsf3.o)
- .debug_frame   0x0000360c       0xc8 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_cmpsf2.o)
- .debug_frame   0x000036d4       0x24 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixunssfsi.o)
- .debug_frame   0x000036f8       0x2c /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-memset.o)
- .debug_frame   0x00003724       0x2c /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-init.o)
- .debug_frame   0x00003750       0xb0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-lock.o)
- .debug_frame   0x00003800       0x5c /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__call_atexit.o)
- .debug_frame   0x0000385c       0x20 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-atexit.o)
- .debug_frame   0x0000387c       0x34 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-fini.o)
- .debug_frame   0x000038b0       0x34 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__atexit.o)
+.debug_frame    0x00000000     0x37b0
+ .debug_frame   0x00000000       0x88 CMakeFiles/Pioneer.elf.dir/App/Display.c.obj
+ .debug_frame   0x00000088      0x170 CMakeFiles/Pioneer.elf.dir/App/Motion.c.obj
+ .debug_frame   0x000001f8       0x38 CMakeFiles/Pioneer.elf.dir/Core/Src/gpio.c.obj
+ .debug_frame   0x00000230       0x60 CMakeFiles/Pioneer.elf.dir/Core/Src/i2c.c.obj
+ .debug_frame   0x00000290       0x58 CMakeFiles/Pioneer.elf.dir/Core/Src/main.c.obj
+ .debug_frame   0x000002e8       0x60 CMakeFiles/Pioneer.elf.dir/Core/Src/spi.c.obj
+ .debug_frame   0x00000348       0x28 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_hal_msp.c.obj
+ .debug_frame   0x00000370      0x168 CMakeFiles/Pioneer.elf.dir/Core/Src/stm32f1xx_it.c.obj
+ .debug_frame   0x000004d8       0x30 CMakeFiles/Pioneer.elf.dir/Core/Src/system_stm32f1xx.c.obj
+ .debug_frame   0x00000508      0x11c CMakeFiles/Pioneer.elf.dir/Core/Src/tim.c.obj
+ .debug_frame   0x00000624       0x78 CMakeFiles/Pioneer.elf.dir/Core/Src/usart.c.obj
+ .debug_frame   0x0000069c      0x1cc CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c.obj
+ .debug_frame   0x00000868      0x19c CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c.obj
+ .debug_frame   0x00000a04       0xe4 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c.obj
+ .debug_frame   0x00000ae8      0x984 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c.obj
+ .debug_frame   0x0000146c      0x184 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c.obj
+ .debug_frame   0x000015f0      0x5ac CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_spi.c.obj
+ .debug_frame   0x00001b9c      0xb04 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c.obj
+ .debug_frame   0x000026a0      0x418 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c.obj
+ .debug_frame   0x00002ab8      0x5d4 CMakeFiles/Pioneer.elf.dir/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.c.obj
+ .debug_frame   0x0000308c      0x280 CMakeFiles/Pioneer.elf.dir/Lib/LCD.c.obj
+ .debug_frame   0x0000330c      0x148 CMakeFiles/Pioneer.elf.dir/Lib/PCA9685.c.obj
+ .debug_frame   0x00003454       0x4c /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubsf3.o)
+ .debug_frame   0x000034a0       0x38 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivsf3.o)
+ .debug_frame   0x000034d8       0xc8 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_cmpsf2.o)
+ .debug_frame   0x000035a0       0x24 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixunssfsi.o)
+ .debug_frame   0x000035c4       0x2c /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-memset.o)
+ .debug_frame   0x000035f0       0x2c /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-init.o)
+ .debug_frame   0x0000361c       0xb0 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-lock.o)
+ .debug_frame   0x000036cc       0x5c /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__call_atexit.o)
+ .debug_frame   0x00003728       0x20 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-atexit.o)
+ .debug_frame   0x00003748       0x34 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-fini.o)
+ .debug_frame   0x0000377c       0x34 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp/libg.a(libc_a-__atexit.o)
 
 .debug_line_str
-                0x00000000      0x157
+                0x00000000      0x14a
  .debug_line_str
-                0x00000000      0x157 CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
+                0x00000000      0x14a CMakeFiles/Pioneer.elf.dir/Core/Startup/startup_stm32f103rctx.s.obj
                                  0x77 (size before relaxing)
  .debug_line_str
-                0x00000157       0xd3 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubdf3.o)
+                0x0000014a       0xd3 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubsf3.o)
  .debug_line_str
-                0x00000157       0xd3 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivdf3.o)
+                0x0000014a       0xd3 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivsf3.o)
  .debug_line_str
-                0x00000157       0xd3 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_truncdfsf2.o)
+                0x0000014a       0xd3 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_cmpsf2.o)
  .debug_line_str
-                0x00000157       0xd3 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_addsubsf3.o)
- .debug_line_str
-                0x00000157       0xd3 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_muldivsf3.o)
- .debug_line_str
-                0x00000157       0xd3 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_cmpsf2.o)
- .debug_line_str
-                0x00000157       0xd3 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixunssfsi.o)
+                0x0000014a       0xd3 /Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/13.2.1/thumb/v7-m/nofp/libgcc.a(_arm_fixunssfsi.o)

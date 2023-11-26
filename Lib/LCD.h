@@ -5,6 +5,8 @@
 #ifndef LCD_H
 #define LCD_H
 #include "stm32f1xx_hal.h"
+
+
 extern uint16_t	POINT_COLOR;		//Default brush color
 extern uint16_t	BACK_COLOR;		//Default background color
 

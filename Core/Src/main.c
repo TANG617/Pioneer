@@ -135,13 +135,14 @@ int main(void)
 
     // readUART(rawDSC);
     // DSC_Process(rawDSC,DSC_DATA);
-    DSC_GET(DSC_DATA);
-    MotionUpdate(&PioneerCar);
-    MotionMoveInt(&PioneerCar,DSC_DATA[LStickX],DSC_DATA[LStickY]*(-1));
+    // DSC_GET(DSC_DATA);
+    // MotionUpdate(&PioneerCar);
+    // MotionMoveInt(&PioneerCar,DSC_DATA[LStickX],DSC_DATA[LStickY]*(-1));
 
     // ShowDSCStatus(DSC_DATA);
-    ShowWheelStatus(&PioneerCar);
-
+    // ShowWheelStatus(&PioneerCar);
+    ShowHelloWorld();
+    HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }

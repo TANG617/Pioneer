@@ -13,7 +13,9 @@
 #include "Motion.h"
 #include "DualSenseController.h"
 
+
 HAL_StatusTypeDef DisplayNum(float num);
 HAL_StatusTypeDef ShowWheelStatus(MotionType *_Car);
 HAL_StatusTypeDef ShowDSCStatus(int16_t *Data);
+HAL_StatusTypeDef ShowHelloWorld();
 #endif //DISPLAY_H

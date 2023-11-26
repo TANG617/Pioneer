@@ -4,7 +4,6 @@
 
 #include "LCD.h"
 #include "LCD_Fonts.h"
-#include "stm32f1xx_hal.h"
 
 extern SPI_HandleTypeDef hspi2;
 
