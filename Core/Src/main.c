@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "can.h"
 #include "i2c.h"
 #include "spi.h"
 #include "tim.h"
@@ -31,6 +32,8 @@
 #include "Motion.h"
 #include "UART.h"
 #include "DualSenseController.h"
+#include "MPU6050/MPU6050.h"
+#include "NodeMotor.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,9 +62,6 @@ MotionType PioneerCar;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
-
-
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -108,11 +108,14 @@ int main(void)
   MX_TIM1_Init();
   MX_SPI2_Init();
   MX_USART2_UART_Init();
+  MX_CAN_Init();
   /* USER CODE BEGIN 2 */
   LCD_Init();
   LCD_Clear(BLACK);
-  MotionInit(&PioneerCar,&htim4,&htim3,&htim2,&htim5);
-  HAL_TIM_Base_Start_IT(&htim1);
+//  MotionInit(&PioneerCar,&htim4,&htim3,&htim2,&htim5);
+//  HAL_TIM_Base_Start_IT(&htim1);
+//  I2C_Select(&hi2c2);
+//  MPU_Init();
   // HAL_UART_Receive(&huart2,rawDSC,30,HAL_MAX_DELAY);
   // DSC_Init(DSC_DATA);
   // readUART(rawDSC);
@@ -141,8 +144,13 @@ int main(void)
 
     // ShowDSCStatus(DSC_DATA);
     // ShowWheelStatus(&PioneerCar);
-    ShowHelloWorld();
-    HAL_Delay(1000);
+//    ShowHelloWorld();
+//    HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox);
+
+    HAL_Delay(100);
+//    MPU_ReadDmp();
+//    ShowIMU();
+//    HAL_Delay(100);
   }
   /* USER CODE END 3 */
 }

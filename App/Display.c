@@ -46,3 +46,19 @@ HAL_StatusTypeDef ShowDSCStatus(int16_t *Data)
     // LCD_ShowNum(10,70,_Car->LeftFrot.Parameter.PID*100,6,24);
 
 }
+
+HAL_StatusTypeDef ShowIMU()
+{
+
+    LCD_ShowNum(10,10,mpu.accX*100,6,24);
+    LCD_ShowNum(10,50,mpu.accY*100,6,24);
+    LCD_ShowNum(10,90,mpu.accZ*100,6,24);
+
+    LCD_ShowNum(100,10,mpu.gyrX*100,6,24);
+    LCD_ShowNum(100,50,mpu.gyrY*100,6,24);
+    LCD_ShowNum(100,90,mpu.gyrZ*100,6,24);
+
+    LCD_ShowNum(190,10,mpu.yaw*100,6,24);
+    LCD_ShowNum(190,50,mpu.pitch*100,6,24);
+    LCD_ShowNum(190,90,mpu.roll*100,6,24);
+}

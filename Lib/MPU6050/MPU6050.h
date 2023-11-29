@@ -18,6 +18,7 @@ typedef struct{
   float gyrX,gyrY,gyrZ;
   float pitch,roll,yaw;
 } MPU6050;
+
 extern MPU6050 mpu;
 uint8_t MPU_Init();
 void MPU_ReadAcc();

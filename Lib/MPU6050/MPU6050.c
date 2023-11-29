@@ -1,7 +1,7 @@
-#include "imu.h"
+#include "MPU6050.h"
 #include "stm32f1xx_hal.h"
 #include "inv_mpu.h"
-#include "FS_Debug.h"
+#include "debug.h"
 #include "math.h"
 
 I2C_HandleTypeDef *i2c=NULL;
