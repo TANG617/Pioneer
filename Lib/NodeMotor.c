@@ -20,10 +20,9 @@ HAL_StatusTypeDef NodeMotorEnable(NodeMotorType *Motor){
     uint32_t TxMailbox;
     uint8_t TxData[8] = {0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xfc};
     Motor->TxHeader.StdId = Motor->id;
-    Motor->TxHeader.ExtId = 0x01;
     Motor->TxHeader.RTR = CAN_RTR_DATA;
     Motor->TxHeader.IDE = CAN_ID_STD;
-    Motor->TxHeader.DLC = 8;
+    Motor->TxHeader.DLC = 0x08;
     Motor->TxHeader.TransmitGlobalTime = DISABLE;
 
     if(HAL_CAN_AddTxMessage(Motor->CanHandler, &Motor->TxHeader, TxData, &TxMailbox)==0){
@@ -102,6 +101,29 @@ HAL_StatusTypeDef NodeMotorMITControl(NodeMotorType *Motor){
     Motor->TxHeader.IDE = CAN_ID_STD;
     Motor->TxHeader.DLC = 8;
     Motor->TxHeader.TransmitGlobalTime = DISABLE;
+
+    if(HAL_CAN_AddTxMessage(Motor->CanHandler, &Motor->TxHeader, TxData, &TxMailbox)==0){
+        return HAL_OK;
+    }
+}
+
+HAL_StatusTypeDef NodeMotorVelocityControl(NodeMotorType *Motor){
+    uint32_t TxMailbox;
+    uint8_t TxData[8];
+    uint8_t *vBuf;
+    vBuf = (uint8_t*) &Motor->Velocity;
+    TxData[0] = *vBuf;
+    TxData[1] = *(vBuf+1);
+    TxData[2] = *(vBuf+2);
+    TxData[3] = *(vBuf+3);
+
+    Motor->TxHeader.StdId = Motor->id;
+    Motor->TxHeader.ExtId = 0x01;
+    Motor->TxHeader.RTR = CAN_RTR_DATA;
+    Motor->TxHeader.IDE = CAN_ID_STD;
+    Motor->TxHeader.DLC = 4;
+    Motor->TxHeader.TransmitGlobalTime = DISABLE;
+
 
     if(HAL_CAN_AddTxMessage(Motor->CanHandler, &Motor->TxHeader, TxData, &TxMailbox)==0){
         return HAL_OK;

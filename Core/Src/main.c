@@ -121,6 +121,10 @@ int main(void)
   // readUART(rawDSC);
   // DSC_Process(rawDSC,DSC_DATA);
   // MotionMoveRad(&PioneerCar,3.14,80);
+
+    NodeMotorType NodeMotor;
+    NodeMotor.CanHandler = &hcan;
+    NodeMotor.id = 0x201;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -146,8 +150,10 @@ int main(void)
     // ShowWheelStatus(&PioneerCar);
 //    ShowHelloWorld();
 //    HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox);
-
-    HAL_Delay(100);
+//
+    NodeMotorEnable(&NodeMotor);
+//    NodeMotorVelocityControl(&NodeMotor);
+    HAL_Delay(500);
 //    MPU_ReadDmp();
 //    ShowIMU();
 //    HAL_Delay(100);
