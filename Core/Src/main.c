@@ -125,12 +125,12 @@ int main(void)
     NodeMotorType NodeMotor1, NodeMotor2;
     NodeMotor1.CanHandler = &hcan;
     NodeMotor1.id = 0x01;
-    NodeMotor1.Mode = 0x200;
+    NodeMotor1.Mode = Velocity;
     NodeMotor1.Velocity = 1;
 
     NodeMotor2.CanHandler = &hcan;
     NodeMotor2.id = 0x02;
-    NodeMotor2.Mode = 0x200;
+    NodeMotor2.Mode = Velocity;
     NodeMotor2.Velocity = -1;
     NodeMotorEnable(&NodeMotor1);
     NodeMotorEnable(&NodeMotor2);

@@ -108,6 +108,37 @@ HAL_StatusTypeDef NodeMotorMITControl(NodeMotorType *Motor){
     }
 }
 
+HAL_StatusTypeDef NodeMotorPositionVelocityControl(NodeMotorType *Motor){
+    if(Motor->Mode != PositionVelocity) return HAL_ERROR;
+    uint8_t TxData[8];
+    uint32_t TxMailbox;
+    uint8_t *pBuf,*vBuf;
+    pBuf=(uint8_t*)&Motor->Position;
+    vBuf=(uint8_t*)&Motor->Velocity;
+
+    TxData[0] = *pBuf;;
+    TxData[1] = *(pBuf+1);
+    TxData[2] = *(pBuf+2);
+    TxData[3] = *(pBuf+3);
+    TxData[4] = *vBuf;
+    TxData[5] = *(vBuf+1);
+    TxData[6] = *(vBuf+2);
+    TxData[7] = *(vBuf+3);
+
+    Motor->TxHeader.StdId = Motor->id + Motor->Mode;
+    Motor->TxHeader.ExtId = 0;
+    Motor->TxHeader.RTR = CAN_RTR_DATA;
+    Motor->TxHeader.IDE = CAN_ID_STD;
+    Motor->TxHeader.DLC = 8;
+    Motor->TxHeader.TransmitGlobalTime = DISABLE;
+
+    if(HAL_CAN_AddTxMessage(Motor->CanHandler, &Motor->TxHeader, TxData, &TxMailbox)==0){
+        return HAL_OK;
+    }
+}
+
+
+
 HAL_StatusTypeDef NodeMotorVelocityControl(NodeMotorType *Motor){
     if(Motor->Mode != Velocity) return HAL_ERROR;
     uint32_t TxMailbox;
