@@ -19,7 +19,7 @@ static int float2uint(float x, float x_min, float x_max, int bits){
 HAL_StatusTypeDef NodeMotorEnable(NodeMotorType *Motor){
     uint32_t TxMailbox;
     uint8_t TxData[8] = {0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xfc};
-    Motor->TxHeader.StdId = Motor->id;
+    Motor->TxHeader.StdId = Motor->id + Motor->Mode;
     Motor->TxHeader.RTR = CAN_RTR_DATA;
     Motor->TxHeader.IDE = CAN_ID_STD;
     Motor->TxHeader.DLC = 0x08;
@@ -33,8 +33,8 @@ HAL_StatusTypeDef NodeMotorEnable(NodeMotorType *Motor){
 HAL_StatusTypeDef NodeMotorDisable(NodeMotorType *Motor){
     uint32_t TxMailbox;
     uint8_t TxData[8] = {0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xfd};
-    Motor->TxHeader.StdId = Motor->id;
-    Motor->TxHeader.ExtId = 0x01;
+    Motor->TxHeader.StdId = Motor->id + Motor->Mode;
+    Motor->TxHeader.ExtId = 0;
     Motor->TxHeader.RTR = CAN_RTR_DATA;
     Motor->TxHeader.IDE = CAN_ID_STD;
     Motor->TxHeader.DLC = 8;
@@ -48,8 +48,8 @@ HAL_StatusTypeDef NodeMotorDisable(NodeMotorType *Motor){
 HAL_StatusTypeDef NodeMotorSaveZero(NodeMotorType *Motor){
     uint32_t TxMailbox;
     uint8_t TxData[8] = {0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xfe};
-    Motor->TxHeader.StdId = Motor->id;
-    Motor->TxHeader.ExtId = 0x01;
+    Motor->TxHeader.StdId = Motor->id + Motor->Mode;
+    Motor->TxHeader.ExtId = 0;
     Motor->TxHeader.RTR = CAN_RTR_DATA;
     Motor->TxHeader.IDE = CAN_ID_STD;
     Motor->TxHeader.DLC = 8;
@@ -63,8 +63,8 @@ HAL_StatusTypeDef NodeMotorSaveZero(NodeMotorType *Motor){
 HAL_StatusTypeDef NodeMotorClearError(NodeMotorType *Motor){
     uint32_t TxMailbox;
     uint8_t TxData[8] = {0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xfb};
-    Motor->TxHeader.StdId = Motor->id;
-    Motor->TxHeader.ExtId = 0x01;
+    Motor->TxHeader.StdId = Motor->id + Motor->Mode;
+    Motor->TxHeader.ExtId = 0;
     Motor->TxHeader.RTR = CAN_RTR_DATA;
     Motor->TxHeader.IDE = CAN_ID_STD;
     Motor->TxHeader.DLC = 8;
@@ -77,6 +77,7 @@ HAL_StatusTypeDef NodeMotorClearError(NodeMotorType *Motor){
 
 
 HAL_StatusTypeDef NodeMotorMITControl(NodeMotorType *Motor){
+    if(Motor->Mode != MIT) return HAL_ERROR;
     uint32_t TxMailbox;
     uint8_t TxData[8];
     uint16_t pos_tmp,vel_tmp,kp_tmp,kd_tmp,tor_tmp;
@@ -95,8 +96,8 @@ HAL_StatusTypeDef NodeMotorMITControl(NodeMotorType *Motor){
     TxData[6] = ((kd_tmp&0xF)<<4)|(tor_tmp>>8);
     TxData[7] = tor_tmp;
 
-    Motor->TxHeader.StdId = Motor->id;
-    Motor->TxHeader.ExtId = 0x01;
+    Motor->TxHeader.StdId = Motor->id + Motor->Mode;
+    Motor->TxHeader.ExtId = 0;
     Motor->TxHeader.RTR = CAN_RTR_DATA;
     Motor->TxHeader.IDE = CAN_ID_STD;
     Motor->TxHeader.DLC = 8;
@@ -108,6 +109,7 @@ HAL_StatusTypeDef NodeMotorMITControl(NodeMotorType *Motor){
 }
 
 HAL_StatusTypeDef NodeMotorVelocityControl(NodeMotorType *Motor){
+    if(Motor->Mode != Velocity) return HAL_ERROR;
     uint32_t TxMailbox;
     uint8_t TxData[8];
     uint8_t *vBuf;
@@ -117,8 +119,8 @@ HAL_StatusTypeDef NodeMotorVelocityControl(NodeMotorType *Motor){
     TxData[2] = *(vBuf+2);
     TxData[3] = *(vBuf+3);
 
-    Motor->TxHeader.StdId = Motor->id;
-    Motor->TxHeader.ExtId = 0x01;
+    Motor->TxHeader.StdId = Motor->id + Motor->Mode;
+    Motor->TxHeader.ExtId = 0;
     Motor->TxHeader.RTR = CAN_RTR_DATA;
     Motor->TxHeader.IDE = CAN_ID_STD;
     Motor->TxHeader.DLC = 4;

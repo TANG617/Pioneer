@@ -122,9 +122,19 @@ int main(void)
   // DSC_Process(rawDSC,DSC_DATA);
   // MotionMoveRad(&PioneerCar,3.14,80);
 
-    NodeMotorType NodeMotor;
-    NodeMotor.CanHandler = &hcan;
-    NodeMotor.id = 0x201;
+    NodeMotorType NodeMotor1, NodeMotor2;
+    NodeMotor1.CanHandler = &hcan;
+    NodeMotor1.id = 0x01;
+    NodeMotor1.Mode = 0x200;
+    NodeMotor1.Velocity = 1;
+
+    NodeMotor2.CanHandler = &hcan;
+    NodeMotor2.id = 0x02;
+    NodeMotor2.Mode = 0x200;
+    NodeMotor2.Velocity = -1;
+    NodeMotorEnable(&NodeMotor1);
+    NodeMotorEnable(&NodeMotor2);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -134,8 +144,11 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+      HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_0);
 
-    HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_0);
+
+
+
     // MotionMoveRad(&PioneerCar,3.14,0.3);
     // MotionMoveInt(&PioneerCar,0,0);
     // HAL_Delay(100);
@@ -151,8 +164,9 @@ int main(void)
 //    ShowHelloWorld();
 //    HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox);
 //
-    NodeMotorEnable(&NodeMotor);
-//    NodeMotorVelocityControl(&NodeMotor);
+
+    NodeMotorVelocityControl(&NodeMotor1);
+    NodeMotorVelocityControl(&NodeMotor2);
     HAL_Delay(500);
 //    MPU_ReadDmp();
 //    ShowIMU();

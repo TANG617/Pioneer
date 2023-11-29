@@ -18,13 +18,18 @@
 #define T_MIN     -18
 #define T_MAX      18
 
-
+typedef enum {
+    MIT = 0x00,
+    PositionVelocity = 0x100,
+    Velocity = 0x200,
+} NodeMotorMode;
 
 typedef struct{
     CAN_HandleTypeDef *CanHandler;
     CAN_TxHeaderTypeDef TxHeader;
     uint16_t id;
     float Position, Velocity, Kp, Kd, Torque;
+    NodeMotorMode Mode;
 }NodeMotorType;
 
 HAL_StatusTypeDef NodeMotorClearError(NodeMotorType *Motor);
