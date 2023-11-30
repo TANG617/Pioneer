@@ -15,7 +15,6 @@ static int float2uint(float x, float x_min, float x_max, int bits){
     return (int) ((x-offset)*((float)((1<<bits)-1))/span);
 }
 
-
 HAL_StatusTypeDef NodeMotorEnable(NodeMotorType *Motor){
     uint32_t TxMailbox;
     uint8_t TxData[8] = {0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xfc};
@@ -74,7 +73,6 @@ HAL_StatusTypeDef NodeMotorClearError(NodeMotorType *Motor){
         return HAL_OK;
     }
 }
-
 
 HAL_StatusTypeDef NodeMotorMITControl(NodeMotorType *Motor){
     if(Motor->Mode != MIT) return HAL_ERROR;
@@ -136,8 +134,6 @@ HAL_StatusTypeDef NodeMotorPositionVelocityControl(NodeMotorType *Motor){
         return HAL_OK;
     }
 }
-
-
 
 HAL_StatusTypeDef NodeMotorVelocityControl(NodeMotorType *Motor){
     if(Motor->Mode != Velocity) return HAL_ERROR;
