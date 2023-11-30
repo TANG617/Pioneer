@@ -25,11 +25,16 @@ typedef enum {
 } NodeMotorMode;
 
 typedef struct{
+    float Position, Velocity, Torque, temperatureMOS, temperatureRotor;
+}NodeMotorStatus;
+
+typedef struct{
     CAN_HandleTypeDef *CanHandler;
     CAN_TxHeaderTypeDef TxHeader;
     uint16_t id;
     float Position, Velocity, Kp, Kd, Torque;
     NodeMotorMode Mode;
+    NodeMotorStatus Status;
 }NodeMotorType;
 
 HAL_StatusTypeDef NodeMotorClearError(NodeMotorType *Motor);

@@ -3,11 +3,7 @@
 //
 
 #include "NodeMotor.h"
-static float uint2float(int x_int, float x_min, float x_max, int bits){
-    float span = x_max - x_min;
-    float offset = x_min;
-    return ((float)x_int)*span/((float)((1<<bits)-1)) + offset;
-}
+
 
 static int float2uint(float x, float x_min, float x_max, int bits){
     float span = x_max - x_min;
@@ -27,6 +23,7 @@ HAL_StatusTypeDef NodeMotorEnable(NodeMotorType *Motor){
     if(HAL_CAN_AddTxMessage(Motor->CanHandler, &Motor->TxHeader, TxData, &TxMailbox)==0){
         return HAL_OK;
     }
+    return HAL_ERROR;
 }
 
 HAL_StatusTypeDef NodeMotorDisable(NodeMotorType *Motor){
@@ -140,7 +137,7 @@ HAL_StatusTypeDef NodeMotorVelocityControl(NodeMotorType *Motor){
     uint32_t TxMailbox;
     uint8_t TxData[8];
     uint8_t *vBuf;
-    vBuf = (uint8_t*) &Motor->Velocity;
+    vBuf = (uint8_t*) &Motor->Velocity ;
     TxData[0] = *vBuf;
     TxData[1] = *(vBuf+1);
     TxData[2] = *(vBuf+2);

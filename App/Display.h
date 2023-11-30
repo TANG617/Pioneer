@@ -10,12 +10,10 @@
 #include "stdlib.h"
 #include "stdarg.h"
 #include "stdio.h"
-#include "Motion.h"
 #include "DualSenseController.h"
 #include "MPU6050/MPU6050.h"
 
 HAL_StatusTypeDef DisplayNum(float num);
-HAL_StatusTypeDef ShowWheelStatus(MotionType *_Car);
 HAL_StatusTypeDef ShowDSCStatus(int16_t *Data);
 HAL_StatusTypeDef ShowHelloWorld();
 HAL_StatusTypeDef ShowIMU();
