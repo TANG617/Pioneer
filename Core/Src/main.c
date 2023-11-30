@@ -111,7 +111,7 @@ int main(void)
   LCD_Init();
   LCD_Clear(BLACK);
 
-
+  ShowHelloWorld();
   BalancedCarInit(&Car);
 
   /* USER CODE END 2 */
