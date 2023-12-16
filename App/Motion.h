@@ -9,7 +9,7 @@
 #include <math.h>
 
 #define KP 0.5
-#define KI 0
+#define KI 0.1
 #define KD 0
 
 #define MotorLeftFrontForward   15

@@ -112,8 +112,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   LCD_Init();
   LCD_Clear(BLACK);
-//  MotionInit(&PioneerCar,&htim4,&htim3,&htim2,&htim5);
-//  HAL_TIM_Base_Start_IT(&htim1);
+  MotionInit(&PioneerCar,&htim4,&htim3,&htim2,&htim5);
+  HAL_TIM_Base_Start_IT(&htim1);
 //  I2C_Select(&hi2c2);
 //  MPU_Init();
   // HAL_UART_Receive(&huart2,rawDSC,30,HAL_MAX_DELAY);
@@ -154,13 +154,14 @@ int main(void)
     // HAL_Delay(100);
 
     // readUART(rawDSC);
-    // DSC_Process(rawDSC,DSC_DATA);
-    // DSC_GET(DSC_DATA);
-    // MotionUpdate(&PioneerCar);
-    // MotionMoveInt(&PioneerCar,DSC_DATA[LStickX],DSC_DATA[LStickY]*(-1));
+//     DSC_Process(rawDSC,DSC_DATA);
+//     DSC_GET(DSC_DATA);
+
+//     MotionMoveInt(&PioneerCar,DSC_DATA[LStickX],DSC_DATA[LStickY]*(-1));
+//      MotionUpdate(&PioneerCar);
 
     // ShowDSCStatus(DSC_DATA);
-    // ShowWheelStatus(&PioneerCar);
+//     ShowWheelStatus(&PioneerCar);
 //    ShowHelloWorld();
 //    HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox);
 //
