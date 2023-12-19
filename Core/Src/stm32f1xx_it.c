@@ -55,8 +55,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern PCD_HandleTypeDef hpcd_USB_FS;
-extern SD_HandleTypeDef hsd;
+extern DMA_HandleTypeDef hdma_spi2_tx;
 extern TIM_HandleTypeDef htim1;
 
 /* USER CODE BEGIN EV */
@@ -162,17 +161,17 @@ void DebugMon_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles USB low priority or CAN RX0 interrupts.
+  * @brief This function handles DMA1 channel5 global interrupt.
   */
-void USB_LP_CAN1_RX0_IRQHandler(void)
+void DMA1_Channel5_IRQHandler(void)
 {
-  /* USER CODE BEGIN USB_LP_CAN1_RX0_IRQn 0 */
+  /* USER CODE BEGIN DMA1_Channel5_IRQn 0 */
 
-  /* USER CODE END USB_LP_CAN1_RX0_IRQn 0 */
-  HAL_PCD_IRQHandler(&hpcd_USB_FS);
-  /* USER CODE BEGIN USB_LP_CAN1_RX0_IRQn 1 */
+  /* USER CODE END DMA1_Channel5_IRQn 0 */
+  HAL_DMA_IRQHandler(&hdma_spi2_tx);
+  /* USER CODE BEGIN DMA1_Channel5_IRQn 1 */
 
-  /* USER CODE END USB_LP_CAN1_RX0_IRQn 1 */
+  /* USER CODE END DMA1_Channel5_IRQn 1 */
 }
 
 /**
@@ -187,20 +186,6 @@ void TIM1_UP_IRQHandler(void)
   /* USER CODE BEGIN TIM1_UP_IRQn 1 */
 
   /* USER CODE END TIM1_UP_IRQn 1 */
-}
-
-/**
-  * @brief This function handles SDIO global interrupt.
-  */
-void SDIO_IRQHandler(void)
-{
-  /* USER CODE BEGIN SDIO_IRQn 0 */
-
-  /* USER CODE END SDIO_IRQn 0 */
-  HAL_SD_IRQHandler(&hsd);
-  /* USER CODE BEGIN SDIO_IRQn 1 */
-
-  /* USER CODE END SDIO_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

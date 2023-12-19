@@ -50,18 +50,34 @@ else ()
 endif ()
 
 include_directories(Core/Inc Drivers/STM32F1xx_HAL_Driver/Inc/Legacy Drivers/STM32F1xx_HAL_Driver/Inc Middlewares/Third_Party/FreeRTOS/Source/include Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM3 Drivers/CMSIS/Device/ST/STM32F1xx/Include Drivers/CMSIS/Include USB_DEVICE/App USB_DEVICE/Target Middlewares/ST/STM32_USB_Device_Library/Core/Inc Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc FATFS/Target FATFS/App Middlewares/Third_Party/FatFs/src Middlewares/Third_Party/FatFs/src/drivers Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS)
-
 add_definitions(-DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xE)
 
-file(GLOB_RECURSE SOURCES "Core/*.*" "FATFS/*.*" "Middlewares/*.*" "Drivers/*.*" "USB_DEVICE/*.*")
+file(GLOB_RECURSE SOURCES "Core/*.*" "FATFS/*.*" "Middlewares/*.*" "Drivers/*.*" "USB_DEVICE/*.*" "Core/Inc/Lib/lvgl/*.*")
+#file(GLOB_RECURSE LVGL_HEADERS "LVGL/*.*")
 
 set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/STM32F103RCTX_FLASH.ld)
 
 add_link_options(-Wl,-gc-sections,--print-memory-usage,-Map=${PROJECT_BINARY_DIR}/${PROJECT_NAME}.map)
 add_link_options(-mcpu=cortex-m3 -mthumb -mthumb-interwork)
 add_link_options(-T ${LINKER_SCRIPT})
+add_executable(${PROJECT_NAME}.elf ${SOURCES} ${LINKER_SCRIPT} lvgl)
 
-add_executable(${PROJECT_NAME}.elf ${SOURCES} ${LINKER_SCRIPT})
+#execute_process(COMMAND make -f lvgl/lvgl.mk)
+add_subdirectory(/Users/timli/STM32Projects/FreeRTOS/Core/Inc/Lib/lvgl)
+#target_include_directories(${PROJECT_NAME}.elf PRIVATE
+#        LVGL
+#)
+#
+## 批量添加文件夹
+#file(GLOB_RECURSE SUBDIRECTORIES "LVGL/*")
+#foreach(SUBDIRECTORY ${SUBDIRECTORIES})
+#    if(IS_DIRECTORY ${SUBDIRECTORY})
+#        target_include_directories(${PROJECT_NAME} PRIVATE ${SUBDIRECTORY})
+#    endif()
+#endforeach()
+
+
+#target_include_directories(${PROJECT_NAME}.elf PRIVATE LVGL)
 
 set(HEX_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.hex)
 set(BIN_FILE ${PROJECT_BINARY_DIR}/${PROJECT_NAME}.bin)

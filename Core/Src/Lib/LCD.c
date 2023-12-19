@@ -27,7 +27,7 @@ uint16_t BACK_COLOR = BLACK; //背景颜色	默认为白色
 
 static void LCD_SPI_Send(uint8_t* data, uint16_t size)
 {
-    HAL_SPI_Transmit(&hspi2, data, size, 1000);
+    HAL_SPI_Transmit_DMA(&hspi2, data, size);
 }
 
 
@@ -232,6 +232,7 @@ void LCD_Draw_ColorPoint(uint16_t x, uint16_t y, uint16_t color)
     LCD_Address_Set(x, y, x, y);
     LCD_Write_HalfWord(color);
 }
+
 
 
 /**
@@ -735,7 +736,7 @@ void LCD_Init(void)
 
     LCD_Address_Set(0, 0, LCD_Width - 1, LCD_Height - 1);
 
-    LCD_Clear(WHITE);
+    LCD_Clear(BLACK);
 
     /* Display on */
 }

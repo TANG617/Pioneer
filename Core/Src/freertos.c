@@ -26,7 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "App/Display.h"
-#include "sdio.h"
+//#include "sdio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -61,7 +61,6 @@ void StartDefaultTask(void const * argument);
 void StartBlink(void const * argument);
 void StartDisplay(void const * argument);
 
-extern void MX_USB_DEVICE_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
@@ -108,15 +107,15 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 256);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* definition and creation of Blink */
-  osThreadDef(Blink, StartBlink, osPriorityLow, 0, 128);
+  osThreadDef(Blink, StartBlink, osPriorityLow, 0, 256);
   BlinkHandle = osThreadCreate(osThread(Blink), NULL);
 
   /* definition and creation of Display */
-  osThreadDef(Display, StartDisplay, osPriorityLow, 0, 128);
+  osThreadDef(Display, StartDisplay, osPriorityLow, 0, 4000);
   DisplayHandle = osThreadCreate(osThread(Display), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -126,7 +125,7 @@ void MX_FREERTOS_Init(void) {
 }
 
 /* USER CODE BEGIN Header_StartDefaultTask */
-#include "bsp_driver_sd.h"
+//#include "bsp_driver_sd.h"
 /**
   * @brief  Function implementing the defaultTask thread.
   * @param  argument: Not used
@@ -135,10 +134,8 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void const * argument)
 {
-  /* init code for USB_DEVICE */
-  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN StartDefaultTask */
-  LCD_Init();
+//  LCD_Init();
 
 
   /* Infinite loop */
@@ -160,6 +157,7 @@ void StartDefaultTask(void const * argument)
 * @retval None
 */
 /* USER CODE END Header_StartBlink */
+uint32_t i = 0;
 void StartBlink(void const * argument)
 {
   /* USER CODE BEGIN StartBlink */
@@ -167,6 +165,7 @@ void StartBlink(void const * argument)
   for(;;)
   {
       HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_0);
+
       osDelay(1000);
   }
   /* USER CODE END StartBlink */
@@ -179,15 +178,54 @@ void StartBlink(void const * argument)
 * @retval None
 */
 /* USER CODE END Header_StartDisplay */
+
+
 void StartDisplay(void const * argument)
 {
   /* USER CODE BEGIN StartDisplay */
-    LCD_Init();
+   DisplayInit();
+    static lv_style_t style_bg;
+    static lv_style_t style_indic;
+
+    lv_style_init(&style_bg);
+    lv_style_set_border_color(&style_bg, lv_palette_main(LV_PALETTE_BLUE));
+    lv_style_set_border_width(&style_bg, 2);
+    lv_style_set_pad_all(&style_bg, 6); /*To make the indicator smaller*/
+    lv_style_set_radius(&style_bg, 6);
+    lv_style_set_anim_time(&style_bg, 1000);
+
+    lv_style_init(&style_indic);
+    lv_style_set_bg_opa(&style_indic, LV_OPA_COVER);
+    lv_style_set_bg_color(&style_indic, lv_palette_main(LV_PALETTE_BLUE));
+    lv_style_set_radius(&style_indic, 3);
+
+    lv_obj_t * bar = lv_bar_create(lv_screen_active());
+    lv_obj_remove_style_all(bar);  /*To have a clean start*/
+    lv_obj_add_style(bar, &style_bg, 0);
+    lv_obj_add_style(bar, &style_indic, LV_PART_INDICATOR);
+
+    lv_obj_set_size(bar, 200, 20);
+    lv_obj_center(bar);
+    lv_bar_set_value(bar, 100, LV_ANIM_ON);
+
   /* Infinite loop */
   for(;;)
   {
 //      ShowHelloWorld();
-      osDelay(10000);
+
+//      for(int i =0; i<50;i++){
+//          for (int j = 0; j < 50; ++j) {
+//              LCD_Draw_ColorPoint(100+i,100+j,0x555555);
+//          }
+//      }
+//      lv_tick_inc(5);
+
+
+//      lv_label_set_text(label, "HELLO");
+      lv_timer_handler();
+
+      osDelay(1);
+
   }
   /* USER CODE END StartDisplay */
 }
