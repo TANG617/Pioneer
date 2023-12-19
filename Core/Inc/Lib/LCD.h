@@ -49,11 +49,12 @@ void LCD_DisplayOff(void);																//Close display
 void LCD_Write_HalfWord(const uint16_t da);												//Write half a byte of data to LCD
 void LCD_Address_Set(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);				//Setting up the data display area
 void LCD_Clear(uint16_t color);															//Clean screen
-void LCD_Fill(uint16_t x_start, uint16_t y_start, uint16_t x_end, uint16_t y_end, uint16_t color);				//Filled monochrome
+void LCD_Fill(uint16_t x_start, uint16_t y_start, uint16_t x_end, uint16_t y_end, uint16_t * color);				//Filled monochrome
 void LCD_Draw_Point(uint16_t x, uint16_t y);														//Draw points
 void LCD_Draw_ColorPoint(uint16_t x, uint16_t y,uint16_t color);										//Painting with color dots
 void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);										//Draw line
-void LCD_DrawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);									//Draw rectangle
+void LCD_DrawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);
+void LCD_DrawColorRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2,uint16_t color);//Draw rectangle
 void LCD_Draw_Circle(uint16_t x0, uint16_t y0, uint8_t r);												//Circle drawing
 void LCD_ShowChar(uint16_t x, uint16_t y, char chr, uint8_t size);										//Display a character
 void LCD_ShowNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t size);									//Display a number

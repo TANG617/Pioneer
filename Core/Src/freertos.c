@@ -57,25 +57,28 @@ osThreadId DisplayHandle;
 
 /* USER CODE END FunctionPrototypes */
 
-void StartDefaultTask(void const * argument);
-void StartBlink(void const * argument);
-void StartDisplay(void const * argument);
+void StartDefaultTask(void const *argument);
+
+void StartBlink(void const *argument);
+
+void StartDisplay(void const *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
-void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize );
+void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer,
+                                   uint32_t *pulIdleTaskStackSize);
 
 /* USER CODE BEGIN GET_IDLE_TASK_MEMORY */
 static StaticTask_t xIdleTaskTCBBuffer;
 static StackType_t xIdleStack[configMINIMAL_STACK_SIZE];
 
-void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize )
-{
-  *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
-  *ppxIdleTaskStackBuffer = &xIdleStack[0];
-  *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
-  /* place for user code */
+void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer,
+                                   uint32_t *pulIdleTaskStackSize) {
+    *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
+    *ppxIdleTaskStackBuffer = &xIdleStack[0];
+    *pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
+    /* place for user code */
 }
 /* USER CODE END GET_IDLE_TASK_MEMORY */
 
@@ -85,42 +88,42 @@ void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackTy
   * @retval None
   */
 void MX_FREERTOS_Init(void) {
-  /* USER CODE BEGIN Init */
+    /* USER CODE BEGIN Init */
 
-  /* USER CODE END Init */
+    /* USER CODE END Init */
 
-  /* USER CODE BEGIN RTOS_MUTEX */
-  /* add mutexes, ... */
-  /* USER CODE END RTOS_MUTEX */
+    /* USER CODE BEGIN RTOS_MUTEX */
+    /* add mutexes, ... */
+    /* USER CODE END RTOS_MUTEX */
 
-  /* USER CODE BEGIN RTOS_SEMAPHORES */
-  /* add semaphores, ... */
-  /* USER CODE END RTOS_SEMAPHORES */
+    /* USER CODE BEGIN RTOS_SEMAPHORES */
+    /* add semaphores, ... */
+    /* USER CODE END RTOS_SEMAPHORES */
 
-  /* USER CODE BEGIN RTOS_TIMERS */
-  /* start timers, add new ones, ... */
-  /* USER CODE END RTOS_TIMERS */
+    /* USER CODE BEGIN RTOS_TIMERS */
+    /* start timers, add new ones, ... */
+    /* USER CODE END RTOS_TIMERS */
 
-  /* USER CODE BEGIN RTOS_QUEUES */
-  /* add queues, ... */
-  /* USER CODE END RTOS_QUEUES */
+    /* USER CODE BEGIN RTOS_QUEUES */
+    /* add queues, ... */
+    /* USER CODE END RTOS_QUEUES */
 
-  /* Create the thread(s) */
-  /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 256);
-  defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
+    /* Create the thread(s) */
+    /* definition and creation of defaultTask */
+    osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 256);
+    defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
-  /* definition and creation of Blink */
-  osThreadDef(Blink, StartBlink, osPriorityLow, 0, 256);
-  BlinkHandle = osThreadCreate(osThread(Blink), NULL);
+    /* definition and creation of Blink */
+    osThreadDef(Blink, StartBlink, osPriorityLow, 0, 256);
+    BlinkHandle = osThreadCreate(osThread(Blink), NULL);
 
-  /* definition and creation of Display */
-  osThreadDef(Display, StartDisplay, osPriorityLow, 0, 4000);
-  DisplayHandle = osThreadCreate(osThread(Display), NULL);
+    /* definition and creation of Display */
+    osThreadDef(Display, StartDisplay, osPriorityLow, 0, 3000);
+    DisplayHandle = osThreadCreate(osThread(Display), NULL);
 
-  /* USER CODE BEGIN RTOS_THREADS */
-  /* add threads, ... */
-  /* USER CODE END RTOS_THREADS */
+    /* USER CODE BEGIN RTOS_THREADS */
+    /* add threads, ... */
+    /* USER CODE END RTOS_THREADS */
 
 }
 
@@ -132,22 +135,25 @@ void MX_FREERTOS_Init(void) {
   * @retval None
   */
 /* USER CODE END Header_StartDefaultTask */
-void StartDefaultTask(void const * argument)
-{
-  /* USER CODE BEGIN StartDefaultTask */
+void StartDefaultTask(void const *argument) {
+    /* USER CODE BEGIN StartDefaultTask */
 //  LCD_Init();
 
 
-  /* Infinite loop */
-  for(;;)
-  {
+    /* Infinite loop */
+    for (;;) {
 
 //      ShowHelloWorld();
-      osDelay(1000);
-//      DisplayNum(100);
-
-  }
-  /* USER CODE END StartDefaultTask */
+        osDelay(100);
+//        if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_1) == 0) {
+//            uint16_t color_ = 0x5555;
+//            LCD_Fill(0,0,240,240,&color_);
+//            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, 1);
+////      DisplayNum(100);
+//
+//        }
+        /* USER CODE END StartDefaultTask */
+    }
 }
 
 /* USER CODE BEGIN Header_StartBlink */
@@ -157,18 +163,15 @@ void StartDefaultTask(void const * argument)
 * @retval None
 */
 /* USER CODE END Header_StartBlink */
-uint32_t i = 0;
-void StartBlink(void const * argument)
-{
-  /* USER CODE BEGIN StartBlink */
-  /* Infinite loop */
-  for(;;)
-  {
-      HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_0);
+void StartBlink(void const *argument) {
+    /* USER CODE BEGIN StartBlink */
+    /* Infinite loop */
+    for (;;) {
+        HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_0);
 
-      osDelay(1000);
-  }
-  /* USER CODE END StartBlink */
+        osDelay(1000);
+    }
+    /* USER CODE END StartBlink */
 }
 
 /* USER CODE BEGIN Header_StartDisplay */
@@ -178,12 +181,9 @@ void StartBlink(void const * argument)
 * @retval None
 */
 /* USER CODE END Header_StartDisplay */
-
-
-void StartDisplay(void const * argument)
-{
-  /* USER CODE BEGIN StartDisplay */
-   DisplayInit();
+void StartDisplay(void const *argument) {
+    /* USER CODE BEGIN StartDisplay */
+    DisplayInit();
     static lv_style_t style_bg;
     static lv_style_t style_indic;
 
@@ -199,7 +199,7 @@ void StartDisplay(void const * argument)
     lv_style_set_bg_color(&style_indic, lv_palette_main(LV_PALETTE_BLUE));
     lv_style_set_radius(&style_indic, 3);
 
-    lv_obj_t * bar = lv_bar_create(lv_screen_active());
+    lv_obj_t *bar = lv_bar_create(lv_scr_act());
     lv_obj_remove_style_all(bar);  /*To have a clean start*/
     lv_obj_add_style(bar, &style_bg, 0);
     lv_obj_add_style(bar, &style_indic, LV_PART_INDICATOR);
@@ -208,9 +208,8 @@ void StartDisplay(void const * argument)
     lv_obj_center(bar);
     lv_bar_set_value(bar, 100, LV_ANIM_ON);
 
-  /* Infinite loop */
-  for(;;)
-  {
+    /* Infinite loop */
+    for (;;) {
 //      ShowHelloWorld();
 
 //      for(int i =0; i<50;i++){
@@ -218,16 +217,16 @@ void StartDisplay(void const * argument)
 //              LCD_Draw_ColorPoint(100+i,100+j,0x555555);
 //          }
 //      }
-//      lv_tick_inc(5);
+        lv_tick_inc(1);
 
 
 //      lv_label_set_text(label, "HELLO");
-      lv_timer_handler();
+        lv_timer_handler();
 
-      osDelay(1);
+        osDelay(1);
 
-  }
-  /* USER CODE END StartDisplay */
+    }
+    /* USER CODE END StartDisplay */
 }
 
 /* Private application code --------------------------------------------------*/

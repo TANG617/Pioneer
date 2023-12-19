@@ -96,7 +96,7 @@ int main(void)
 //    ShowHelloWorld();
 
   /* USER CODE END 2 */
-//    DisplayInit();
+
   /* Call init function for freertos objects (in freertos.c) */
   MX_FREERTOS_Init();
 

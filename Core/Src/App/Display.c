@@ -12,7 +12,8 @@ lv_disp_draw_buf_t disp_buf;
 lv_disp_drv_t disp_drv;
 lv_disp_t * disp;
 /*Static or global buffer(s). The second buffer is optional*/
-lv_color_t buf_1[LCD_Width * 4];
+lv_color_t buf_1[LCD_Width ];
+lv_color_t buf_2[LCD_Width ];
 
 
 /*Initialize `disp_buf` with the buffer(s). With only one buffer use NULL instead buf_2 */
@@ -22,14 +23,15 @@ void my_flush_cb(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_color_t * 
 {
     /*The most simple case (but also the slowest) to put all pixels to the screen one-by-one
      *`put_px` is just an example, it needs to implemented by you.*/
-    int32_t x, y;
-    for(y = area->y1; y <= area->y2; y++) {
-        for(x = area->x1; x <= area->x2; x++) {
-//            put_px(x, y, *color_p);
-            LCD_Draw_ColorPoint(x,y,color_p->full);
-            color_p++;
-        }
-    }
+    LCD_Fill(area->x1,area->y1,area->x2,area->y2,(uint16_t *)color_p);
+//    int32_t x, y;
+//    for(y = area->y1; y <= area->y2; y++) {
+//        for(x = area->x1; x <= area->x2; x++) {
+////            put_px(x, y, *color_p);
+//            LCD_Draw_ColorPoint(x,y,color_p->full);
+//            color_p++;
+//        }
+//    }
 
     /* IMPORTANT!!!
      * Inform the graphics library that you are ready with the flushing*/
@@ -39,7 +41,7 @@ void my_flush_cb(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_color_t * 
 HAL_StatusTypeDef DisplayInit(){
     lv_init();
     LCD_Init();
-    lv_disp_draw_buf_init(&disp_buf, buf_1, NULL, LCD_Width*4);
+    lv_disp_draw_buf_init(&disp_buf, buf_1, buf_2, LCD_Width);
               /*A variable to hold the drivers. Must be static or global.*/
     lv_disp_drv_init(&disp_drv);            /*Basic initialization*/
 

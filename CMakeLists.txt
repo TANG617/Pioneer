@@ -60,10 +60,13 @@ set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/STM32F103RCTX_FLASH.ld)
 add_link_options(-Wl,-gc-sections,--print-memory-usage,-Map=${PROJECT_BINARY_DIR}/${PROJECT_NAME}.map)
 add_link_options(-mcpu=cortex-m3 -mthumb -mthumb-interwork)
 add_link_options(-T ${LINKER_SCRIPT})
-add_executable(${PROJECT_NAME}.elf ${SOURCES} ${LINKER_SCRIPT} lvgl)
+
+add_subdirectory(/Users/timli/STM32Projects/FreeRTOS/Core/Inc/Lib/lvgl)
+
+add_executable(${PROJECT_NAME}.elf ${SOURCES} ${LINKER_SCRIPT}  ${lvgl})
 
 #execute_process(COMMAND make -f lvgl/lvgl.mk)
-add_subdirectory(/Users/timli/STM32Projects/FreeRTOS/Core/Inc/Lib/lvgl)
+
 #target_include_directories(${PROJECT_NAME}.elf PRIVATE
 #        LVGL
 #)

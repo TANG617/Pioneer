@@ -9,7 +9,7 @@ extern SPI_HandleTypeDef hspi2;
 
 
 #define LCD_TOTAL_BUF_SIZE	(240*240*2)
-#define LCD_Buf_Size 1152
+#define LCD_Buf_Size (1152*5)
 static uint8_t lcd_buf[LCD_Buf_Size];
 
 uint16_t POINT_COLOR = WHITE; //画笔颜色	默认为黑色
@@ -165,10 +165,11 @@ void LCD_Clear(uint16_t color)
  *
  * @return  void
  */
-void LCD_Fill(uint16_t x_start, uint16_t y_start, uint16_t x_end, uint16_t y_end, uint16_t color)
+void LCD_Fill(uint16_t x_start, uint16_t y_start, uint16_t x_end, uint16_t y_end, uint16_t * color)
 {
     uint16_t i = 0;
     uint32_t size = 0, size_remain = 0;
+    uint16_t color_temp;
 
     size = (x_end - x_start + 1) * (y_end - y_start + 1) * 2;
 
@@ -184,8 +185,9 @@ void LCD_Fill(uint16_t x_start, uint16_t y_start, uint16_t x_end, uint16_t y_end
     {
         for (i = 0; i < size / 2; i++)
         {
-            lcd_buf[2 * i] = color >> 8;
-            lcd_buf[2 * i + 1] = color;
+            color_temp = *(color++);
+            lcd_buf[2 * i] = color_temp >> 8;
+            lcd_buf[2 * i + 1] = color_temp;
         }
 
         LCD_DC(1);
@@ -233,6 +235,79 @@ void LCD_Draw_ColorPoint(uint16_t x, uint16_t y, uint16_t color)
     LCD_Write_HalfWord(color);
 }
 
+
+
+void LCD_DrawColorLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint16_t* color)
+{
+    uint16_t t;
+    int xerr = 0, yerr = 0, delta_x, delta_y, distance;
+    int incx, incy, row, col;
+    uint32_t i = 0;
+
+    if (y1 == y2)
+    {
+        /*快速画水平线*/
+        LCD_Address_Set(x1, y1, x2, y2);
+
+        for (i = 0; i < x2 - x1; i++)
+        {
+            lcd_buf[2 * i] = *color >> 8;
+            lcd_buf[2 * i + 1] = *color++;
+        }
+
+        LCD_DC(1);
+        LCD_SPI_Send(lcd_buf, (x2 - x1) * 2);
+        return;
+    }
+
+    delta_x = x2 - x1;
+    delta_y = y2 - y1;
+    row = x1;
+    col = y1;
+
+    if (delta_x > 0)incx = 1;
+
+    else if (delta_x == 0)incx = 0;
+
+    else
+    {
+        incx = -1;
+        delta_x = -delta_x;
+    }
+
+    if (delta_y > 0)incy = 1;
+
+    else if (delta_y == 0)incy = 0;
+
+    else
+    {
+        incy = -1;
+        delta_y = -delta_y;
+    }
+
+    if (delta_x > delta_y)distance = delta_x;
+
+    else distance = delta_y;
+
+    for (t = 0; t <= distance + 1; t++)
+    {
+        LCD_Draw_Point(row, col);
+        xerr += delta_x;
+        yerr += delta_y;
+
+        if (xerr > distance)
+        {
+            xerr -= distance;
+            row += incx;
+        }
+
+        if (yerr > distance)
+        {
+            yerr -= distance;
+            col += incy;
+        }
+    }
+}
 
 
 /**
@@ -330,6 +405,7 @@ void LCD_DrawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
     LCD_DrawLine(x1, y2, x2, y2);
     LCD_DrawLine(x2, y1, x2, y2);
 }
+
 
 /**
  * @brief	画一个圆
