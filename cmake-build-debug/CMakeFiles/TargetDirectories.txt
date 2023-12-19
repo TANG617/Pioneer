@@ -1,3 +1,0 @@
-/Users/timli/STM32Projects/FreeRTOS/cmake-build-debug/CMakeFiles/FreeRTOS.elf.dir
-/Users/timli/STM32Projects/FreeRTOS/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/timli/STM32Projects/FreeRTOS/cmake-build-debug/CMakeFiles/rebuild_cache.dir
