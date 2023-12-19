@@ -46,7 +46,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-
+uint8_t status = 120;
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 osThreadId BlinkHandle;
@@ -110,11 +110,11 @@ void MX_FREERTOS_Init(void) {
 
     /* Create the thread(s) */
     /* definition and creation of defaultTask */
-    osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 256);
+    osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 64);
     defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
     /* definition and creation of Blink */
-    osThreadDef(Blink, StartBlink, osPriorityLow, 0, 256);
+    osThreadDef(Blink, StartBlink, osPriorityLow, 0, 64);
     BlinkHandle = osThreadCreate(osThread(Blink), NULL);
 
     /* definition and creation of Display */
@@ -144,16 +144,19 @@ void StartDefaultTask(void const *argument) {
     for (;;) {
 
 //      ShowHelloWorld();
-        osDelay(100);
-//        if (HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_1) == 0) {
-//            uint16_t color_ = 0x5555;
-//            LCD_Fill(0,0,240,240,&color_);
-//            HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, 1);
+        osDelay(10);
+        if (HAL_GPIO_ReadPin(PUSH_GPIO_Port, PUSH_Pin) == 0) {
+            status = 120;
 ////      DisplayNum(100);
-//
-//        }
-        /* USER CODE END StartDefaultTask */
+        }
+        if (HAL_GPIO_ReadPin(UP_GPIO_Port, UP_Pin) == 0) {
+          status--;
+        }
+        if (HAL_GPIO_ReadPin(DOWN_GPIO_Port, DOWN_Pin) == 0) {
+            status++;
+        }
     }
+    /* USER CODE END StartDefaultTask */
 }
 
 /* USER CODE BEGIN Header_StartBlink */
@@ -192,7 +195,7 @@ void StartDisplay(void const *argument) {
     lv_style_set_border_width(&style_bg, 2);
     lv_style_set_pad_all(&style_bg, 6); /*To make the indicator smaller*/
     lv_style_set_radius(&style_bg, 6);
-    lv_style_set_anim_time(&style_bg, 1000);
+    lv_style_set_anim_time(&style_bg, 100);
 
     lv_style_init(&style_indic);
     lv_style_set_bg_opa(&style_indic, LV_OPA_COVER);
@@ -206,7 +209,8 @@ void StartDisplay(void const *argument) {
 
     lv_obj_set_size(bar, 200, 20);
     lv_obj_center(bar);
-    lv_bar_set_value(bar, 100, LV_ANIM_ON);
+    lv_bar_set_range(bar,0,255);
+//    lv_bar_set_value(bar, status%255, LV_ANIM_ON);
 
     /* Infinite loop */
     for (;;) {
@@ -217,6 +221,8 @@ void StartDisplay(void const *argument) {
 //              LCD_Draw_ColorPoint(100+i,100+j,0x555555);
 //          }
 //      }
+
+        lv_bar_set_value(bar, status%255, LV_ANIM_ON);
         lv_tick_inc(1);
 
 

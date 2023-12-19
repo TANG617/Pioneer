@@ -60,6 +60,12 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define DOWN_Pin GPIO_PIN_0
+#define DOWN_GPIO_Port GPIOC
+#define PUSH_Pin GPIO_PIN_1
+#define PUSH_GPIO_Port GPIOC
+#define UP_Pin GPIO_PIN_2
+#define UP_GPIO_Port GPIOC
 #define LCD_DC_Pin GPIO_PIN_1
 #define LCD_DC_GPIO_Port GPIOB
 #define FLASH_CS_Pin GPIO_PIN_12
