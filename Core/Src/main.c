@@ -105,68 +105,15 @@ int main(void)
   MX_SPI2_Init();
   MX_CAN_Init();
   /* USER CODE BEGIN 2 */
-//  LCD_Init();
-//  LCD_Clear(BLACK);
-//  MotionInit(&PioneerCar,&htim4,&htim3,&htim2,&htim5);
-//  HAL_TIM_Base_Start_IT(&htim1);
-//  I2C_Select(&hi2c2);
-//  MPU_Init();
-  // HAL_UART_Receive(&huart2,rawDSC,30,HAL_MAX_DELAY);
-  // DSC_Init(DSC_DATA);
-  // readUART(rawDSC);
-  // DSC_Process(rawDSC,DSC_DATA);
-  // MotionMoveRad(&PioneerCar,3.14,80);
-
-//    NodeMotorType NodeMotor1, NodeMotor2;
-//    NodeMotor1.CanHandler = &hcan;
-//    NodeMotor1.id = 0x01;
-//    NodeMotor1.Mode = Velocity;
-//    NodeMotor1.Velocity = 1;
-//
-//    NodeMotor2.CanHandler = &hcan;
-//    NodeMotor2.id = 0x02;
-//    NodeMotor2.Mode = Velocity;
-//    NodeMotor2.Velocity = -1;
-//    NodeMotorEnable(&NodeMotor1);
-//    NodeMotorEnable(&NodeMotor2);
 
   /* USER CODE END 2 */
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-
     /* USER CODE BEGIN 3 */
-//      HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_0);
 
-
-
-
-    // MotionMoveRad(&PioneerCar,3.14,0.3);
-    // MotionMoveInt(&PioneerCar,0,0);
-    // HAL_Delay(100);
-
-    // readUART(rawDSC);
-//     DSC_Process(rawDSC,DSC_DATA);
-//     DSC_GET(DSC_DATA);
-
-//     MotionMoveInt(&PioneerCar,DSC_DATA[LStickX],DSC_DATA[LStickY]*(-1));
-//      MotionUpdate(&PioneerCar);
-
-    // ShowDSCStatus(DSC_DATA);
-//     ShowWheelStatus(&PioneerCar);
-//    ShowHelloWorld();
-//    HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox);
-//
-
-//    NodeMotorVelocityControl(&NodeMotor1);
-//    NodeMotorVelocityControl(&NodeMotor2);
-//    HAL_Delay(500);
-//    MPU_ReadDmp();
-//    ShowIMU();
-//    HAL_Delay(100);
   }
   /* USER CODE END 3 */
 }
