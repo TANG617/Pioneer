@@ -25,14 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "Lib/LCD.h"
-#include "Lib/UART.h"
-#include "Lib/MPU6050/MPU6050.h"
-#include "Lib/NodeMotor.h"
 
-#include "App/DualSenseController.h"
-#include "App/Display.h"
-#include "App/AGVMotion.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -52,9 +45,6 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-int16_t DSC_DATA[6];
-//NodeMotorType NodeMotor1, NodeMotor2;
-AGV_MotionType AGV_Car;
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
@@ -180,16 +170,6 @@ void startGetMessageTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-      DSC_GET(DSC_DATA);
-      float DSC_Velocity = DSC_DATA[LStickY]/127.0*5.0;
-      float DSC_Rotate = DSC_DATA[LStickX]/127.0*5;
-      if(DSC_Velocity > 1 || DSC_Velocity < - 1)
-      {
-          AGV_MotionUpdate(&AGV_Car,DSC_Velocity,DSC_Rotate);
-      }
-      else{
-          AGV_MotionUpdate(&AGV_Car,0,DSC_Rotate);
-      }
       osDelay(100);
 
   }
@@ -207,30 +187,10 @@ void startControlTask(void *argument)
 {
   /* USER CODE BEGIN startControlTask */
 
-//    NodeMotor1.CanHandler = &hcan;
-//    NodeMotor1.id = 0x01;
-//    NodeMotor1.Mode = Velocity;
-//    NodeMotor1.Velocity = 0;//nagative
-//
-//    NodeMotor2.CanHandler = &hcan;
-//    NodeMotor2.id = 0x02;
-//    NodeMotor2.Mode = Velocity;
-//    NodeMotor2.Velocity = 0;//positive
-
-
-//    NodeMotorEnable(&NodeMotor1);
-//    osDelay(100);
-//    NodeMotorEnable(&NodeMotor2);
-    osDelay(1000);
-    AGV_MotionInit(&AGV_Car);
   /* Infinite loop */
   for(;;)
   {
     osDelay(100);
-//      AGV_MotionInit(&AGV_Car);
-      AGV_MotionMove(&AGV_Car);
-//      NodeMotorVelocityControl(&NodeMotor1);
-//      NodeMotorVelocityControl(&NodeMotor2);
   }
   /* USER CODE END startControlTask */
 }
@@ -245,12 +205,10 @@ void startControlTask(void *argument)
 void startDisplayTask(void *argument)
 {
   /* USER CODE BEGIN startDisplayTask */
-    LCD_Init();
-    LCD_Clear(BLACK);
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1000);
+    osDelay(100);
 
   }
   /* USER CODE END startDisplayTask */
