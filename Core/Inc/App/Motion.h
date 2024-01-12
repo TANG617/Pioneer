@@ -5,7 +5,7 @@
 #ifndef MOTION_H
 #define MOTION_H
 #include "stm32f1xx_hal.h"
-#include "PCA9685.h"
+#include "Lib/PCA9685.h"
 #include <math.h>
 
 #define KP 0.5

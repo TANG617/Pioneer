@@ -2,7 +2,7 @@
 // Created by 李唐 on 2023/11/13.
 //
 
-#include "Motion.h"
+#include "App/Motion.h"
 PAL_PCA9685 PCA9685;
 
 static HAL_StatusTypeDef i2c_tx(uint16_t add, uint8_t mem,uint8_t data){

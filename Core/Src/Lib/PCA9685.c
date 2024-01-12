@@ -2,7 +2,7 @@
 // Created by 李唐 on 2023/11/13.
 //
 
-#include "PCA9685.h"
+#include "Lib/PCA9685.h"
 
 bool PAL_PCA9685_IsSleep(PAL_PCA9685* target){
   if(target->i2c_rx==NULL) return true;

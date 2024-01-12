@@ -21,10 +21,10 @@
 #include "stdlib.h"
 #include "string.h"
 #include "math.h"
-#include "MPU6050.h"
-#include "inv_mpu.h"
-#include "inv_mpu_dmp_motion_driver.h"
-#include "debug.h"
+#include "Lib/MPU6050/MPU6050.h"
+#include "Lib/MPU6050/inv_mpu.h"
+#include "Lib/MPU6050/inv_mpu_dmp_motion_driver.h"
+#include "Lib/MPU6050/debug.h"
 
 
 #define MPU6050							//定义我们使用的传感器为MPU6050

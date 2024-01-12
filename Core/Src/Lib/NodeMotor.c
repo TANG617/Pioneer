@@ -2,7 +2,7 @@
 // Created by 李唐 on 2023/11/29.
 //
 
-#include "NodeMotor.h"
+#include "Lib/NodeMotor.h"
 static float uint2float(int x_int, float x_min, float x_max, int bits){
     float span = x_max - x_min;
     float offset = x_min;

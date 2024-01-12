@@ -16,10 +16,10 @@
  */
 #include "string.h"
 #include "math.h"
-#include "inv_mpu.h"
-#include "inv_mpu_dmp_motion_driver.h"
-#include "dmpKey.h"
-#include "dmpmap.h"
+#include "Lib/MPU6050/inv_mpu.h"
+#include "Lib/MPU6050/inv_mpu_dmp_motion_driver.h"
+#include "Lib/MPU6050/dmpKey.h"
+#include "Lib/MPU6050/dmpmap.h"
 
 //定义目标板采用MSP430
 #define  MOTION_DRIVER_TARGET_MSP430

@@ -5,14 +5,14 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 #include "stm32f1xx_hal.h"
-#include "LCD.h"
+#include "Lib/LCD.h"
 #include "string.h"
 #include "stdlib.h"
 #include "stdarg.h"
 #include "stdio.h"
-#include "Motion.h"
-#include "DualSenseController.h"
-#include "MPU6050/MPU6050.h"
+#include "App/Motion.h"
+#include "App/DualSenseController.h"
+#include "Lib/MPU6050/MPU6050.h"
 
 HAL_StatusTypeDef DisplayNum(float num);
 HAL_StatusTypeDef ShowWheelStatus(MotionType *_Car);

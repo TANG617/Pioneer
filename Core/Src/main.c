@@ -28,13 +28,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "LCD.h"
-#include "Display.h"
-#include "Motion.h"
-#include "UART.h"
-#include "DualSenseController.h"
-#include "MPU6050/MPU6050.h"
-#include "NodeMotor.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,10 +49,10 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-extern DSC_Type *_DSC;
+//extern DSC_Type *_DSC;
 // uint8_t rawDSC[30] ="-118_0070_0083_0063_0171_-122#";
-int16_t DSC_DATA[6];
-MotionType PioneerCar;
+
+//MotionType PioneerCar;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -112,10 +106,10 @@ int main(void)
   MX_USART2_UART_Init();
   MX_CAN_Init();
   /* USER CODE BEGIN 2 */
-  LCD_Init();
-  LCD_Clear(BLACK);
-  MotionInit(&PioneerCar,&htim4,&htim3,&htim2,&htim5);
-  HAL_TIM_Base_Start_IT(&htim1);
+//  LCD_Init();
+//  LCD_Clear(BLACK);
+//  MotionInit(&PioneerCar,&htim4,&htim3,&htim2,&htim5);
+//  HAL_TIM_Base_Start_IT(&htim1);
 //  I2C_Select(&hi2c2);
 //  MPU_Init();
   // HAL_UART_Receive(&huart2,rawDSC,30,HAL_MAX_DELAY);
@@ -124,18 +118,18 @@ int main(void)
   // DSC_Process(rawDSC,DSC_DATA);
   // MotionMoveRad(&PioneerCar,3.14,80);
 
-    NodeMotorType NodeMotor1, NodeMotor2;
-    NodeMotor1.CanHandler = &hcan;
-    NodeMotor1.id = 0x01;
-    NodeMotor1.Mode = Velocity;
-    NodeMotor1.Velocity = 1;
-
-    NodeMotor2.CanHandler = &hcan;
-    NodeMotor2.id = 0x02;
-    NodeMotor2.Mode = Velocity;
-    NodeMotor2.Velocity = -1;
-    NodeMotorEnable(&NodeMotor1);
-    NodeMotorEnable(&NodeMotor2);
+//    NodeMotorType NodeMotor1, NodeMotor2;
+//    NodeMotor1.CanHandler = &hcan;
+//    NodeMotor1.id = 0x01;
+//    NodeMotor1.Mode = Velocity;
+//    NodeMotor1.Velocity = 1;
+//
+//    NodeMotor2.CanHandler = &hcan;
+//    NodeMotor2.id = 0x02;
+//    NodeMotor2.Mode = Velocity;
+//    NodeMotor2.Velocity = -1;
+//    NodeMotorEnable(&NodeMotor1);
+//    NodeMotorEnable(&NodeMotor2);
 
   /* USER CODE END 2 */
 
@@ -156,7 +150,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-      HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_0);
+//      HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_0);
 
 
 
@@ -178,9 +172,9 @@ int main(void)
 //    HAL_CAN_AddTxMessage(&hcan, &TxHeader, TxData, &TxMailbox);
 //
 
-    NodeMotorVelocityControl(&NodeMotor1);
-    NodeMotorVelocityControl(&NodeMotor2);
-    HAL_Delay(500);
+//    NodeMotorVelocityControl(&NodeMotor1);
+//    NodeMotorVelocityControl(&NodeMotor2);
+//    HAL_Delay(500);
 //    MPU_ReadDmp();
 //    ShowIMU();
 //    HAL_Delay(100);

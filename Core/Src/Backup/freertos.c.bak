@@ -180,16 +180,9 @@ void startGetMessageTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-      DSC_GET(DSC_DATA);
-      float DSC_Velocity = DSC_DATA[LStickY]/127.0*5.0;
-      float DSC_Rotate = DSC_DATA[LStickX]/127.0*5;
-      if(DSC_Velocity > 1 || DSC_Velocity < - 1)
-      {
-          AGV_MotionUpdate(&AGV_Car,DSC_Velocity,DSC_Rotate);
-      }
-      else{
-          AGV_MotionUpdate(&AGV_Car,0,DSC_Rotate);
-      }
+//      DSC_GET(DSC_DATA);
+
+//      AGV_MotionUpdate(&AGV_Car,DSC_DATA[Velocity]/127.0*10.0,0);
       osDelay(100);
 
   }
@@ -221,13 +214,13 @@ void startControlTask(void *argument)
 //    NodeMotorEnable(&NodeMotor1);
 //    osDelay(100);
 //    NodeMotorEnable(&NodeMotor2);
-    osDelay(1000);
+//    osDelay(100);
     AGV_MotionInit(&AGV_Car);
   /* Infinite loop */
   for(;;)
   {
     osDelay(100);
-//      AGV_MotionInit(&AGV_Car);
+      AGV_MotionInit(&AGV_Car);
       AGV_MotionMove(&AGV_Car);
 //      NodeMotorVelocityControl(&NodeMotor1);
 //      NodeMotorVelocityControl(&NodeMotor2);

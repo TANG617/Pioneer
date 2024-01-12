@@ -1,5 +1,5 @@
 
-#include "debug.h"
+#include "Lib/MPU6050/debug.h"
 
 #include <stdarg.h>		  //  标准头文件
 #include <stdio.h>

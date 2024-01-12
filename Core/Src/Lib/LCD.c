@@ -2,8 +2,8 @@
 // Created by 李唐 on 2023/11/13.
 //
 
-#include "LCD.h"
-#include "LCD_Fonts.h"
+#include "Lib/LCD.h"
+#include "Lib/LCD_Fonts.h"
 
 extern SPI_HandleTypeDef hspi2;
 

@@ -30,6 +30,7 @@ typedef struct{
     uint16_t id;
     float Position, Velocity, Kp, Kd, Torque;
     NodeMotorMode Mode;
+    int8_t Direction;
 }NodeMotorType;
 
 HAL_StatusTypeDef NodeMotorClearError(NodeMotorType *Motor);

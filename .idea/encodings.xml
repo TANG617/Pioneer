@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/Lib/ChineseFontsLib.c" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Lib/ChineseFontsLib.h" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Lib/LCD_Fonts.h" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Lib/MPU6050/inv_mpu.c" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Lib/MPU6050/inv_mpu.h" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/Lib/MPU6050/inv_mpu_dmp_motion_driver.c" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Core/Inc/Lib/LCD_Fonts.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Core/Inc/Lib/MPU6050/inv_mpu.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Core/Src/Lib/ChineseFontsLib.c" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Core/Src/Lib/ChineseFontsLib.h" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Core/Src/Lib/MPU6050/inv_mpu.c" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Core/Src/Lib/MPU6050/inv_mpu_dmp_motion_driver.c" charset="UTF-8" />
   </component>
 </project>

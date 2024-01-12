@@ -5,7 +5,7 @@
 #ifndef DUALSENSECONTROLLER_H
 #define DUALSENSECONTROLLER_H
 #include "stm32f1xx_hal.h"
-#include "UART.h"
+#include "Lib/UART.h"
 
 typedef enum {
     LStickX = 0,
