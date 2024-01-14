@@ -25,6 +25,7 @@
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
+#include "LCD.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -105,6 +106,7 @@ int main(void)
   MX_SPI2_Init();
   MX_CAN_Init();
   /* USER CODE BEGIN 2 */
+
 
   /* USER CODE END 2 */
   /* Infinite loop */
