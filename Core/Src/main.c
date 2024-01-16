@@ -113,11 +113,7 @@ int main(void)
   LCD_Clear(BLACK);
   MotionInit(&PioneerCar,&htim4,&htim3,&htim2,&htim5);
   HAL_TIM_Base_Start_IT(&htim1);
-  // HAL_UART_Receive(&huart2,rawDSC,30,HAL_MAX_DELAY);
-  // DSC_Init(DSC_DATA);
-  // readUART(rawDSC);
-  // DSC_Process(rawDSC,DSC_DATA);
-  // MotionMoveRad(&PioneerCar,3.14,80);
+   MotionMoveRad(&PioneerCar,3.14,80);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -129,19 +125,6 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
     HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_0);
-    // MotionMoveRad(&PioneerCar,3.14,0.3);
-    // MotionMoveInt(&PioneerCar,0,0);
-    // HAL_Delay(100);
-
-    // readUART(rawDSC);
-    // DSC_Process(rawDSC,DSC_DATA);
-    // DSC_GET(DSC_DATA);
-    // MotionUpdate(&PioneerCar);
-    // MotionMoveInt(&PioneerCar,DSC_DATA[LStickX],DSC_DATA[LStickY]*(-1));
-
-    // ShowDSCStatus(DSC_DATA);
-    // ShowWheelStatus(&PioneerCar);
-    ShowHelloWorld();
     HAL_Delay(1000);
   }
   /* USER CODE END 3 */
