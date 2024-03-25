@@ -3,13 +3,15 @@
 //
 
 #include "Lib/LCD.h"
-#include "Lib/LCD_Fonts.h"
 
+#ifdef Font
+#include "Lib/LCD_Fonts.h"
+#endif
 extern SPI_HandleTypeDef hspi2;
 
 
 #define LCD_TOTAL_BUF_SIZE	(240*240*2)
-#define LCD_Buf_Size (1152*5)
+#define LCD_Buf_Size (960)
 static uint8_t lcd_buf[LCD_Buf_Size];
 
 uint16_t POINT_COLOR = WHITE; //画笔颜色	默认为黑色
@@ -209,6 +211,125 @@ void LCD_Fill(uint16_t x_start, uint16_t y_start, uint16_t x_end, uint16_t y_end
     }
 }
 
+
+/**
+ * @brief	LCD初始化
+ *
+ * @param   void
+ *
+ * @return  void
+ */
+void LCD_Init(void)
+{
+    //LCD_Gpio_Init();	//硬件接口初始化
+
+    LCD_RST(0);
+    HAL_Delay(12);
+    LCD_RST(1);
+
+    HAL_Delay(12);
+    /* Sleep Out */
+    LCD_Write_Cmd(0x11);
+    /* wait for power stability */
+    HAL_Delay(12);
+
+    /* Memory Data Access Control */
+    LCD_Write_Cmd(0x36);
+    LCD_Write_Data(0x00);
+
+    /* RGB 5-6-5-bit  */
+    LCD_Write_Cmd(0x3A);
+    LCD_Write_Data(0x65);
+
+    /* Porch Setting */
+    LCD_Write_Cmd(0xB2);
+    LCD_Write_Data(0x0C);
+    LCD_Write_Data(0x0C);
+    LCD_Write_Data(0x00);
+    LCD_Write_Data(0x33);
+    LCD_Write_Data(0x33);
+
+
+    /*  Gate Control */
+    LCD_Write_Cmd(0xB7);
+    LCD_Write_Data(0x72);
+
+    /* VCOM Setting */
+    LCD_Write_Cmd(0xBB);
+    LCD_Write_Data(0x3D); //Vcom=1.625V
+
+    /* LCM Control */
+    LCD_Write_Cmd(0xC0);
+    LCD_Write_Data(0x2C);
+
+    /* VDV and VRH Command Enable */
+    LCD_Write_Cmd(0xC2);
+    LCD_Write_Data(0x01);
+
+    /* VRH Set */
+    LCD_Write_Cmd(0xC3);
+    LCD_Write_Data(0x19);
+
+    /* VDV Set */
+    LCD_Write_Cmd(0xC4);
+    LCD_Write_Data(0x20);
+
+    /* Frame Rate Control in Normal Mode */
+    LCD_Write_Cmd(0xC6);
+    LCD_Write_Data(0x0F); //60MHZ
+
+    /* Power Control 1 */
+    LCD_Write_Cmd(0xD0);
+    LCD_Write_Data(0xA4);
+    LCD_Write_Data(0xA1);
+
+    /* Positive Voltage Gamma Control */
+    LCD_Write_Cmd(0xE0);
+    LCD_Write_Data(0xD0);
+    LCD_Write_Data(0x04);
+    LCD_Write_Data(0x0D);
+    LCD_Write_Data(0x11);
+    LCD_Write_Data(0x13);
+    LCD_Write_Data(0x2B);
+    LCD_Write_Data(0x3F);
+    LCD_Write_Data(0x54);
+    LCD_Write_Data(0x4C);
+    LCD_Write_Data(0x18);
+    LCD_Write_Data(0x0D);
+    LCD_Write_Data(0x0B);
+    LCD_Write_Data(0x1F);
+    LCD_Write_Data(0x23);
+
+    /* Negative Voltage Gamma Control */
+    LCD_Write_Cmd(0xE1);
+    LCD_Write_Data(0xD0);
+    LCD_Write_Data(0x04);
+    LCD_Write_Data(0x0C);
+    LCD_Write_Data(0x11);
+    LCD_Write_Data(0x13);
+    LCD_Write_Data(0x2C);
+    LCD_Write_Data(0x3F);
+    LCD_Write_Data(0x44);
+    LCD_Write_Data(0x51);
+    LCD_Write_Data(0x2F);
+    LCD_Write_Data(0x1F);
+    LCD_Write_Data(0x1F);
+    LCD_Write_Data(0x20);
+    LCD_Write_Data(0x23);
+
+    /* Display Inversion On */
+    LCD_Write_Cmd(0x21);
+
+    LCD_Write_Cmd(0x29);
+
+    LCD_Address_Set(0, 0, LCD_Width - 1, LCD_Height - 1);
+
+    LCD_Clear(BLACK);
+
+    /* Display on */
+}
+
+#ifdef ExLCD
 /**
  * 画点函数
  *
@@ -700,119 +821,5 @@ void LCD_Show_Image(uint16_t x, uint16_t y, uint16_t width, uint16_t height, con
 }
 
 
-/**
- * @brief	LCD初始化
- *
- * @param   void
- *
- * @return  void
- */
-void LCD_Init(void)
-{
-    //LCD_Gpio_Init();	//硬件接口初始化
 
-    LCD_RST(0);
-    HAL_Delay(12);
-    LCD_RST(1);
-
-    HAL_Delay(12);
-    /* Sleep Out */
-    LCD_Write_Cmd(0x11);
-    /* wait for power stability */
-    HAL_Delay(12);
-
-    /* Memory Data Access Control */
-    LCD_Write_Cmd(0x36);
-    LCD_Write_Data(0x00);
-
-    /* RGB 5-6-5-bit  */
-    LCD_Write_Cmd(0x3A);
-    LCD_Write_Data(0x65);
-
-    /* Porch Setting */
-    LCD_Write_Cmd(0xB2);
-    LCD_Write_Data(0x0C);
-    LCD_Write_Data(0x0C);
-    LCD_Write_Data(0x00);
-    LCD_Write_Data(0x33);
-    LCD_Write_Data(0x33);
-
-
-    /*  Gate Control */
-    LCD_Write_Cmd(0xB7);
-    LCD_Write_Data(0x72);
-
-    /* VCOM Setting */
-    LCD_Write_Cmd(0xBB);
-    LCD_Write_Data(0x3D); //Vcom=1.625V
-
-    /* LCM Control */
-    LCD_Write_Cmd(0xC0);
-    LCD_Write_Data(0x2C);
-
-    /* VDV and VRH Command Enable */
-    LCD_Write_Cmd(0xC2);
-    LCD_Write_Data(0x01);
-
-    /* VRH Set */
-    LCD_Write_Cmd(0xC3);
-    LCD_Write_Data(0x19);
-
-    /* VDV Set */
-    LCD_Write_Cmd(0xC4);
-    LCD_Write_Data(0x20);
-
-    /* Frame Rate Control in Normal Mode */
-    LCD_Write_Cmd(0xC6);
-    LCD_Write_Data(0x0F); //60MHZ
-
-    /* Power Control 1 */
-    LCD_Write_Cmd(0xD0);
-    LCD_Write_Data(0xA4);
-    LCD_Write_Data(0xA1);
-
-    /* Positive Voltage Gamma Control */
-    LCD_Write_Cmd(0xE0);
-    LCD_Write_Data(0xD0);
-    LCD_Write_Data(0x04);
-    LCD_Write_Data(0x0D);
-    LCD_Write_Data(0x11);
-    LCD_Write_Data(0x13);
-    LCD_Write_Data(0x2B);
-    LCD_Write_Data(0x3F);
-    LCD_Write_Data(0x54);
-    LCD_Write_Data(0x4C);
-    LCD_Write_Data(0x18);
-    LCD_Write_Data(0x0D);
-    LCD_Write_Data(0x0B);
-    LCD_Write_Data(0x1F);
-    LCD_Write_Data(0x23);
-
-    /* Negative Voltage Gamma Control */
-    LCD_Write_Cmd(0xE1);
-    LCD_Write_Data(0xD0);
-    LCD_Write_Data(0x04);
-    LCD_Write_Data(0x0C);
-    LCD_Write_Data(0x11);
-    LCD_Write_Data(0x13);
-    LCD_Write_Data(0x2C);
-    LCD_Write_Data(0x3F);
-    LCD_Write_Data(0x44);
-    LCD_Write_Data(0x51);
-    LCD_Write_Data(0x2F);
-    LCD_Write_Data(0x1F);
-    LCD_Write_Data(0x1F);
-    LCD_Write_Data(0x20);
-    LCD_Write_Data(0x23);
-
-    /* Display Inversion On */
-    LCD_Write_Cmd(0x21);
-
-    LCD_Write_Cmd(0x29);
-
-    LCD_Address_Set(0, 0, LCD_Width - 1, LCD_Height - 1);
-
-    LCD_Clear(BLACK);
-
-    /* Display on */
-}
+#endif

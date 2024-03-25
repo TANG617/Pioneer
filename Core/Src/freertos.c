@@ -223,13 +223,13 @@ void StartDisplay(void const *argument) {
 //      }
 
         lv_bar_set_value(bar, status%255, LV_ANIM_ON);
-        lv_tick_inc(1);
+        lv_tick_inc(30);
 
 
 //      lv_label_set_text(label, "HELLO");
         lv_timer_handler();
 
-        osDelay(1);
+        osDelay(30);
 
     }
     /* USER CODE END StartDisplay */
