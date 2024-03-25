@@ -56,7 +56,6 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
 /* USER CODE END 0 */
 
 /**
@@ -88,16 +87,21 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART1_UART_Init();
-  MX_USB_DEVICE_Init();
+  // MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 2 */
-  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,0);
+
+  HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,1);
   if(HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_1) == 0) //Button Pushed
   {
-    HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,1);
-    JumpApp(USBD_DFU_APP_DEFAULT_ADD);
+      HAL_GPIO_WritePin(GPIOB,GPIO_PIN_0,0);
+      MX_USB_DEVICE_Init();
+      while(1){}
   }
+  // MX_USB_DEVICE_DeInit();
+  JumpApp(USBD_DFU_APP_DEFAULT_ADD);
+  
 
-  MX_USB_DEVICE_Init();
+  // MX_USB_DEVICE_Init();
   
 
 

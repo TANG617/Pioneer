@@ -1,6 +1,6 @@
 #MicroXplorer Configuration settings - do not modify
-CAD.formats=
-CAD.pinconfig=
+CAD.formats=[]
+CAD.pinconfig=Project naming
 CAD.provider=
 File.Version=6
 GPIO.groupedBy=Group By Peripherals
@@ -126,9 +126,11 @@ RCC.VCOOutput2Freq_Value=8000000
 USART1.IPParameters=VirtualMode
 USART1.VirtualMode=VM_ASYNC
 USB_DEVICE.CLASS_NAME_FS=DFU
-USB_DEVICE.IPParameters=VirtualMode,VirtualModeFS,CLASS_NAME_FS,USBD_DFU_APP_DEFAULT_ADD,USBD_DFU_MEDIA
+USB_DEVICE.IPParameters=VirtualMode,VirtualModeFS,CLASS_NAME_FS,USBD_DFU_APP_DEFAULT_ADD,USBD_DFU_MEDIA,USBD_MAX_NUM_INTERFACES,USBD_DFU_MAX_ITF_NUM
 USB_DEVICE.USBD_DFU_APP_DEFAULT_ADD=0x08006000
+USB_DEVICE.USBD_DFU_MAX_ITF_NUM=1
 USB_DEVICE.USBD_DFU_MEDIA=@Internal Flash   /0x08006000/03*016Ka,01*016Kg,01*064Kg,07*128Kg,04*016Kg,01*064Kg,07*128Kg
+USB_DEVICE.USBD_MAX_NUM_INTERFACES=1
 USB_DEVICE.VirtualMode=Dfu
 USB_DEVICE.VirtualModeFS=Dfu_FS
 VP_SYS_VS_Systick.Mode=SysTick
