@@ -22,6 +22,6 @@ Other chip in STM32F103 series should work in theory. Just replace `ioc` file an
     FLASH (rx)      : ORIGIN = 0x8000000, LENGTH = 128K --> ORIGIN = 0x8006000, LENGTH = 128K
     } 
     ```
-
+- Add `Shell Scripts` of `STM32_Programmer_CLI -c port=usb1 -w cmake-build-debug/$PROJECT_NAME.bin 0x08006000` to CLion and add the script after `build` process.
 
 
