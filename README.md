@@ -1,27 +1,39 @@
-# Bootloader For STM32F103(RCT6)
+# Bootloader for STM32F103 (RCT6)
 
 ## Overview
-ST doesn't offer official supported USB-DFU bootloader, though they mentioned it in [the documents](https://www.st.com/resource/en/application_note/an3156-usb-dfu-protocol-used-in-the-stm32-bootloader-stmicroelectronics.pdf).
+While STMicroelectronics mentions the USB-DFU (Device Firmware Upgrade) protocol in [their documentation](https://www.st.com/resource/en/application_note/an3156-usb-dfu-protocol-used-in-the-stm32-bootloader-stmicroelectronics.pdf), they do not provide an official bootloader supporting USB-DFU for the STM32F103 series. This custom bootloader is designed to fill that gap, providing USB-DFU capabilities specifically tailored for the STM32F103 (RCT6) microcontroller and compatible with STM32CubeMX Programmer.
 
-This bootloader has NO compatibility of Arduino but only CubeMx Programmer.
+It's important to note that this bootloader is not compatible with the Arduino platform; it is intended for use with the CubeMX environment. The USB-DFU mode must be activated within CubeMX before use.
 
-The USB-DFU should be enabled in CubeMX.
+Although this bootloader is specifically for the STM32F103RCT6 model, it should theoretically work with other chips in the STM32F103 series. Users are advised to replace the `.ioc` file and regenerate the project using CubeMX before proceeding with the build and flash process.
 
-Other chip in STM32F103 series should work in theory. Just replace `ioc` file and re-gengrate the project before build and flash.
+## Instructions
 
-## Instruction
+1. **Compilation**:
+   Use the `Make` command to compile the project. Ensure that the `arm-gcc` compiler is correctly installed and configured on your system.
 
-- Use `Make` to compile the project with `arm-gcc` compiler.
-- When STM32 boots, if there is no button(GPIO_B_1) pushed, the app code(start at address `0x08006000`) starts. Otherwise, USB-DFU is triggered to start with LED(GPIO_B_1) lit.
-- Make sure to flash the app code start to `0x08006000`. Choose the address when using tools like CubeMX Prog or modify the `xxx_FLASH.ld` in the generated project.
+2. **Boot Process**:
+  - During the boot process of the STM32F103, the bootloader checks the state of a user-defined button (connected to GPIO_B_1).
+  - If the button is not pressed, the bootloader will initiate the user application, starting from memory address `0x08006000`.
+  - If the button is pressed, the device enters USB-DFU mode, indicated by the illumination of an LED (also connected to GPIO_B_1).
+
+3. **Flashing the Application**:
+  - Ensure that the starting address for the application code is set to `0x08006000`.
+  - When flashing the application, select this start address in tools like CubeMX Programmer, or adjust the `xxx_FLASH.ld` linker script in the auto-generated project. Below is an example modification for the linker script:
     ```bash
     /* Specify the memory areas */
     MEMORY
     {
     RAM (xrw)      : ORIGIN = 0x20000000, LENGTH = 20K
-    FLASH (rx)      : ORIGIN = 0x8000000, LENGTH = 128K --> ORIGIN = 0x8006000, LENGTH = 128K
+    FLASH (rx)     : ORIGIN = 0x08006000, LENGTH = 122K
     } 
     ```
-- Add `Shell Scripts` of `STM32_Programmer_CLI -c port=usb1 -w cmake-build-debug/$PROJECT_NAME.bin 0x08006000` to CLion and add the script after `build` process.
+  - Note the adjustment in the `FLASH` section's `ORIGIN` and `LENGTH` attributes to accommodate the bootloader.
 
-
+4. **Integration with Development Environments**:
+  - For integration with CLion or similar IDEs, add a shell script to the project settings that utilizes `STM32_Programmer_CLI` for flashing the compiled binary to the correct address.
+  - An example shell script command might look like this:
+    ```bash
+    STM32_Programmer_CLI -c port=USB1 -w cmake-build-debug/$PROJECT_NAME.bin 0x08006000
+    ```
+  - Configure this script to run post-build for seamless development and testing cycles.
