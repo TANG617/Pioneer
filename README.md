@@ -37,3 +37,42 @@ Although this bootloader is specifically for the STM32F103RCT6 model, it should 
     STM32_Programmer_CLI -c port=USB1 -w cmake-build-debug/$PROJECT_NAME.bin 0x08006000
     ```
   - Configure this script to run post-build for seamless development and testing cycles.
+
+---
+
+This branch contains usage of the following peripheral:
+
+Perpheral| Status |
+--|--------|
+STM32 Basic| ✅
+GPIO| ✅
+UART| ✅
+SPI Screen| ⭕️
+IIC PCA9685|⭕️
+IIC MPU6050|⭕️
+CAN|⭕️
+SDIO SD card | ⭕️
+SPI Flash | ⭕️
+
+✅Done,  ⭕️Not In this Branch
+
+
+This branch contains usage of the following application:
+
+Apps| Status |
+--|--------|
+FreeRTOS| ⭕️
+LVGL | ⭕️
+Pioneer Car | ⭕️
+SPI PS2 Controller | ⭕️
+UART DualSense Controller| ⭕️
+FAT_FS| ⭕️
+
+
+
+✅Done,  ⭕️Not In this Branch
+
+
+
+
+
