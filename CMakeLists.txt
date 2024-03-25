@@ -61,7 +61,7 @@ add_link_options(-Wl,-gc-sections,--print-memory-usage,-Map=${PROJECT_BINARY_DIR
 add_link_options(-mcpu=cortex-m3 -mthumb -mthumb-interwork)
 add_link_options(-T ${LINKER_SCRIPT})
 
-add_subdirectory(/Users/timli/STM32Projects/FreeRTOS/Core/Inc/Lib/lvgl)
+add_subdirectory(${CMAKE_SOURCE_DIR}/Core/Inc/Lib/lvgl)
 
 add_executable(${PROJECT_NAME}.elf ${SOURCES} ${LINKER_SCRIPT}  ${lvgl})
 
