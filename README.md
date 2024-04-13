@@ -1,4 +1,9 @@
 # Pioneer 
+<img width="1299" alt="image" src="https://github.com/TANG617/Pioneer/assets/24967943/7d07c51b-201d-4255-9a42-533f8b9b57a0">
+A dev-board optimized for four-wheel smart car applications, accelerated and improved the tutorials in lab.
+
+
+## Project Overview
 This projects contains 3 main branches:
 - `main` : For the latest developing.
 - `Pioneer-Example`: The release version of code.
